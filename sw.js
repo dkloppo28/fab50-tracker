@@ -1,4 +1,4 @@
-const CACHE = "fab50-v6-1-2";
+const CACHE = "fab50-v6-1-3";
 const ASSETS = ["./", "./index.html", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/icon-maskable-512.png"];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)));

@@ -43,3 +43,11 @@ Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Ange
 - Keine gestreckten Bilder mehr in Galerie oder Souvenir-Set
 - Fotos werden per Center-Crop in den Rahmen eingepasst
 - Square/nahezu quadratische Bildflächen auf den Park-Seiten, besonders für Animal Kingdom verbessert
+
+
+## Neu in v6.1.3
+- Einzelne Park-Souvenir-Seiten neu gestaltet: kompakte dunkle Karten statt großer Rahmen
+- 4:3-Fotofenster mit feinem Goldrand; Bilder bleiben unverzerrt und werden nur gecroppt
+- Unvollständige letzte Zeilen werden zentriert
+- Links-/Rechts-Wischen zwischen allen 5 Souvenir-Seiten
+- Seitenpunkte und dezente Übergangsanimation im Souvenir-Viewer

@@ -31,7 +31,7 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 /* photos */
 .photo-progress{color:#ffd978!important}.character-photos{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.char-photo{width:92px;border:1px solid var(--line);background:rgba(3,12,25,.28);border-radius:12px;padding:6px}.char-thumb{width:78px;height:64px;border-radius:9px;background:#09182b;border:1px dashed #4d617b;overflow:hidden;display:grid;place-items:center;color:#71849c;font-size:20px}.char-thumb img{width:100%;height:100%;object-fit:cover}.char-label{font-size:8.5px;font-weight:800;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.char-photo-actions{display:flex;gap:4px;margin-top:5px}.photo-mini{flex:1;border:1px solid rgba(245,203,105,.24);background:rgba(245,203,105,.07);color:var(--gold2);border-radius:999px;padding:4px 5px;font-size:7.8px;font-weight:800}.photo-mini.delete{flex:0 0 auto;color:#ffb4b4;border-color:rgba(255,180,180,.22);background:rgba(255,180,180,.06)}
 .photo-modal,.collage-modal{position:fixed;inset:0;z-index:105;background:#06111f;display:none;flex-direction:column}.photo-modal.open,.collage-modal.open{display:flex}.photo-head{padding:calc(10px + env(safe-area-inset-top)) 12px 10px;display:flex;align-items:center;gap:8px;background:#071427;border-bottom:1px solid var(--line)}.photo-head strong{flex:1}.photo-summary{padding:10px 12px;background:#0a1a30;border-bottom:1px solid var(--line);font-size:10.5px;color:var(--muted);line-height:1.45}.photo-grid{padding:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;overflow:auto}.gallery-card{min-width:0;padding:7px;border:1px solid var(--line);background:var(--panel);border-radius:13px}.gallery-pic{aspect-ratio:1/1;border-radius:9px;background:#09182b;border:1px dashed #4d617b;overflow:hidden;display:grid;place-items:center;color:#71849c;font-size:22px}.gallery-pic img{width:100%;height:100%;object-fit:cover}.gallery-name{font-size:8.5px;font-weight:800;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gallery-park{font-size:7.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gallery-card button{width:100%;margin-top:6px}
-.collage-nav{display:flex;align-items:center;gap:8px;padding:10px 12px;background:#0a1a30;border-bottom:1px solid var(--line)}.collage-page-label{flex:1;text-align:center;font-size:10.5px;color:#dbe6f5;font-weight:750}.collage-body{flex:1;overflow:auto;padding:12px;display:flex;align-items:flex-start;justify-content:center}.collage-body img{max-width:100%;height:auto;border-radius:14px;border:1px solid rgba(245,203,105,.28);box-shadow:var(--shadow)}.collage-actions{padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;justify-content:center;flex-wrap:wrap;background:#071427;border-top:1px solid var(--line)}
+.collage-nav{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#0a1a30;border-bottom:1px solid var(--line)}.collage-page-info{flex:1;min-width:0;text-align:center}.collage-page-label{font-size:10.5px;color:#dbe6f5;font-weight:750}.collage-dots{display:flex;justify-content:center;gap:5px;margin-top:5px}.collage-dot{width:6px;height:6px;border-radius:50%;background:#41536a;transition:.18s}.collage-dot.active{width:17px;border-radius:999px;background:var(--gold)}.collage-swipe-hint{font-size:8.5px;color:#7f93ab;margin-top:4px}.collage-body{flex:1;overflow:auto;padding:12px;display:flex;align-items:flex-start;justify-content:center;touch-action:pan-y;overscroll-behavior-x:none}.collage-body img{max-width:100%;height:auto;border-radius:14px;border:1px solid rgba(245,203,105,.28);box-shadow:var(--shadow);user-select:none;-webkit-user-select:none;-webkit-user-drag:none;transition:opacity .14s ease,transform .14s ease}.collage-body.page-change img{opacity:.35;transform:scale(.985)}.collage-actions{padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;justify-content:center;flex-wrap:wrap;background:#071427;border-top:1px solid var(--line)}
 @media(max-width:380px){.stats{grid-template-columns:repeat(3,1fr)}.stat{padding:9px 7px}.stat b{font-size:13px}.stat span{font-size:9px}.photo-grid{grid-template-columns:repeat(3,1fr)}}
 
 /* map */ .map-modal{position:fixed;inset:0;z-index:80;background:#06111f;display:none;flex-direction:column} .map-modal.open{display:flex} .map-head{padding:calc(10px + env(safe-area-inset-top)) 12px 10px;display:flex;align-items:center;gap:8px;background:#071427;border-bottom:1px solid var(--line)} .map-head strong{flex:1} .map-filter{display:flex;gap:6px;overflow:auto;padding:8px 10px;background:#091a30;border-bottom:1px solid var(--line)} .map-filter button{white-space:nowrap} #map{flex:1;min-height:400px;background:#10213a} .map-note{padding:7px 10px;font-size:9.5px;color:var(--muted);background:#071427} .leaflet-container{font-family:Inter,system-ui,sans-serif} .fab-pin{width:24px;height:24px;border-radius:50%;border:3px solid #fff;background:#f5cb69;box-shadow:0 2px 10px rgba(0,0,0,.4)} .fab-pin.done{background:#5fd28a} .fab-pin.next{background:#ff746b;transform:scale(1.2)} .user-pin{width:22px;height:22px;border-radius:50%;border:4px solid white;background:#4285f4;box-shadow:0 0 0 8px rgba(66,133,244,.18)}
@@ -51,7 +51,7 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 </div>
 <div id="mapModal" class="map-modal"><div class="map-head"><button id="closeMap" class="btn">← Zurück</button><strong>Fab 50 Karte</strong><button id="mapGps" class="btn primary">📍 GPS</button></div><div id="mapFilters" class="map-filter"></div><div id="map"></div><div class="map-note">Entfernungen = Luftlinie. Kartenkacheln benötigen eine Datenverbindung; Marker und Checkliste bleiben lokal.</div></div>
 <div id="photoModal" class="photo-modal"><div class="photo-head"><button id="closePhotos" class="btn">← Zurück</button><strong>Meine Fab‑50‑Fotos</strong><button id="collageTop" class="btn gold">Souvenir‑Set</button></div><div class="photo-summary"><b id="photoSummary">0 / 50 Fotos</b><br>Die Bilder werden verkleinert, mit ihrem Seitenverhältnis gespeichert und später nur per Zuschnitt in Vorschau und Souvenir‑Set eingepasst. Sie bleiben ausschließlich lokal auf diesem Gerät. Ein App-Update über GitHub Pages löscht sie nicht. Das JSON-Backup enthält die Fotos nicht.</div><div id="photoGrid" class="photo-grid"></div></div>
-<div id="collageModal" class="collage-modal"><div class="photo-head"><button id="closeCollage" class="btn">← Zurück</button><strong id="collageTitle">Mein Fab‑50‑Souvenir‑Set</strong><span id="collageCount" style="font-size:10px;color:var(--muted)"></span></div><div class="collage-nav"><button id="prevCollagePage" class="btn">← Vorherige</button><div id="collagePageLabel" class="collage-page-label">Seite 1 / 5 · Übersicht</div><button id="nextCollagePage" class="btn">Nächste →</button></div><div class="collage-body"><img id="collagePreview" alt="Fab 50 Fotocollage"></div><div class="collage-actions"><button id="shareCollage" class="btn gold">↗ Aktuelle Seite teilen</button><button id="downloadCollage" class="btn primary">↓ Aktuelle Seite speichern</button><button id="downloadAllCollages" class="btn">⇩ Alle 5 Seiten</button></div></div>
+<div id="collageModal" class="collage-modal"><div class="photo-head"><button id="closeCollage" class="btn">← Zurück</button><strong id="collageTitle">Mein Fab‑50‑Souvenir‑Set</strong><span id="collageCount" style="font-size:10px;color:var(--muted)"></span></div><div class="collage-nav"><button id="prevCollagePage" class="btn">←</button><div class="collage-page-info"><div id="collagePageLabel" class="collage-page-label">Seite 1 / 5 · Übersicht</div><div id="collagePageDots" class="collage-dots"></div><div class="collage-swipe-hint">← nach links / rechts wischen →</div></div><button id="nextCollagePage" class="btn">→</button></div><div class="collage-body"><img id="collagePreview" alt="Fab 50 Fotocollage"></div><div class="collage-actions"><button id="shareCollage" class="btn gold">↗ Aktuelle Seite teilen</button><button id="downloadCollage" class="btn primary">↓ Aktuelle Seite speichern</button><button id="downloadAllCollages" class="btn">⇩ Alle 5 Seiten</button></div></div>
 <div id="finish" class="finish"><canvas id="fireworks"></canvas><div class="finish-card"><div class="spark">✨🏆✨</div><h2>50 / 50</h2><h3>Fab 50 komplett!</h3><div class="castle"></div><p>Du hast alle 36 goldenen Skulpturen in den vier Walt Disney World Parks gefunden.</p><div id="finishStats" class="finish-stats"></div><p id="finishPhotoText">📸 0 / 50 Charakterfotos gespeichert</p><div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap"><button id="finishCollage" class="btn gold">📸 Collage erstellen</button><button id="replay" class="btn gold">🎆 Nochmal</button><button id="closeFinish" class="btn">Schließen</button></div></div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
@@ -92,6 +92,7 @@ async function createCollage(){
   }
   showCollagePage(0);
   document.getElementById('collageModal').classList.add('open');
+  wireCollageSwipe();
 }
 function pageDefinitions(){
   const chars = allCharacters();
@@ -110,16 +111,15 @@ function pageDefinitions(){
     },
     ...DATA.map(g => {
       const pageChars = chars.filter(c => c.park === g.park);
-      let cols = 3, rows = Math.ceil(pageChars.length / 3);
-      if(pageChars.length >= 20){ cols = 5; rows = 5; }
-      else if(pageChars.length >= 10){ cols = 4; rows = Math.ceil(pageChars.length / 4); }
-      else if(pageChars.length <= 7){ cols = 4; rows = 2; }
+      let cols = pageChars.length >= 20 ? 5 : 3;
+      let rows = Math.ceil(pageChars.length / cols);
+      const parkAccents = {'Magic Kingdom':'#ef6b67','EPCOT':'#7ab7ff','Hollywood Studios':'#c49bff','Animal Kingdom':'#84d29a'};
       return {
         key:g.short,
         title:g.short,
         subtitle:`${pageChars.length} Charaktere · ${g.statues.length} Skulpturen`,
         parkLabel:g.short,
-        accent:g.accent || '#7ab7ff',
+        accent:parkAccents[g.short] || '#f5cb69',
         chars:pageChars,
         cols:cols,
         rows:rows,
@@ -225,26 +225,50 @@ async function renderSouvenirPage(page){
     chipX += chipW + 16;
   }
 
-  const top = 390;
+  const isOverview = page.key === 'overview';
+  const top = isOverview ? 390 : 460;
   const bottom = 140;
-  const side = 90;
-  const gapX = 22, gapY = 24;
+  const side = isOverview ? 90 : 120;
+  const gapX = isOverview ? 22 : 34;
+  const gapY = isOverview ? 24 : 38;
   const cellW = Math.floor((W - side*2 - gapX*(page.cols-1)) / page.cols);
-  const cellH = Math.floor((H - top - bottom - gapY*(page.rows-1)) / page.rows);
-  const frameSize = Math.max(180, Math.min(cellW - 36, cellH - 88));
-  const frameXInset = Math.round((cellW - frameSize) / 2);
-  const photoH = frameSize + 34;
+  const availableH = H - top - bottom;
+  let cellH, frameW, frameH, gridTop;
+  if(isOverview){
+    cellH = Math.floor((availableH - gapY*(page.rows-1)) / page.rows);
+    frameW = Math.max(180, Math.min(cellW - 36, cellH - 88));
+    frameH = frameW;
+    gridTop = top;
+  }else{
+    frameW = cellW - 42;
+    frameH = Math.round(frameW * 0.75);
+    cellH = frameH + 112;
+    const gridH = page.rows * cellH + (page.rows-1) * gapY;
+    gridTop = top + Math.max(0, Math.floor((availableH-gridH)/2));
+  }
 
   for(let i=0; i<page.chars.length; i++){
     const ch = page.chars[i];
-    const col = i % page.cols;
     const row = Math.floor(i / page.cols);
-    const x = side + col * (cellW + gapX);
-    const y = top + row * (cellH + gapY);
+    const rowStart = row * page.cols;
+    const rowCount = Math.min(page.cols, page.chars.length - rowStart);
+    const colInRow = i - rowStart;
+    const rowWidth = rowCount * cellW + (rowCount-1) * gapX;
+    const rowOffset = isOverview ? 0 : Math.max(0, Math.floor((W - rowWidth)/2) - side);
+    const x = side + rowOffset + colInRow * (cellW + gapX);
+    const y = gridTop + row * (cellH + gapY);
+    const frameX = x + Math.round((cellW-frameW)/2);
 
-    drawRoundRect(ctx, x, y, cellW, cellH, 26, 'rgba(16,37,66,.96)', 'rgba(245,203,105,.20)');
-    drawRoundRect(ctx, x+frameXInset-8, y+10, frameSize+16, frameSize+16, 18, '#c8a646', 'rgba(255,231,169,.55)');
-    drawRoundRect(ctx, x+frameXInset, y+18, frameSize, frameSize, 14, '#09182b');
+    if(isOverview){
+      drawRoundRect(ctx, x, y, cellW, cellH, 26, 'rgba(16,37,66,.96)', 'rgba(245,203,105,.20)');
+      drawRoundRect(ctx, frameX-8, y+10, frameW+16, frameH+16, 18, '#c8a646', 'rgba(255,231,169,.55)');
+    }else{
+      drawRoundRect(ctx, x, y, cellW, cellH, 22, 'rgba(8,24,43,.92)', 'rgba(245,203,105,.24)');
+      ctx.fillStyle = page.accent;
+      drawRoundRect(ctx, x+18, y+14, cellW-36, 7, 4, page.accent);
+      drawRoundRect(ctx, frameX-6, y+32, frameW+12, frameH+12, 16, 'rgba(255,231,169,.90)', 'rgba(245,203,105,.55)');
+    }
+    drawRoundRect(ctx, frameX, y+(isOverview?18:38), frameW, frameH, 12, '#09182b');
 
     const blob = photoCache.get(ch.name);
     if(blob){
@@ -255,18 +279,22 @@ async function renderSouvenirPage(page){
         const sy = (img.height - sz) / 2;
         ctx.save();
         ctx.beginPath();
-        ctx.roundRect(x+frameXInset+4, y+22, frameSize-8, frameSize-8, 12);
+        const photoX = frameX + 4;
+        const photoY = y + (isOverview ? 22 : 42);
+        const photoW = frameW - 8;
+        const photoHH = frameH - 8;
+        ctx.roundRect(photoX, photoY, photoW, photoHH, 10);
         ctx.clip();
-        drawImageCover(ctx, img, x+frameXInset+4, y+22, frameSize-8, frameSize-8);
+        drawImageCover(ctx, img, photoX, photoY, photoW, photoHH);
         ctx.restore();
       }catch(e){}
     }else{
       ctx.fillStyle = 'rgba(113,132,156,.20)';
-      ctx.font = `700 ${Math.max(42, Math.floor(frameSize * .22))}px system-ui,sans-serif`;
-      ctx.fillText('📷', x + cellW/2, y + 26 + frameSize/2);
+      ctx.font = `700 ${Math.max(42, Math.floor(frameW * .20))}px system-ui,sans-serif`;
+      ctx.fillText('📷', x + cellW/2, y + (isOverview ? 24 : 40) + frameH/2);
       ctx.fillStyle = '#9fb0c6';
       ctx.font = '700 18px system-ui,sans-serif';
-      ctx.fillText('Platz für dein Foto', x + cellW/2, y + frameSize + 8);
+      ctx.fillText('Platz für dein Foto', x + cellW/2, y + (isOverview ? 18 : 38) + frameH - 18);
     }
 
     ctx.fillStyle = '#f8fafc';
@@ -283,7 +311,17 @@ async function renderSouvenirPage(page){
       }
       label += '…';
     }
-    ctx.fillText(label, x + cellW/2, y + Math.min(cellH - 18, frameSize + 62));
+    const labelY = y + (isOverview ? Math.min(cellH - 18, frameH + 62) : frameH + 78);
+    ctx.fillText(label, x + cellW/2, labelY);
+    if(!isOverview){
+      ctx.fillStyle = '#8fa3b9';
+      ctx.font = '600 18px system-ui,sans-serif';
+      let statueLabel = ch.statue || '';
+      if(statueLabel && statueLabel !== ch.name){
+        if(statueLabel.length > 34) statueLabel = statueLabel.slice(0,32) + '…';
+        ctx.fillText(statueLabel, x + cellW/2, labelY + 31);
+      }
+    }
   }
 
   ctx.fillStyle = '#9fb0c6';
@@ -302,9 +340,14 @@ function showCollagePage(index){
   const page = collagePages[collagePageIndex];
   collageBlob = page.blob;
   collageUrl = page.url;
-  document.getElementById('collagePreview').src = page.url;
+  const body = document.querySelector('.collage-body');
+  const img = document.getElementById('collagePreview');
+  body?.classList.add('page-change');
+  setTimeout(()=>{img.src = page.url; body?.classList.remove('page-change');},80);
   document.getElementById('collageCount').textContent = `${photoCache.size}/50 Fotos`;
   document.getElementById('collagePageLabel').textContent = `Seite ${collagePageIndex + 1} / ${collagePages.length} · ${page.parkLabel}`;
+  const dots = document.getElementById('collagePageDots');
+  if(dots) dots.innerHTML = collagePages.map((_,i)=>`<span class="collage-dot ${i===collagePageIndex?'active':''}"></span>`).join('');
 }
 function downloadCollage(){
   if(!collagePages.length) return;
@@ -377,6 +420,14 @@ let animId=null,fwParticles=[],fwBursts=[],fwEnd=0;
 function finishStats(){let fs=foundStatues().map(s=>({...s,t:state[idFor(s.park,s.name)].foundAt})).sort((a,b)=>new Date(a.t)-new Date(b.t));let first=fs[0],last=fs[fs.length-1];return `<div><b>${first?formatTime(first.t):'–'}</b>Erste Skulptur</div><div><b>${last?formatTime(last.t):'–'}</b>Letzte Skulptur</div><div><b>36 / 36</b>Skulpturen</div><div><b>4 / 4</b>Parks</div>`}
 function showFinish(play=true){document.getElementById('finishStats').innerHTML=finishStats();updatePhotoCounts();document.getElementById('finish').classList.add('open');if(play)startFireworks()}
 function startFireworks(){cancelAnimationFrame(animId);let c=document.getElementById('fireworks'),ctx=c.getContext('2d'),dpr=devicePixelRatio||1;c.width=innerWidth*dpr;c.height=innerHeight*dpr;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';ctx.setTransform(dpr,0,0,dpr,0,0);fwParticles=[];fwBursts=[];fwEnd=performance.now()+7000;let lastBurst=0;function burst(){let x=innerWidth*(.15+Math.random()*.7),y=innerHeight*(.1+Math.random()*.42),h=Math.floor(Math.random()*360);for(let i=0;i<42;i++){let a=Math.PI*2*i/42+Math.random()*.14,sp=1.3+Math.random()*3;fwParticles.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:1,h})}}function loop(t){ctx.fillStyle='rgba(2,7,18,.20)';ctx.fillRect(0,0,innerWidth,innerHeight);if(t<fwEnd&&t-lastBurst>320+Math.random()*450){burst();lastBurst=t}fwParticles.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.025;p.vx*=.992;p.vy*=.992;p.life-=.012;ctx.beginPath();ctx.arc(p.x,p.y,1.7,0,Math.PI*2);ctx.fillStyle=`hsla(${p.h},100%,70%,${Math.max(0,p.life)})`;ctx.fill()});fwParticles=fwParticles.filter(p=>p.life>0);if(t<fwEnd||fwParticles.length)animId=requestAnimationFrame(loop)}animId=requestAnimationFrame(loop)}
+function wireCollageSwipe(){
+  const body=document.querySelector('.collage-body');
+  if(!body||body.dataset.swipeReady==='1')return;
+  body.dataset.swipeReady='1';
+  let sx=0,sy=0,active=false;
+  body.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;sx=e.touches[0].clientX;sy=e.touches[0].clientY;active=true},{passive:true});
+  body.addEventListener('touchend',e=>{if(!active||!e.changedTouches.length)return;active=false;const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)<55||Math.abs(dx)<Math.abs(dy)*1.15)return;if(dx<0)showCollagePage(collagePageIndex+1);else showCollagePage(collagePageIndex-1)},{passive:true});
+}
 /* wire */
 document.getElementById('gpsBtn').onclick=startGps;document.getElementById('refreshGps').onclick=getLocationOnce;document.getElementById('mapBtn').onclick=()=>openMap('ALL');document.getElementById('mapGps').onclick=()=>{getLocationOnce();setTimeout(()=>{if(userPos&&map)map.setView([userPos.lat,userPos.lng],18)},600)};document.getElementById('closeMap').onclick=()=>document.getElementById('mapModal').classList.remove('open');document.getElementById('showAll').onclick=()=>setFilter('all');document.getElementById('showOpen').onclick=()=>setFilter('open');document.getElementById('backupBtn').onclick=backup;document.getElementById('restoreBtn').onclick=()=>document.getElementById('restoreFile').click();document.getElementById('restoreFile').onchange=e=>e.target.files[0]&&restore(e.target.files[0]);document.getElementById('resetBtn').onclick=()=>{if(confirm('Alle Funde und Zeitstempel löschen? Deine gespeicherten Fotos bleiben erhalten.')){state={};save();render();updateMap()}};document.getElementById('celebrateBtn').onclick=()=>showFinish(true);document.getElementById('replay').onclick=startFireworks;document.getElementById('closeFinish').onclick=()=>{document.getElementById('finish').classList.remove('open');cancelAnimationFrame(animId)};
 document.getElementById('photosBtn').onclick=openPhotos;document.getElementById('closePhotos').onclick=()=>document.getElementById('photoModal').classList.remove('open');document.getElementById('collageTop').onclick=createCollage;document.getElementById('finishCollage').onclick=()=>{document.getElementById('finish').classList.remove('open');cancelAnimationFrame(animId);createCollage()};document.getElementById('closeCollage').onclick=()=>document.getElementById('collageModal').classList.remove('open');document.getElementById('prevCollagePage').onclick=()=>showCollagePage(collagePageIndex-1);document.getElementById('nextCollagePage').onclick=()=>showCollagePage(collagePageIndex+1);document.getElementById('downloadCollage').onclick=downloadCollage;document.getElementById('downloadAllCollages').onclick=downloadAllCollages;document.getElementById('shareCollage').onclick=shareCollage;document.getElementById('photoFile').onchange=async e=>{let file=e.target.files?.[0],name=pendingPhotoChar;if(!file||!name)return;try{let blob=await compressPhoto(file);if(!blob)throw new Error('Komprimierung fehlgeschlagen');await savePhoto(name,blob)}catch(err){console.error(err);alert('Das Foto konnte nicht gespeichert werden.')}finally{pendingPhotoChar=null;e.target.value=''}};
