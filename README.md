@@ -51,3 +51,18 @@ Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Ange
 - Unvollständige letzte Zeilen werden zentriert
 - Links-/Rechts-Wischen zwischen allen 5 Souvenir-Seiten
 - Seitenpunkte und dezente Übergangsanimation im Souvenir-Viewer
+
+
+## Neu in v7
+- Manueller Bildausschnitt pro Charakterfoto
+- Das vollständige Foto bleibt gespeichert
+- Fester 4:3-Rahmen im Editor; du verschiebst das Bild innerhalb des Rahmens
+- Der gewählte Ausschnitt erscheint in Galerie-Vorschau und auf den Souvenir-Set-Seiten
+- Nach jedem neuen Foto öffnet sich direkt der Ausschnitt-Editor
+
+
+## Neu in v7.1
+- Zoom-Funktion im Bildausschnitt-Editor
+- Slider sowie + / − Buttons für den Zoom
+- Der gewählte Zoom wird zusammen mit dem Ausschnitt gespeichert
+- Vorschau und Souvenir-Set verwenden jetzt sowohl den manuellen Ausschnitt als auch den Zoom
