@@ -1,113 +1,210 @@
-# Fab 50 Navigator v6
+# Fab 50 Navigator v9.2
 
-## Funktionen
-- 36 physische Fab-50-Skulpturen / 50 Charaktere
-- Fortschritt gesamt und pro Park
-- Fund-Zeitstempel und lokale Speicherung
-- „Wo ist sie?“-Hinweise
-- optimierte feste Laufreihenfolge pro Park
-- GPS-Ortung (freiwillig)
-- Luftlinien-Entfernung zu allen Skulpturen
-- automatische „nächste offene Statue“ im aktuellen Park
-- interaktive Leaflet/OpenStreetMap-Karte mit Status-Pins
-- **eigenes Foto pro Charakter (50 separate Fotoplätze)**
-- Fotos aus Kamera/Galerie, automatisch quadratisch zugeschnitten und komprimiert
-- lokale Bildspeicherung per IndexedDB; App-Updates behalten die Fotos
-- Fotoübersicht mit 0–50 Fortschritt
-- **automatische 50er-Abschluss-Collage als JPG**
-- Collage teilen oder als Bild speichern
-- Backup / Wiederherstellung für Häkchen und Zeitstempel
-- Offline-PWA für Checkliste, Routen und gespeicherte Fotos; Kartenkacheln benötigen Datenverbindung
-- 50/50-Abschlussbildschirm mit Feuerwerk-Animation und Statistik
+Persönliche Progressive Web App (PWA) zum Finden, Abhaken, Fotografieren und Dokumentieren der **Disney Fab 50 Character Collection** in den vier Walt-Disney-World-Parks.
 
-## Update von v5
-Die App verwendet weiterhin den Storage-Key `fab50-tracker-v2`. Bestehende Häkchen und Zeitstempel bleiben erhalten, wenn du die Dateien im selben GitHub-Pages-Projekt ersetzt. Fotos verwenden zusätzlich die IndexedDB `fab50-photo-db-v1`.
+## Umfang
 
-## Foto-Hinweis
-Die Bilder bleiben ausschließlich lokal im Browser-/PWA-Speicher dieses Geräts. Der JSON-Backup-Button sichert derzeit nur Häkchen und Zeitstempel, nicht die Fotos. Wenn App-/Website-Daten vollständig gelöscht werden, gehen auch die lokalen Fotos verloren.
+- **50 Charaktere**
+- **36 physische Skulpturen**
+- **4 Parks**
+  - Magic Kingdom
+  - EPCOT
+  - Disney's Hollywood Studios
+  - Disney's Animal Kingdom
 
-## GPS-Hinweis
-Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Angezeigte Entfernungen sind Luftlinie, keine Fußweg-Navigation.
+## Checkliste & Fortschritt
 
+- eine Zeile pro physischer Skulptur
+- Mehrfach-Skulpturen zählen automatisch für mehrere Charaktere
+- Gesamtfortschritt für Charaktere und Skulpturen
+- Fortschritt pro Park
+- Fund-Zeitstempel
+- Anzeige der heute gefundenen Skulpturen
+- Filter **Alle / Nur offene**
+- lokale Speicherung auf dem Gerät
 
-## Neu in v6.1
-- Souvenir-artiger Collage-Export
-- 5 Seiten: 1 Gesamtübersicht + 4 einzelne Park-Seiten
-- Vor-/Zurück-Navigation im Collage-Dialog
-- Download der aktuellen Seite oder aller 5 Seiten
-- Teilen der aktuell sichtbaren Seite
+## Suche
 
+Über die Schnellsuche **„Figur oder Skulptur suchen …“** kann nach Charakter oder Skulptur gesucht werden.
 
-## Neu in v6.1.2
-- Uploads behalten jetzt ihr ursprüngliches Seitenverhältnis
-- Keine gestreckten Bilder mehr in Galerie oder Souvenir-Set
-- Fotos werden per Center-Crop in den Rahmen eingepasst
-- Square/nahezu quadratische Bildflächen auf den Park-Seiten, besonders für Animal Kingdom verbessert
+Ein Treffer:
 
+- öffnet automatisch den richtigen Park,
+- wechselt bei Bedarf von **Nur offene** auf **Alle**,
+- scrollt direkt zur passenden Skulptur,
+- hebt die Zielzeile kurz hervor.
 
-## Neu in v6.1.3
-- Einzelne Park-Souvenir-Seiten neu gestaltet: kompakte dunkle Karten statt großer Rahmen
-- 4:3-Fotofenster mit feinem Goldrand; Bilder bleiben unverzerrt und werden nur gecroppt
-- Unvollständige letzte Zeilen werden zentriert
-- Links-/Rechts-Wischen zwischen allen 5 Souvenir-Seiten
-- Seitenpunkte und dezente Übergangsanimation im Souvenir-Viewer
+## Standort & Navigation
 
+### GPS
 
-## Neu in v7
-- Manueller Bildausschnitt pro Charakterfoto
-- Das vollständige Foto bleibt gespeichert
-- Fester 4:3-Rahmen im Editor; du verschiebst das Bild innerhalb des Rahmens
-- Der gewählte Ausschnitt erscheint in Galerie-Vorschau und auf den Souvenir-Set-Seiten
-- Nach jedem neuen Foto öffnet sich direkt der Ausschnitt-Editor
+GPS ist optional und wird erst nach ausdrücklicher Aktivierung verwendet.
 
+Die App zeigt:
 
-## Neu in v7.1
-- Zoom-Funktion im Bildausschnitt-Editor
-- Slider sowie + / − Buttons für den Zoom
-- Der gewählte Zoom wird zusammen mit dem Ausschnitt gespeichert
-- Vorschau und Souvenir-Set verwenden jetzt sowohl den manuellen Ausschnitt als auch den Zoom
+- die geschätzte GPS-Genauigkeit,
+- den wahrscheinlich aktuellen Park,
+- die Luftlinien-Entfernung zu Skulpturen,
+- die nächstgelegene noch offene Skulptur.
 
+### Karte
 
-## Neu in v7.2
-- Pinch-to-Zoom im Bildausschnitt-Editor
-- Zoomen jetzt per Zwei-Finger-Geste direkt auf dem Bild
-- Slider und + / − Buttons bleiben zusätzlich erhalten
+- interaktive Leaflet-/OpenStreetMap-Karte
+- alle 36 Skulpturen als Pins
+- Status für offen / gefunden / nächstes Ziel
+- eigener Standort als Marker
+- Filter nach Park
 
+Die gespeicherten Skulptur-Koordinaten sind Näherungspunkte anhand bekannter Landmarken und keine offiziell vermessenen Disney-Koordinaten. Entfernungen sind **Luftlinie**, keine Fußweg-Navigation.
 
-## Neu in v8
-- Schnellsuche nach Charakter oder Skulptur
-- Live-Treffer während der Eingabe
-- Treffer öffnet automatisch den richtigen Park und springt zur passenden Zeile
-- „Nur offene“ wird für einen Suchtreffer automatisch auf „Alle“ umgeschaltet
-- Zielzeile wird kurz hervorgehoben
-- Versionsnummer `v8` direkt in der Unterzeile des App-Headers
+### Park-Routen
 
+Jeder Park enthält eine feste, sinnvoll sortierte Laufreihenfolge als Alternative oder Ergänzung zu GPS.
 
-## Neu in v9
-- Neue Export-Galerie mit vier Design-Presets:
-  - Classic Collection
-  - Fab 50 Souvenir
-  - Park Memories
-  - Celebration Poster
-- Park Memories nutzt größere Fotos und mehrere Seiten statt dichtem Raster
-- Celebration Poster erlaubt die freie Auswahl von bis zu 8 gespeicherten Fotos
-- Ein ausgewähltes Foto kann als großes Hauptfoto (★) festgelegt werden
-- Automatische Vorauswahl verteilt Highlights möglichst über alle vier Parks
-- Alle Designs verwenden die bestehenden manuellen Bildausschnitte und Zooms
-- Versionsanzeige im Header auf v9 aktualisiert
+Zusätzlich gibt es pro Skulptur **„Wo ist sie?“** mit Landmarken und konkreteren Suchhinweisen.
 
+## Galerie & eigene Fotos
 
-## Neu in v9.1
-- Classic Collection bleibt bewusst streng und rasterbasiert.
-- Fab 50 Souvenir: Gesamtübersicht bleibt sauber; Parkseiten erhalten leicht gedrehte Fotoprints.
-- Park Memories: echter Scrapbook-/Fotoalbum-Look mit größeren Prints, Schatten, Tape-Details und kontrollierten Überlappungen.
-- Celebration Poster: stärkster Fototisch-Look mit schrägen, teilweise überlappenden Highlight-Fotos rund um das Hauptfoto.
-- Alle Designs verwenden weiterhin deine gespeicherten manuellen Crops und Zoomwerte.
+Für jeden der 50 Charaktere kann ein eigenes Foto gespeichert werden.
 
+- Fotoaufnahme oder Auswahl aus der Galerie
+- vollständiges Originalfoto bleibt lokal gespeichert
+- automatische Größenreduzierung ohne Verzerrung
+- Speicherung in IndexedDB
+- eigener Fotoeintrag pro Charakter
+- vorhandene Fotos können ersetzt oder gelöscht werden
+- Galerie zeigt den Fortschritt `x / 50`
 
-## Fix in v9.2 – Crop-Konsistenz
-- Exportberechnung verwendet jetzt exakt dieselbe Geometrie wie der manuelle 4:3-Crop-Editor.
-- Bei Zoom werden X- **und** Y-Versatz korrekt berücksichtigt.
-- Alle Export-Fotoflächen verwenden 4:3, damit ein gespeicherter Crop geometrisch 1:1 reproduzierbar ist.
-- Souvenir-Gesamtübersicht von quadratischen auf 4:3-Fotoflächen umgestellt.
-- Celebration-Hauptfoto ebenfalls auf exakt 4:3 korrigiert.
+### Manueller Bildausschnitt
+
+Für jedes Foto kann der spätere **4:3-Ausschnitt** selbst festgelegt werden.
+
+Im Editor kann das Foto:
+
+- horizontal und vertikal verschoben,
+- über Slider gezoomt,
+- mit `+ / −` gezoomt,
+- per **Pinch-to-Zoom** mit zwei Fingern gezoomt werden.
+
+Das komplette Foto bleibt gespeichert. Gespeichert werden zusätzlich nur Ausschnittposition und Zoom.
+
+## Erinnerungs-Export
+
+Unter **Galerie → Souvenir-Set** stehen vier Exportdesigns zur Verfügung.
+
+### Classic Collection
+
+- 1 Seite
+- alle 50 Charaktere
+- klares, strukturiertes Raster
+- minimale Dekoration
+- Fokus auf vollständige Dokumentation
+
+### Fab 50 Souvenir
+
+- 5 Seiten
+- 1 Gesamtübersicht + 4 Parkseiten
+- Dunkelblau, Gold, Feuerwerk und Schloss-Silhouette
+- Gesamtübersicht bewusst strukturiert
+- Parkseiten mit leicht gedrehten Fotoprints
+
+### Park Memories
+
+- 7 Seiten
+- Album-/Scrapbook-Look
+- größere Fotos
+- leichte Drehungen
+- kontrollierte Überlappungen
+- Schatten und Tape-Details
+- Magic Kingdom auf mehrere Seiten verteilt, damit die Fotos größer bleiben
+
+### Celebration Poster
+
+- 1 Abschluss-Poster
+- bis zu **8 frei auswählbare eigene Fotos**
+- automatische Vorauswahl möglich
+- ein Foto wird mit **★ als Hauptfoto** festgelegt
+- großes Hero-Foto plus kleinere Highlights
+- dynamischer Fototisch-/Scrapbook-Look
+- Feuerwerk, Schloss und 50/50-Abschlussdarstellung
+
+## Crop-Konsistenz in v9.2
+
+Der Export verwendet dieselbe geometrische Berechnung wie der manuelle 4:3-Crop-Editor.
+
+Damit werden:
+
+- horizontaler Versatz,
+- vertikaler Versatz,
+- manueller Zoom
+
+beim Export korrekt übernommen.
+
+Alle relevanten Export-Fotoflächen basieren auf 4:3, damit der gespeicherte Ausschnitt reproduzierbar bleibt.
+
+## Abschluss bei 50 / 50
+
+Nach dem letzten Fund erscheint ein Abschlussbildschirm mit:
+
+- Feuerwerk-Animation
+- **50 / 50**
+- **36 / 36 Skulpturen**
+- **4 / 4 Parks**
+- Zeitpunkt des ersten und letzten Fundes
+- erneut abspielbarem Feuerwerk
+- direktem Zugang zum Erinnerungs-Export
+
+## Backup
+
+Das JSON-Backup enthält derzeit:
+
+- gefundene Skulpturen
+- Fund-Zeitstempel
+
+**Fotos, Crops und Zoomwerte sind nicht Bestandteil des JSON-Backups.**
+
+Diese Daten liegen lokal in IndexedDB. Werden die Website-/App-Daten vollständig gelöscht, gehen die dort gespeicherten Fotos ebenfalls verloren.
+
+## Offline-Nutzung
+
+Nach erfolgreicher Installation arbeitet die PWA weitgehend offline:
+
+- Checkliste
+- Fortschritt
+- Suchfunktion
+- Park-Routen
+- gespeicherte Fotos
+- Crop-Editor
+- Erinnerungs-Export
+
+Die OpenStreetMap-Kartenkacheln benötigen normalerweise eine Datenverbindung, sofern sie nicht bereits gecacht wurden.
+
+## Lokale Datenspeicherung
+
+- Checkliste / Zeitstempel: `localStorage`
+- Fotos / Crop / Zoom: IndexedDB `fab50-photo-db-v1`
+
+Der bestehende Storage-Key bleibt erhalten, damit Updates innerhalb desselben GitHub-Pages-Projekts die bisherigen Funde nicht löschen.
+
+## Update über GitHub Pages
+
+Für ein Update:
+
+1. ZIP entpacken.
+2. Den **kompletten Inhalt** in das bestehende GitHub-Repository hochladen.
+3. Gleichnamige Dateien überschreiben.
+4. Änderungen committen.
+5. GitHub Pages kurz neu deployen lassen.
+6. Die PWA auf dem Smartphone vollständig schließen und erneut öffnen.
+
+Der Service-Worker-Cache dieser Version lautet **fab50-v9-2**.
+
+## Dateien
+
+- `index.html`
+- `manifest.webmanifest`
+- `sw.js`
+- `README.md`
+- `icons/icon-192.png`
+- `icons/icon-512.png`
+- `icons/icon-maskable-512.png`
