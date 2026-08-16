@@ -1,7 +1,7 @@
 {
-  "name": "Fab 50 Tracker – Walt Disney World",
+  "name": "Fab 50 Navigator – Walt Disney World",
   "short_name": "Fab 50",
-  "description": "Offline-Tracker für 36 goldene Fab-50-Skulpturen mit 50 Charakteren in Walt Disney World.",
+  "description": "Fab 50 Checkliste mit GPS, Karte, Distanzen und Park-Routen.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

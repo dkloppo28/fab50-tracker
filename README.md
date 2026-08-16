@@ -1,27 +1,21 @@
-# Fab 50 Tracker v4
+# Fab 50 Navigator v5
 
-Installierbare Progressive Web App für die Disney Fab 50 Character Collection in Walt Disney World.
+## Funktionen
+- 36 physische Fab-50-Skulpturen / 50 Charaktere
+- Fortschritt gesamt und pro Park
+- Fund-Zeitstempel und lokale Speicherung
+- „Wo ist sie?“-Hinweise
+- optimierte feste Laufreihenfolge pro Park
+- GPS-Ortung (freiwillig)
+- Luftlinien-Entfernung zu allen Skulpturen
+- automatische „nächste offene Statue“ im aktuellen Park
+- interaktive Leaflet/OpenStreetMap-Karte mit Status-Pins
+- Backup / Wiederherstellung
+- Offline-PWA für Checkliste und Routen; Kartenkacheln benötigen Datenverbindung
+- 50/50-Abschlussbildschirm mit Feuerwerk-Animation und Statistik
 
-## Was ist neu in v4
-- 36 physische Skulpturen statt 50 separater Listenzeilen
-- weiterhin Fortschritt über alle 50 Charaktere
-- eigener 36-Skulpturen-Zähler
-- Park-Kacheln mit Fortschritt
-- aufklappbare Parkbereiche
-- „Wo ist sie?“-Hinweis pro Skulptur mit präzisen Landmarken
-- optimale Laufroute pro Park ab Haupteingang
-- Route-Modus mit nummerierten Stopps und automatisch markiertem „Nächster Stopp“
-- automatischer Fund-Zeitstempel
-- "Nur offene"-Filter
-- Backup und Wiederherstellung per JSON
-- Offline-Nutzung
-- installierbar als PWA
+## Update von v4
+Die App verwendet weiterhin den Storage-Key `fab50-tracker-v2`. Bestehende Häkchen und Zeitstempel bleiben daher erhalten, wenn du die Dateien im selben GitHub-Pages-Projekt ersetzt.
 
-## Lokal testen
-    python -m http.server 8000
-
-Dann `http://localhost:8000` öffnen.
-
-## Auf Android installieren
-Die Seite muss über HTTPS bereitgestellt werden, z.B. über GitHub Pages, Netlify oder Cloudflare Pages.
-Danach in Chrome öffnen und "App installieren" auswählen.
+## GPS-Hinweis
+Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Angezeigte Entfernungen sind Luftlinie, keine Fußweg-Navigation.
