@@ -66,3 +66,9 @@ Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Ange
 - Slider sowie + / − Buttons für den Zoom
 - Der gewählte Zoom wird zusammen mit dem Ausschnitt gespeichert
 - Vorschau und Souvenir-Set verwenden jetzt sowohl den manuellen Ausschnitt als auch den Zoom
+
+
+## Neu in v7.2
+- Pinch-to-Zoom im Bildausschnitt-Editor
+- Zoomen jetzt per Zwei-Finger-Geste direkt auf dem Bild
+- Slider und + / − Buttons bleiben zusätzlich erhalten
