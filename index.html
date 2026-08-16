@@ -50,7 +50,7 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 <footer>GPS-Distanzen sind Luftlinie und Näherungswerte. Kartenpins basieren auf den bekannten Standort-Landmarken. Checkliste, Zeitstempel und feste Routen funktionieren auch ohne GPS.</footer>
 </div>
 <div id="mapModal" class="map-modal"><div class="map-head"><button id="closeMap" class="btn">← Zurück</button><strong>Fab 50 Karte</strong><button id="mapGps" class="btn primary">📍 GPS</button></div><div id="mapFilters" class="map-filter"></div><div id="map"></div><div class="map-note">Entfernungen = Luftlinie. Kartenkacheln benötigen eine Datenverbindung; Marker und Checkliste bleiben lokal.</div></div>
-<div id="photoModal" class="photo-modal"><div class="photo-head"><button id="closePhotos" class="btn">← Zurück</button><strong>Meine Fab‑50‑Fotos</strong><button id="collageTop" class="btn gold">Souvenir‑Set</button></div><div class="photo-summary"><b id="photoSummary">0 / 50 Fotos</b><br>Die Bilder werden verkleinert und ausschließlich lokal auf diesem Gerät gespeichert. Ein App-Update über GitHub Pages löscht sie nicht. Das JSON-Backup enthält die Fotos nicht.</div><div id="photoGrid" class="photo-grid"></div></div>
+<div id="photoModal" class="photo-modal"><div class="photo-head"><button id="closePhotos" class="btn">← Zurück</button><strong>Meine Fab‑50‑Fotos</strong><button id="collageTop" class="btn gold">Souvenir‑Set</button></div><div class="photo-summary"><b id="photoSummary">0 / 50 Fotos</b><br>Die Bilder werden verkleinert, mit ihrem Seitenverhältnis gespeichert und später nur per Zuschnitt in Vorschau und Souvenir‑Set eingepasst. Sie bleiben ausschließlich lokal auf diesem Gerät. Ein App-Update über GitHub Pages löscht sie nicht. Das JSON-Backup enthält die Fotos nicht.</div><div id="photoGrid" class="photo-grid"></div></div>
 <div id="collageModal" class="collage-modal"><div class="photo-head"><button id="closeCollage" class="btn">← Zurück</button><strong id="collageTitle">Mein Fab‑50‑Souvenir‑Set</strong><span id="collageCount" style="font-size:10px;color:var(--muted)"></span></div><div class="collage-nav"><button id="prevCollagePage" class="btn">← Vorherige</button><div id="collagePageLabel" class="collage-page-label">Seite 1 / 5 · Übersicht</div><button id="nextCollagePage" class="btn">Nächste →</button></div><div class="collage-body"><img id="collagePreview" alt="Fab 50 Fotocollage"></div><div class="collage-actions"><button id="shareCollage" class="btn gold">↗ Aktuelle Seite teilen</button><button id="downloadCollage" class="btn primary">↓ Aktuelle Seite speichern</button><button id="downloadAllCollages" class="btn">⇩ Alle 5 Seiten</button></div></div>
 <div id="finish" class="finish"><canvas id="fireworks"></canvas><div class="finish-card"><div class="spark">✨🏆✨</div><h2>50 / 50</h2><h3>Fab 50 komplett!</h3><div class="castle"></div><p>Du hast alle 36 goldenen Skulpturen in den vier Walt Disney World Parks gefunden.</p><div id="finishStats" class="finish-stats"></div><p id="finishPhotoText">📸 0 / 50 Charakterfotos gespeichert</p><div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap"><button id="finishCollage" class="btn gold">📸 Collage erstellen</button><button id="replay" class="btn gold">🎆 Nochmal</button><button id="closeFinish" class="btn">Schließen</button></div></div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -70,7 +70,7 @@ async function savePhoto(name,blob){if(!photoDB)photoDB=await openPhotoDB();awai
 async function deletePhoto(name){if(!confirm(`Foto für ${name} löschen?`))return;if(!photoDB)photoDB=await openPhotoDB();await new Promise((resolve,reject)=>{let tx=photoDB.transaction(PHOTO_STORE,'readwrite');tx.objectStore(PHOTO_STORE).delete(name);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});photoCache.delete(name);setPhotoUrl(name,null);updatePhotoCounts();renderPhotoGallery();refreshPhotoThumbs();}
 function updatePhotoCounts(){let n=photoCache.size;let a=document.getElementById('photoDone'),b=document.getElementById('toolbarPhotoCount'),c=document.getElementById('photoSummary'),f=document.getElementById('finishPhotoText');if(a)a.textContent=`${n} / 50`;if(b)b.textContent=`${n}/50`;if(c)c.textContent=`${n} / 50 Fotos`;if(f)f.textContent=`📸 ${n} / 50 Charakterfotos gespeichert`;}
 function pickPhoto(name){pendingPhotoChar=name;let input=document.getElementById('photoFile');input.value='';input.click();}
-async function compressPhoto(file){let source;try{source=await createImageBitmap(file,{imageOrientation:'from-image'})}catch{source=await new Promise((resolve,reject)=>{let img=new Image(),u=URL.createObjectURL(file);img.onload=()=>{URL.revokeObjectURL(u);resolve(img)};img.onerror=reject;img.src=u})}let sw=source.width,sh=source.height,size=Math.min(sw,sh),sx=(sw-size)/2,sy=(sh-size)/2,out=900,c=document.createElement('canvas');c.width=out;c.height=out;let ctx=c.getContext('2d');ctx.drawImage(source,sx,sy,size,size,0,0,out,out);if(source.close)source.close();return await new Promise(resolve=>c.toBlob(resolve,'image/jpeg',.84));}
+async function compressPhoto(file){let source;try{source=await createImageBitmap(file,{imageOrientation:'from-image'})}catch{source=await new Promise((resolve,reject)=>{let img=new Image(),u=URL.createObjectURL(file);img.onload=()=>{URL.revokeObjectURL(u);resolve(img)};img.onerror=reject;img.src=u})}let sw=source.width,sh=source.height,max=1600,scale=Math.min(1,max/Math.max(sw,sh)),ow=Math.max(1,Math.round(sw*scale)),oh=Math.max(1,Math.round(sh*scale)),c=document.createElement('canvas');c.width=ow;c.height=oh;let ctx=c.getContext('2d');ctx.drawImage(source,0,0,sw,sh,0,0,ow,oh);if(source.close)source.close();return await new Promise(resolve=>c.toBlob(resolve,'image/jpeg',.86));}
 function charPhotoCards(chars){return `<div class="character-photos">${chars.map(name=>{let u=photoUrls.get(name);return `<div class="char-photo" data-photo-char="${escAttr(name)}"><div class="char-thumb">${u?`<img src="${u}" alt="${escAttr(name)}">`:'📷'}</div><div class="char-label" title="${escAttr(name)}">${name}</div><div class="char-photo-actions"><button class="photo-mini photo-pick" type="button">${u?'Ersetzen':'Foto'}</button>${u?'<button class="photo-mini delete photo-delete" type="button">×</button>':''}</div></div>`}).join('')}</div>`}
 function escAttr(v){return String(v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 function wirePhotoCards(root){root.querySelectorAll('[data-photo-char]').forEach(card=>{let name=card.dataset.photoChar;card.querySelector('.photo-pick')?.addEventListener('click',e=>{e.stopPropagation();pickPhoto(name)});card.querySelector('.photo-delete')?.addEventListener('click',e=>{e.stopPropagation();deletePhoto(name)})})}
@@ -78,6 +78,7 @@ function refreshPhotoThumbs(){document.querySelectorAll('[data-photo-char]').for
 function renderPhotoGallery(){let grid=document.getElementById('photoGrid');if(!grid)return;grid.innerHTML=allCharacters().map(c=>{let u=photoUrls.get(c.name);return `<div class="gallery-card" data-gallery-char="${escAttr(c.name)}"><div class="gallery-pic">${u?`<img src="${u}" alt="${escAttr(c.name)}">`:'📷'}</div><div class="gallery-name">${c.name}</div><div class="gallery-park">${c.park}</div><button class="photo-mini gallery-pick" type="button">${u?'Ersetzen':'Foto hinzufügen'}</button>${u?'<button class="photo-mini delete gallery-delete" type="button">Löschen</button>':''}</div>`}).join('');grid.querySelectorAll('[data-gallery-char]').forEach(card=>{let name=card.dataset.galleryChar;card.querySelector('.gallery-pick').onclick=()=>pickPhoto(name);card.querySelector('.gallery-delete')?.addEventListener('click',()=>deletePhoto(name))});updatePhotoCounts()}
 function openPhotos(){renderPhotoGallery();document.getElementById('photoModal').classList.add('open')}
 async function imageFromBlob(blob){return await new Promise((resolve,reject)=>{let img=new Image(),u=URL.createObjectURL(blob);img.onload=()=>{URL.revokeObjectURL(u);resolve(img)};img.onerror=()=>{URL.revokeObjectURL(u);reject(new Error('Bild konnte nicht geladen werden'))};img.src=u})}
+function drawImageCover(ctx,img,dx,dy,dw,dh){let sw=img.width,sh=img.height,srcRatio=sw/sh,dstRatio=dw/dh,sx=0,sy=0,sWidth=sw,sHeight=sh;if(srcRatio>dstRatio){sHeight=sh;sWidth=sh*dstRatio;sx=(sw-sWidth)/2}else{sWidth=sw;sHeight=sw/dstRatio;sy=(sh-sHeight)/2}ctx.drawImage(img,sx,sy,sWidth,sHeight,dx,dy,dw,dh)}
 function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
 async function createCollage(){
   const pages = pageDefinitions();
@@ -230,7 +231,9 @@ async function renderSouvenirPage(page){
   const gapX = 22, gapY = 24;
   const cellW = Math.floor((W - side*2 - gapX*(page.cols-1)) / page.cols);
   const cellH = Math.floor((H - top - bottom - gapY*(page.rows-1)) / page.rows);
-  const photoH = cellH - 70;
+  const frameSize = Math.max(180, Math.min(cellW - 36, cellH - 88));
+  const frameXInset = Math.round((cellW - frameSize) / 2);
+  const photoH = frameSize + 34;
 
   for(let i=0; i<page.chars.length; i++){
     const ch = page.chars[i];
@@ -240,8 +243,8 @@ async function renderSouvenirPage(page){
     const y = top + row * (cellH + gapY);
 
     drawRoundRect(ctx, x, y, cellW, cellH, 26, 'rgba(16,37,66,.96)', 'rgba(245,203,105,.20)');
-    drawRoundRect(ctx, x+10, y+10, cellW-20, photoH, 18, '#c8a646', 'rgba(255,231,169,.55)');
-    drawRoundRect(ctx, x+18, y+18, cellW-36, photoH-16, 14, '#09182b');
+    drawRoundRect(ctx, x+frameXInset-8, y+10, frameSize+16, frameSize+16, 18, '#c8a646', 'rgba(255,231,169,.55)');
+    drawRoundRect(ctx, x+frameXInset, y+18, frameSize, frameSize, 14, '#09182b');
 
     const blob = photoCache.get(ch.name);
     if(blob){
@@ -252,18 +255,18 @@ async function renderSouvenirPage(page){
         const sy = (img.height - sz) / 2;
         ctx.save();
         ctx.beginPath();
-        ctx.roundRect(x+22, y+22, cellW-44, photoH-24, 12);
+        ctx.roundRect(x+frameXInset+4, y+22, frameSize-8, frameSize-8, 12);
         ctx.clip();
-        ctx.drawImage(img, sx, sy, sz, sz, x+22, y+22, cellW-44, photoH-24);
+        drawImageCover(ctx, img, x+frameXInset+4, y+22, frameSize-8, frameSize-8);
         ctx.restore();
       }catch(e){}
     }else{
       ctx.fillStyle = 'rgba(113,132,156,.20)';
-      ctx.font = `700 ${Math.max(42, Math.floor(cellW * .22))}px system-ui,sans-serif`;
-      ctx.fillText('📷', x + cellW/2, y + 26 + photoH/2);
+      ctx.font = `700 ${Math.max(42, Math.floor(frameSize * .22))}px system-ui,sans-serif`;
+      ctx.fillText('📷', x + cellW/2, y + 26 + frameSize/2);
       ctx.fillStyle = '#9fb0c6';
       ctx.font = '700 18px system-ui,sans-serif';
-      ctx.fillText('Platz für dein Foto', x + cellW/2, y + photoH - 18);
+      ctx.fillText('Platz für dein Foto', x + cellW/2, y + frameSize + 8);
     }
 
     ctx.fillStyle = '#f8fafc';
@@ -280,7 +283,7 @@ async function renderSouvenirPage(page){
       }
       label += '…';
     }
-    ctx.fillText(label, x + cellW/2, y + cellH - 18);
+    ctx.fillText(label, x + cellW/2, y + Math.min(cellH - 18, frameSize + 62));
   }
 
   ctx.fillStyle = '#9fb0c6';

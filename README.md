@@ -38,7 +38,8 @@ Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Ange
 - Teilen der aktuell sichtbaren Seite
 
 
-## v6.1.1 Hotfix
-- Behebt einen JavaScript-Syntaxfehler aus v6.1, durch den die Park-/POI-Listen nicht gerendert wurden.
-- Vollständiges PWA-Paket mit Manifest, Service Worker und Icons.
-- Service Worker nutzt eine neue Cache-Version und Network-First für lokale Dateien, damit Updates zuverlässiger geladen werden.
+## Neu in v6.1.2
+- Uploads behalten jetzt ihr ursprüngliches Seitenverhältnis
+- Keine gestreckten Bilder mehr in Galerie oder Souvenir-Set
+- Fotos werden per Center-Crop in den Rahmen eingepasst
+- Square/nahezu quadratische Bildflächen auf den Park-Seiten, besonders für Animal Kingdom verbessert
