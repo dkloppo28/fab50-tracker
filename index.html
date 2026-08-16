@@ -23,6 +23,26 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 .navigator{margin-top:12px;padding:13px;border:1px solid rgba(122,183,255,.22);border-radius:19px;background:rgba(16,37,66,.83)} .nav-top{display:flex;gap:10px;align-items:center;justify-content:space-between} .nav-title{font-weight:850;font-size:13px} .gps-status{font-size:10.5px;color:var(--muted);margin-top:4px} .next-card{margin-top:10px;padding:11px;border-radius:14px;background:#0a1a2f;border:1px solid var(--line)} .next-label{font-size:9.5px;color:var(--gold);font-weight:850;text-transform:uppercase;letter-spacing:.1em} .next-name{font-weight:850;margin-top:4px} .next-meta{font-size:11px;color:var(--muted);margin-top:3px} .nav-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
 .btn,.pill{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:999px;padding:8px 11px;font-size:11.5px;font-weight:750;cursor:pointer} .btn.primary{border-color:rgba(122,183,255,.38);background:rgba(122,183,255,.10);color:#d6eaff} .btn.gold{border-color:rgba(245,203,105,.4);background:rgba(245,203,105,.10);color:var(--gold2)} .btn.danger{color:var(--danger)}
 .park-strip{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px} .park-jump{border:1px solid var(--line);background:rgba(16,37,66,.78);color:var(--text);border-radius:16px;padding:10px 11px;text-align:left;position:relative;overflow:hidden} .park-jump:after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)} .park-jump b{display:block;font-size:12px} .park-jump span{display:block;font-size:10px;color:var(--muted);margin-top:3px}
+
+.quick-search{position:relative;margin-top:12px;z-index:30}
+.search-box{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid rgba(245,203,105,.24);border-radius:16px;background:rgba(16,37,66,.88);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.search-icon{font-size:16px;flex:0 0 auto}
+.search-input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:var(--text);font-size:13px;padding:4px 0}
+.search-input::placeholder{color:#7f93ab}
+.search-clear{border:0;background:transparent;color:#9fb0c6;font-size:18px;line-height:1;padding:4px 6px;border-radius:999px;cursor:pointer}
+.search-clear:hover{background:rgba(255,255,255,.06)}
+.search-results{position:absolute;left:0;right:0;top:calc(100% + 6px);display:none;max-height:320px;overflow:auto;border:1px solid var(--line);border-radius:15px;background:#0b1d34;box-shadow:0 18px 42px rgba(0,0,0,.42);padding:5px}
+.search-results.open{display:block}
+.search-result{width:100%;display:flex;align-items:center;justify-content:space-between;gap:10px;border:0;background:transparent;color:var(--text);text-align:left;padding:10px;border-radius:11px;cursor:pointer}
+.search-result:hover,.search-result:focus{background:rgba(245,203,105,.08);outline:none}
+.search-result-main{min-width:0}
+.search-result-name{font-size:12px;font-weight:850;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.search-result-meta{font-size:9.5px;color:var(--muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.search-result-arrow{color:var(--gold);font-weight:900}
+.search-empty{padding:12px;text-align:center;color:var(--muted);font-size:10.5px}
+.statue.search-hit{animation:searchPulse 1.8s ease}
+@keyframes searchPulse{0%,100%{box-shadow:none;background:transparent}18%,55%{box-shadow:inset 4px 0 0 var(--gold);background:rgba(245,203,105,.14)}}
+
 .toolbar{display:flex;gap:7px;overflow:auto;padding:12px 1px 3px;scrollbar-width:none} .toolbar::-webkit-scrollbar{display:none} .pill{white-space:nowrap} .pill.active{border-color:rgba(245,203,105,.5);background:rgba(245,203,105,.10);color:var(--gold2)}
 .park{margin-top:12px;border:1px solid var(--line);border-radius:21px;overflow:hidden;background:rgba(16,37,66,.84)} .park-head{width:100%;border:0;background:transparent;color:var(--text);padding:14px;display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;text-align:left} .park-dot{width:10px;height:39px;border-radius:999px;background:var(--accent)} .park-name{font-size:15px;font-weight:850} .park-sub{font-size:10.5px;color:var(--muted);display:block;margin-top:3px} .park-score{text-align:right;font-size:11px;color:var(--gold2);font-weight:800} .route-panel{padding:10px 13px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(3,12,25,.16)} .route-panel p{font-size:10.5px;color:var(--muted);margin:0 0 8px;line-height:1.4} .statues{} .park.collapsed .statues,.park.collapsed .route-panel{display:none}
 .statue{display:grid;grid-template-columns:32px 1fr auto;gap:9px;padding:12px 13px;border-bottom:1px solid rgba(255,255,255,.065);align-items:start} .statue:last-child{border-bottom:0} .statue.next-stop{background:linear-gradient(90deg,rgba(245,203,105,.11),transparent)} .check{appearance:none;width:28px;height:28px;border:2px solid #60738e;border-radius:9px;background:#08172a;display:grid;place-content:center;margin-top:1px} .check:checked{background:linear-gradient(145deg,#ffe9a8,#d4a63b);border-color:#f0c85f} .check:checked:after{content:"✓";color:#14213d;font-size:18px;font-weight:950} .sname{font-weight:800;font-size:13.5px} .route-num{display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:999px;background:rgba(245,203,105,.11);border:1px solid rgba(245,203,105,.22);color:var(--gold2);font-size:9px;margin-right:6px} .location,.distance{display:block;margin-top:4px;font-size:10.5px;color:var(--muted);line-height:1.35} .distance{color:#cfe5ff;font-weight:700} .found{display:block;margin-top:5px;color:var(--done);font-size:10.5px;font-weight:750} .row-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:7px} .mini{border:1px solid rgba(122,183,255,.25);background:rgba(122,183,255,.07);color:#d2e9ff;border-radius:999px;padding:5px 8px;font-size:9.5px;font-weight:750} .where{display:none;margin-top:7px;padding:8px 9px;border-radius:11px;background:rgba(3,12,25,.38);border-left:3px solid var(--gold);color:#cbd8e8;font-size:10.5px;line-height:1.42} .where.open{display:block} .weight{min-width:30px;height:24px;padding:0 6px;border-radius:999px;display:grid;place-items:center;background:rgba(245,203,105,.08);border:1px solid rgba(245,203,105,.18);color:var(--gold2);font-size:9.5px;font-weight:850}
@@ -41,10 +61,18 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 </head>
 <body>
 <div class="app">
-<header class="topbar"><div class="brand"><div class="brand-left"><div class="appmark">50</div><div><h1>Fab 50 Navigator</h1><p class="subtitle">Checkliste · GPS · Karte · Park-Routen</p></div></div></div></header>
+<header class="topbar"><div class="brand"><div class="brand-left"><div class="appmark">50</div><div><h1>Fab 50 Navigator</h1><p class="subtitle">Checkliste · GPS · Karte · Park-Routen · v8</p></div></div></div></header>
 <section class="hero"><div class="kicker">Deine Character Collection</div><div class="hero-line"><div class="big"><span id="charDone">0</span><small> / 50</small></div><div id="percent" class="pct">0 %</div></div><div class="bar"><div id="barFill"></div></div><div class="stats"><div class="stat"><b id="statueDone">0 / 36</b><span>Skulpturen gefunden</span></div><div class="stat"><b id="todayDone">0</b><span>heute gefunden</span></div><div class="stat"><b id="photoDone" class="photo-progress">0 / 50</b><span>eigene Fotos</span></div></div></section>
 <section class="navigator"><div class="nav-top"><div><div class="nav-title">📍 Fab‑50 Navigator</div><div id="gpsStatus" class="gps-status">GPS ist aus · feste Park-Route bleibt verfügbar</div></div><button id="gpsBtn" class="btn primary">GPS aktivieren</button></div><div id="nextCard" class="next-card"><div class="next-label">Nächste offene Statue</div><div id="nextName" class="next-name">GPS aktivieren oder Park-Route nutzen</div><div id="nextMeta" class="next-meta">Mit GPS zeigen wir Entfernung und nächstgelegenen offenen Fund.</div></div><div class="nav-actions"><button id="mapBtn" class="btn gold">🗺️ Karte öffnen</button><button id="refreshGps" class="btn primary hidden">↻ Standort aktualisieren</button><button id="celebrateBtn" class="btn gold hidden">🎆 Feuerwerk ansehen</button></div></section>
 <section id="parkStrip" class="park-strip"></section>
+<section class="quick-search" id="quickSearch">
+<div class="search-box">
+  <span class="search-icon">🔎</span>
+  <input id="statueSearch" class="search-input" type="search" autocomplete="off" enterkeyhint="search" placeholder="Figur oder Skulptur suchen …" aria-label="Figur oder Skulptur suchen">
+  <button id="searchClear" class="search-clear hidden" type="button" aria-label="Suche löschen">×</button>
+</div>
+<div id="searchResults" class="search-results" role="listbox"></div>
+</section>
 <nav class="toolbar"><button class="pill active" id="showAll">Alle</button><button class="pill" id="showOpen">Nur offene</button><button class="pill" id="photosBtn">📸 Fotos <span id="toolbarPhotoCount">0/50</span></button><button class="pill" id="backupBtn">Backup</button><button class="pill" id="restoreBtn">Wiederherstellen</button><button class="pill danger" id="resetBtn">Reset</button><input id="restoreFile" class="hidden" type="file" accept="application/json"><input id="photoFile" class="hidden" type="file" accept="image/*"></nav>
 <main id="parks"></main>
 <footer>GPS-Distanzen sind Luftlinie und Näherungswerte. Kartenpins basieren auf den bekannten Standort-Landmarken. Checkliste, Zeitstempel und feste Routen funktionieren auch ohne GPS.</footer>
@@ -411,12 +439,89 @@ function getLocationOnce(){if(!navigator.geolocation){alert('Dieses Gerät unter
 function startGps(){if(watchId!==null){navigator.geolocation.clearWatch(watchId);watchId=null;userPos=null;updateNavigator();render();updateMap();return} if(!navigator.geolocation){alert('GPS/Geolocation wird auf diesem Gerät nicht unterstützt.');return} watchId=navigator.geolocation.watchPosition(onPos,onGeoErr,{enableHighAccuracy:true,timeout:15000,maximumAge:5000})}
 function onPos(p){userPos={lat:p.coords.latitude,lng:p.coords.longitude,accuracy:p.coords.accuracy};updateNavigator();renderDistances();updateMap()}
 function onGeoErr(e){const msg=e.code===1?'Standortfreigabe wurde abgelehnt. Du kannst sie in den Website-/App-Berechtigungen wieder aktivieren.':e.code===2?'Standort konnte nicht bestimmt werden.':'GPS-Abfrage hat zu lange gedauert.';alert(msg);if(watchId!==null){navigator.geolocation.clearWatch(watchId);watchId=null};userPos=null;updateNavigator()}
+
+function normalizeSearchText(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/['’`´]/g,'').replace(/[^a-z0-9]+/g,' ').trim()}
+function searchIndex(){
+  return DATA.flatMap((g,parkIndex)=>g.statues.map(s=>({
+    park:g.park,parkShort:g.short,parkIndex,statue:s.name,chars:s.chars,loc:s.loc,
+    haystack:normalizeSearchText([s.name,...s.chars,s.loc,g.park,g.short].join(' '))
+  })))
+}
+function searchMatches(query){
+  const q=normalizeSearchText(query);
+  if(!q)return [];
+  return searchIndex().map(item=>{
+    const statue=normalizeSearchText(item.statue);
+    const chars=item.chars.map(normalizeSearchText);
+    let score=99;
+    if(statue===q||chars.some(c=>c===q))score=0;
+    else if(statue.startsWith(q)||chars.some(c=>c.startsWith(q)))score=1;
+    else if(statue.includes(q)||chars.some(c=>c.includes(q)))score=2;
+    else if(item.haystack.includes(q))score=3;
+    return {item,score};
+  }).filter(x=>x.score<99).sort((a,b)=>a.score-b.score||a.item.parkIndex-b.item.parkIndex||a.item.statue.localeCompare(b.item.statue,'de')).slice(0,8).map(x=>x.item)
+}
+function renderSearchResults(){
+  const input=document.getElementById('statueSearch'),box=document.getElementById('searchResults'),clear=document.getElementById('searchClear');
+  if(!input||!box)return;
+  const q=input.value.trim();
+  clear?.classList.toggle('hidden',!q);
+  if(!q){box.classList.remove('open');box.innerHTML='';return}
+  const matches=searchMatches(q);
+  box.innerHTML=matches.length?matches.map((m,i)=>`<button class="search-result" type="button" role="option" data-search-index="${i}"><span class="search-result-main"><span class="search-result-name">${m.statue}</span><span class="search-result-meta">${m.parkShort} · ${m.chars.join(' · ')}</span></span><span class="search-result-arrow">→</span></button>`).join(''):'<div class="search-empty">Keine passende Figur oder Skulptur gefunden.</div>';
+  box.classList.add('open');
+  box.querySelectorAll('[data-search-index]').forEach(btn=>btn.onclick=()=>jumpToStatue(matches[Number(btn.dataset.searchIndex)]));
+}
+function jumpToStatue(item){
+  if(!item)return;
+  if(filter!=='all'){
+    filter='all';
+    document.getElementById('showAll')?.classList.add('active');
+    document.getElementById('showOpen')?.classList.remove('active');
+    render();
+  }
+  const input=document.getElementById('statueSearch'),box=document.getElementById('searchResults');
+  if(input)input.value=item.statue;
+  document.getElementById('searchClear')?.classList.remove('hidden');
+  box?.classList.remove('open');
+  const reveal=()=>{
+    const sec=document.getElementById('park-'+item.parkIndex);
+    sec?.classList.remove('collapsed');
+    const wanted=idFor(item.park,item.statue);
+    const row=[...(sec?.querySelectorAll('.statue')||[])].find(el=>el.dataset.id===wanted);
+    if(!row)return;
+    row.classList.remove('search-hit');
+    void row.offsetWidth;
+    row.classList.add('search-hit');
+    row.scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(()=>row.classList.remove('search-hit'),1900);
+  };
+  requestAnimationFrame(()=>setTimeout(reveal,40));
+}
+function wireQuickSearch(){
+  const input=document.getElementById('statueSearch'),clear=document.getElementById('searchClear'),box=document.getElementById('searchResults'),wrap=document.getElementById('quickSearch');
+  if(!input||input.dataset.wired==='1')return;
+  input.dataset.wired='1';
+  input.addEventListener('input',renderSearchResults);
+  input.addEventListener('focus',()=>{if(input.value.trim())renderSearchResults()});
+  input.addEventListener('keydown',e=>{
+    if(e.key==='Enter'){
+      const first=searchMatches(input.value)[0];
+      if(first){e.preventDefault();jumpToStatue(first);input.blur()}
+    }else if(e.key==='Escape'){
+      box?.classList.remove('open');input.blur();
+    }
+  });
+  clear?.addEventListener('click',()=>{input.value='';box?.classList.remove('open');clear.classList.add('hidden');input.focus()});
+  document.addEventListener('pointerdown',e=>{if(wrap&&!wrap.contains(e.target))box?.classList.remove('open')});
+}
+
 function renderParkStrip(){let root=document.getElementById('parkStrip');root.innerHTML='';DATA.forEach((g,i)=>{let ps=parkStats(g),b=document.createElement('button');b.className='park-jump';b.style.setProperty('--accent',g.accent);b.innerHTML=`<b>${g.short}</b><span>${ps.chars}/${ps.totalChars} Charaktere · ${ps.statues}/${g.statues.length} Skulpturen</span>`;b.onclick=()=>{document.getElementById('park-'+i)?.scrollIntoView({behavior:'smooth'})};root.appendChild(b)})}
 function nextRouteStatue(g){return [...g.statues].sort((a,b)=>a.order-b.order).find(s=>!state[idFor(g.park,s.name)]?.foundAt)||null}
 function render(){let chars=charDoneCount(),fs=foundStatues();document.getElementById('charDone').textContent=chars;document.getElementById('statueDone').textContent=`${fs.length} / 36`;document.getElementById('percent').textContent=`${Math.round(chars/50*100)} %`;document.getElementById('barFill').style.width=`${chars/50*100}%`;document.getElementById('todayDone').textContent=fs.filter(s=>sameDay(state[idFor(s.park,s.name)].foundAt,new Date())).length;document.getElementById('celebrateBtn').classList.toggle('hidden',chars!==50);updatePhotoCounts();renderParkStrip();let root=document.getElementById('parks');root.innerHTML='';DATA.forEach((g,idx)=>{let ps=parkStats(g),next=nextRouteStatue(g),visible=[...g.statues].sort((a,b)=>a.order-b.order).filter(s=>filter==='all'||!state[idFor(g.park,s.name)]?.foundAt);if(filter==='open'&&!visible.length)return;let sec=document.createElement('section');sec.className='park';sec.id='park-'+idx;sec.style.setProperty('--accent',g.accent);sec.innerHTML=`<button class="park-head"><span class="park-dot"></span><span><span class="park-name">${g.park}</span><span class="park-sub">${g.statues.length} Skulpturen · ${ps.totalChars} Charaktere</span></span><span class="park-score">${ps.chars}/${ps.totalChars}<br><small>${ps.statues}/${g.statues.length} Skulpturen</small></span></button><div class="route-panel"><p>${g.routeNote}</p><button class="btn gold route-jump">▶ Nächsten Routenstopp${next?': '+next.name:''}</button> <button class="btn map-park">🗺️ Parkkarte</button></div><div class="statues"></div>`;sec.querySelector('.park-head').onclick=()=>sec.classList.toggle('collapsed');sec.querySelector('.route-jump').onclick=()=>{let el=sec.querySelector('[data-next="true"]');el?.scrollIntoView({behavior:'smooth',block:'center'})};sec.querySelector('.map-park').onclick=()=>openMap(g.park);let list=sec.querySelector('.statues');visible.forEach(s=>{let id=idFor(g.park,s.name),fa=state[id]?.foundAt,row=document.createElement('div');row.className='statue'+(!fa&&next?.name===s.name?' next-stop':'');row.dataset.id=id;if(!fa&&next?.name===s.name)row.dataset.next='true';row.innerHTML=`<input class="check" type="checkbox" ${fa?'checked':''}><div><div class="sname"><span class="route-num">${s.order}</span>${s.name}</div><span class="location">${s.loc}</span><span class="distance" data-distance>📍 ${userPos?fmtDist(hav(userPos,s))+' Luftlinie':'GPS aus'}</span><div class="row-actions"><button class="mini where-btn">📍 Wo ist sie?</button><button class="mini map-one">🗺️ Karte</button></div><div class="where">${s.hint}</div>${charPhotoCards(s.chars)}${fa?`<span class="found">✓ Gefunden am ${formatTime(fa)}</span>`:''}</div><span class="weight">+${s.chars.length}</span>`;row.querySelector('.check').onchange=e=>{let before=charDoneCount();if(e.target.checked)state[id]={foundAt:new Date().toISOString()};else delete state[id];save();render();updateNavigator();updateMap();let after=charDoneCount();if(before<50&&after===50)showFinish(true)};row.querySelector('.where-btn').onclick=()=>row.querySelector('.where').classList.toggle('open');row.querySelector('.map-one').onclick=()=>openMap(g.park,s.name);wirePhotoCards(row);list.appendChild(row)});root.appendChild(sec)});updateNavigator();if(previousCharDone===null)previousCharDone=chars;previousCharDone=chars}
 function renderDistances(){document.querySelectorAll('.statue').forEach(row=>{let s=allStatues().find(x=>idFor(x.park,x.name)===row.dataset.id),el=row.querySelector('[data-distance]');if(s&&el)el.textContent='📍 '+(userPos?fmtDist(hav(userPos,s))+' Luftlinie':'GPS aus')});updateNavigator()}
 function setFilter(v){filter=v;document.getElementById('showAll').classList.toggle('active',v==='all');document.getElementById('showOpen').classList.toggle('active',v==='open');render()}
-function backup(){let blob=new Blob([JSON.stringify({app:'Fab 50 Navigator',version:5,exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`fab50-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function backup(){let blob=new Blob([JSON.stringify({app:'Fab 50 Navigator',version:8,exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`fab50-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function restore(file){let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.state)throw 0;state=d.state;save();render();alert('Backup wiederhergestellt.')}catch{alert('Ungültiges Fab-50-Backup.')}};r.readAsText(file)}
 /* map */
 function initMap(){if(map)return true;if(typeof L==='undefined')return false;map=L.map('map',{zoomControl:true}).setView([28.377,-81.568],12);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:20,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);return true}
@@ -442,6 +547,6 @@ function wireCollageSwipe(){
 document.getElementById('gpsBtn').onclick=startGps;document.getElementById('refreshGps').onclick=getLocationOnce;document.getElementById('mapBtn').onclick=()=>openMap('ALL');document.getElementById('mapGps').onclick=()=>{getLocationOnce();setTimeout(()=>{if(userPos&&map)map.setView([userPos.lat,userPos.lng],18)},600)};document.getElementById('closeMap').onclick=()=>document.getElementById('mapModal').classList.remove('open');document.getElementById('showAll').onclick=()=>setFilter('all');document.getElementById('showOpen').onclick=()=>setFilter('open');document.getElementById('backupBtn').onclick=backup;document.getElementById('restoreBtn').onclick=()=>document.getElementById('restoreFile').click();document.getElementById('restoreFile').onchange=e=>e.target.files[0]&&restore(e.target.files[0]);document.getElementById('resetBtn').onclick=()=>{if(confirm('Alle Funde und Zeitstempel löschen? Deine gespeicherten Fotos bleiben erhalten.')){state={};save();render();updateMap()}};document.getElementById('celebrateBtn').onclick=()=>showFinish(true);document.getElementById('replay').onclick=startFireworks;document.getElementById('closeFinish').onclick=()=>{document.getElementById('finish').classList.remove('open');cancelAnimationFrame(animId)};
 document.getElementById('photosBtn').onclick=openPhotos;document.getElementById('closePhotos').onclick=()=>document.getElementById('photoModal').classList.remove('open');document.getElementById('collageTop').onclick=createCollage;document.getElementById('finishCollage').onclick=()=>{document.getElementById('finish').classList.remove('open');cancelAnimationFrame(animId);createCollage()};document.getElementById('closeCollage').onclick=()=>document.getElementById('collageModal').classList.remove('open');document.getElementById('prevCollagePage').onclick=()=>showCollagePage(collagePageIndex-1);document.getElementById('nextCollagePage').onclick=()=>showCollagePage(collagePageIndex+1);document.getElementById('downloadCollage').onclick=downloadCollage;document.getElementById('downloadAllCollages').onclick=downloadAllCollages;document.getElementById('shareCollage').onclick=shareCollage;document.getElementById('closeCrop').onclick=closeCropEditor;document.getElementById('resetCrop').onclick=()=>{if(!cropState)return;cropState.x=.5;cropState.y=.5;cropState.z=1;applyCropLayout()};document.getElementById('saveCrop').onclick=async()=>{if(!cropState)return;await saveCrop(cropState.name,{x:cropState.x,y:cropState.y,z:cropState.z});closeCropEditor()};document.getElementById('photoFile').onchange=async e=>{let file=e.target.files?.[0],name=pendingPhotoChar;if(!file||!name)return;try{let blob=await compressPhoto(file);if(!blob)throw new Error('Komprimierung fehlgeschlagen');await savePhoto(name,blob);openCropEditor(name)}catch(err){console.error(err);alert('Das Foto konnte nicht gespeichert werden.')}finally{pendingPhotoChar=null;e.target.value=''}};
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
-render();wireCropEditor();loadPhotos().then(()=>{render();renderPhotoGallery()});
+render();wireCropEditor();wireQuickSearch();loadPhotos().then(()=>{render();renderPhotoGallery()});
 </script>
 </body></html>

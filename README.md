@@ -72,3 +72,12 @@ Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Ange
 - Pinch-to-Zoom im Bildausschnitt-Editor
 - Zoomen jetzt per Zwei-Finger-Geste direkt auf dem Bild
 - Slider und + / − Buttons bleiben zusätzlich erhalten
+
+
+## Neu in v8
+- Schnellsuche nach Charakter oder Skulptur
+- Live-Treffer während der Eingabe
+- Treffer öffnet automatisch den richtigen Park und springt zur passenden Zeile
+- „Nur offene“ wird für einen Suchtreffer automatisch auf „Alle“ umgeschaltet
+- Zielzeile wird kurz hervorgehoben
+- Versionsnummer `v8` direkt in der Unterzeile des App-Headers
