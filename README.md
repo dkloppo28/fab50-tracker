@@ -81,3 +81,17 @@ Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Ange
 - „Nur offene“ wird für einen Suchtreffer automatisch auf „Alle“ umgeschaltet
 - Zielzeile wird kurz hervorgehoben
 - Versionsnummer `v8` direkt in der Unterzeile des App-Headers
+
+
+## Neu in v9
+- Neue Export-Galerie mit vier Design-Presets:
+  - Classic Collection
+  - Fab 50 Souvenir
+  - Park Memories
+  - Celebration Poster
+- Park Memories nutzt größere Fotos und mehrere Seiten statt dichtem Raster
+- Celebration Poster erlaubt die freie Auswahl von bis zu 8 gespeicherten Fotos
+- Ein ausgewähltes Foto kann als großes Hauptfoto (★) festgelegt werden
+- Automatische Vorauswahl verteilt Highlights möglichst über alle vier Parks
+- Alle Designs verwenden die bestehenden manuellen Bildausschnitte und Zooms
+- Versionsanzeige im Header auf v9 aktualisiert

@@ -50,7 +50,8 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 
 /* photos */
 .photo-progress{color:#ffd978!important}.character-photos{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.char-photo{width:92px;border:1px solid var(--line);background:rgba(3,12,25,.28);border-radius:12px;padding:6px}.char-thumb{width:78px;height:64px;border-radius:9px;background:#09182b;border:1px dashed #4d617b;overflow:hidden;display:grid;place-items:center;color:#71849c;font-size:20px}.char-thumb img{width:100%;height:100%;object-fit:cover}.char-label{font-size:8.5px;font-weight:800;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.char-photo-actions{display:flex;gap:4px;margin-top:5px}.photo-mini{flex:1;border:1px solid rgba(245,203,105,.24);background:rgba(245,203,105,.07);color:var(--gold2);border-radius:999px;padding:4px 5px;font-size:7.8px;font-weight:800}.photo-mini.delete{flex:0 0 auto;color:#ffb4b4;border-color:rgba(255,180,180,.22);background:rgba(255,180,180,.06)}
-.photo-modal,.collage-modal,.crop-modal{position:fixed;inset:0;z-index:105;background:#06111f;display:none;flex-direction:column}.photo-modal.open,.collage-modal.open,.crop-modal.open{display:flex}.photo-head{padding:calc(10px + env(safe-area-inset-top)) 12px 10px;display:flex;align-items:center;gap:8px;background:#071427;border-bottom:1px solid var(--line)}.photo-head strong{flex:1}.photo-summary{padding:10px 12px;background:#0a1a30;border-bottom:1px solid var(--line);font-size:10.5px;color:var(--muted);line-height:1.45}.photo-grid{padding:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;overflow:auto}.gallery-card{min-width:0;padding:7px;border:1px solid var(--line);background:var(--panel);border-radius:13px}.gallery-pic{aspect-ratio:1/1;border-radius:9px;background:#09182b;border:1px dashed #4d617b;overflow:hidden;display:grid;place-items:center;color:#71849c;font-size:22px}.gallery-pic img{width:100%;height:100%;object-fit:cover}.gallery-name{font-size:8.5px;font-weight:800;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gallery-park{font-size:7.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gallery-card button{width:100%;margin-top:6px}.crop-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;overflow:hidden}.crop-frame{position:relative;width:min(92vw,430px);aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#09182b;border:2px solid rgba(245,203,105,.38);box-shadow:0 20px 40px rgba(0,0,0,.35);touch-action:none}.crop-frame::after{content:'';position:absolute;inset:0;border-radius:20px;box-shadow:inset 0 0 0 10px rgba(255,231,169,.10), inset 0 0 0 1px rgba(255,255,255,.08);pointer-events:none}.crop-image{position:absolute;top:0;left:0;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;touch-action:none}.crop-hint{padding:10px 16px 0;color:#9fb0c6;font-size:10px;text-align:center}.crop-zoom{display:flex;align-items:center;gap:10px;padding:12px 16px 4px}.crop-zoom input[type=range]{flex:1}.crop-zoom-label{min-width:52px;text-align:right;color:#ffe7a9;font-weight:800;font-size:11px}.crop-actions{padding:10px 12px calc(12px + env(safe-area-inset-bottom));display:flex;gap:8px;justify-content:center;background:#071427;border-top:1px solid var(--line)}
+.photo-modal,.collage-modal,.crop-modal,.export-modal,.celebration-modal{position:fixed;inset:0;z-index:105;background:#06111f;display:none;flex-direction:column}.photo-modal.open,.collage-modal.open,.crop-modal.open,.export-modal.open,.celebration-modal.open{display:flex}.photo-head{padding:calc(10px + env(safe-area-inset-top)) 12px 10px;display:flex;align-items:center;gap:8px;background:#071427;border-bottom:1px solid var(--line)}.photo-head strong{flex:1}.photo-summary{padding:10px 12px;background:#0a1a30;border-bottom:1px solid var(--line);font-size:10.5px;color:var(--muted);line-height:1.45}.photo-grid{padding:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;overflow:auto}.gallery-card{min-width:0;padding:7px;border:1px solid var(--line);background:var(--panel);border-radius:13px}.gallery-pic{aspect-ratio:1/1;border-radius:9px;background:#09182b;border:1px dashed #4d617b;overflow:hidden;display:grid;place-items:center;color:#71849c;font-size:22px}.gallery-pic img{width:100%;height:100%;object-fit:cover}.gallery-name{font-size:8.5px;font-weight:800;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gallery-park{font-size:7.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gallery-card button{width:100%;margin-top:6px}.crop-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;overflow:hidden}.crop-frame{position:relative;width:min(92vw,430px);aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:#09182b;border:2px solid rgba(245,203,105,.38);box-shadow:0 20px 40px rgba(0,0,0,.35);touch-action:none}.crop-frame::after{content:'';position:absolute;inset:0;border-radius:20px;box-shadow:inset 0 0 0 10px rgba(255,231,169,.10), inset 0 0 0 1px rgba(255,255,255,.08);pointer-events:none}.crop-image{position:absolute;top:0;left:0;user-select:none;-webkit-user-select:none;-webkit-user-drag:none;touch-action:none}.crop-hint{padding:10px 16px 0;color:#9fb0c6;font-size:10px;text-align:center}.crop-zoom{display:flex;align-items:center;gap:10px;padding:12px 16px 4px}.crop-zoom input[type=range]{flex:1}.crop-zoom-label{min-width:52px;text-align:right;color:#ffe7a9;font-weight:800;font-size:11px}.crop-actions{padding:10px 12px calc(12px + env(safe-area-inset-bottom));display:flex;gap:8px;justify-content:center;background:#071427;border-top:1px solid var(--line)}
+.export-intro{padding:12px 14px;color:var(--muted);font-size:10.5px;line-height:1.5;background:#0a1a30;border-bottom:1px solid var(--line)}.design-grid{padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:10px;overflow:auto}.design-card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(245,203,105,.06),transparent 45%),var(--panel);color:var(--text);border-radius:18px;padding:14px;text-align:left;cursor:pointer;min-height:150px;display:flex;flex-direction:column;gap:7px}.design-card:active{transform:scale(.99)}.design-icon{font-size:25px}.design-card b{font-size:14px}.design-card span{font-size:10px;color:var(--muted);line-height:1.45}.design-tag{margin-top:auto;color:var(--gold2)!important;font-weight:800}.celebration-top{padding:10px 12px;background:#0a1a30;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px;flex-wrap:wrap}.celebration-count{font-size:11px;color:var(--gold2);font-weight:850;margin-right:auto}.celebration-grid{padding:10px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;overflow:auto}.celebration-card{position:relative;min-width:0;padding:6px;border:1px solid var(--line);background:var(--panel);border-radius:13px;cursor:pointer}.celebration-card.selected{border-color:rgba(245,203,105,.65);box-shadow:inset 0 0 0 1px rgba(245,203,105,.28)}.celebration-card.hero-pick{border-color:#ffe7a9;box-shadow:0 0 0 2px rgba(245,203,105,.24)}.celebration-pic{aspect-ratio:4/3;border-radius:9px;overflow:hidden;background:#09182b}.celebration-pic img{width:100%;height:100%;object-fit:cover}.celebration-name{font-size:8.5px;font-weight:800;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.celebration-park{font-size:7.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.celebration-badge{position:absolute;right:9px;top:9px;min-width:23px;height:23px;border-radius:999px;background:var(--gold);color:#12213a;display:grid;place-items:center;font-size:9px;font-weight:950}.celebration-star{position:absolute;left:9px;top:9px;width:26px;height:26px;border:0;border-radius:999px;background:rgba(7,20,39,.88);color:#ffe7a9;font-size:13px;display:grid;place-items:center}.celebration-actions{padding:10px 12px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);display:flex;gap:8px;flex-wrap:wrap;justify-content:center;background:#071427}.celebration-empty{grid-column:1/-1;padding:30px 15px;text-align:center;color:var(--muted);font-size:11px}@media(max-width:420px){.design-grid{grid-template-columns:1fr}.celebration-grid{grid-template-columns:repeat(3,1fr)}}
 .collage-nav{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#0a1a30;border-bottom:1px solid var(--line)}.collage-page-info{flex:1;min-width:0;text-align:center}.collage-page-label{font-size:10.5px;color:#dbe6f5;font-weight:750}.collage-dots{display:flex;justify-content:center;gap:5px;margin-top:5px}.collage-dot{width:6px;height:6px;border-radius:50%;background:#41536a;transition:.18s}.collage-dot.active{width:17px;border-radius:999px;background:var(--gold)}.collage-swipe-hint{font-size:8.5px;color:#7f93ab;margin-top:4px}.collage-body{flex:1;overflow:auto;padding:12px;display:flex;align-items:flex-start;justify-content:center;touch-action:pan-y;overscroll-behavior-x:none}.collage-body img{max-width:100%;height:auto;border-radius:14px;border:1px solid rgba(245,203,105,.28);box-shadow:var(--shadow);user-select:none;-webkit-user-select:none;-webkit-user-drag:none;transition:opacity .14s ease,transform .14s ease}.collage-body.page-change img{opacity:.35;transform:scale(.985)}.collage-actions{padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;gap:8px;justify-content:center;flex-wrap:wrap;background:#071427;border-top:1px solid var(--line)}
 @media(max-width:380px){.stats{grid-template-columns:repeat(3,1fr)}.stat{padding:9px 7px}.stat b{font-size:13px}.stat span{font-size:9px}.photo-grid{grid-template-columns:repeat(3,1fr)}}
 
@@ -61,7 +62,7 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 </head>
 <body>
 <div class="app">
-<header class="topbar"><div class="brand"><div class="brand-left"><div class="appmark">50</div><div><h1>Fab 50 Navigator</h1><p class="subtitle">Checkliste · GPS · Karte · Park-Routen · v8</p></div></div></div></header>
+<header class="topbar"><div class="brand"><div class="brand-left"><div class="appmark">50</div><div><h1>Fab 50 Navigator</h1><p class="subtitle">Checkliste · GPS · Karte · Park-Routen · v9</p></div></div></div></header>
 <section class="hero"><div class="kicker">Deine Character Collection</div><div class="hero-line"><div class="big"><span id="charDone">0</span><small> / 50</small></div><div id="percent" class="pct">0 %</div></div><div class="bar"><div id="barFill"></div></div><div class="stats"><div class="stat"><b id="statueDone">0 / 36</b><span>Skulpturen gefunden</span></div><div class="stat"><b id="todayDone">0</b><span>heute gefunden</span></div><div class="stat"><b id="photoDone" class="photo-progress">0 / 50</b><span>eigene Fotos</span></div></div></section>
 <section class="navigator"><div class="nav-top"><div><div class="nav-title">📍 Fab‑50 Navigator</div><div id="gpsStatus" class="gps-status">GPS ist aus · feste Park-Route bleibt verfügbar</div></div><button id="gpsBtn" class="btn primary">GPS aktivieren</button></div><div id="nextCard" class="next-card"><div class="next-label">Nächste offene Statue</div><div id="nextName" class="next-name">GPS aktivieren oder Park-Route nutzen</div><div id="nextMeta" class="next-meta">Mit GPS zeigen wir Entfernung und nächstgelegenen offenen Fund.</div></div><div class="nav-actions"><button id="mapBtn" class="btn gold">🗺️ Karte öffnen</button><button id="refreshGps" class="btn primary hidden">↻ Standort aktualisieren</button><button id="celebrateBtn" class="btn gold hidden">🎆 Feuerwerk ansehen</button></div></section>
 <section id="parkStrip" class="park-strip"></section>
@@ -78,9 +79,9 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 <footer>GPS-Distanzen sind Luftlinie und Näherungswerte. Kartenpins basieren auf den bekannten Standort-Landmarken. Checkliste, Zeitstempel und feste Routen funktionieren auch ohne GPS.</footer>
 </div>
 <div id="mapModal" class="map-modal"><div class="map-head"><button id="closeMap" class="btn">← Zurück</button><strong>Fab 50 Karte</strong><button id="mapGps" class="btn primary">📍 GPS</button></div><div id="mapFilters" class="map-filter"></div><div id="map"></div><div class="map-note">Entfernungen = Luftlinie. Kartenkacheln benötigen eine Datenverbindung; Marker und Checkliste bleiben lokal.</div></div>
-<div id="photoModal" class="photo-modal"><div class="photo-head"><button id="closePhotos" class="btn">← Zurück</button><strong>Meine Fab‑50‑Fotos</strong><button id="collageTop" class="btn gold">Souvenir‑Set</button></div><div class="photo-summary"><b id="photoSummary">0 / 50 Fotos</b><br>Die Bilder werden verkleinert, mit ihrem Seitenverhältnis gespeichert und später nur per Zuschnitt in Vorschau und Souvenir‑Set eingepasst. Sie bleiben ausschließlich lokal auf diesem Gerät. Ein App-Update über GitHub Pages löscht sie nicht. Das JSON-Backup enthält die Fotos nicht.</div><div id="photoGrid" class="photo-grid"></div></div>
-<div id="cropModal" class="crop-modal"><div class="photo-head"><button id="closeCrop" class="btn">← Zurück</button><strong id="cropTitle">Bildausschnitt wählen</strong><button id="resetCrop" class="btn">Zurücksetzen</button></div><div class="photo-summary">Das gesamte Foto bleibt gespeichert. Verschiebe und zoome das Bild innerhalb des festen Rahmens so, wie es später auf den Souvenir‑Set‑Seiten erscheinen soll. Zoomen geht per Slider, + / − oder direkt mit der üblichen Zwei-Finger-Pinch-Geste.</div><div class="crop-hint">Format und Bildgröße des Rahmens sind fest. Du bestimmst den sichtbaren Ausschnitt selbst – per Ziehen und Pinch-to-Zoom.</div><div class="crop-zoom"><button id="zoomOut" class="btn" type="button">−</button><input id="cropZoom" type="range" min="1" max="3" step="0.01" value="1"><button id="zoomIn" class="btn" type="button">+</button><span id="cropZoomLabel" class="crop-zoom-label">100 %</span></div><div class="crop-stage"><div id="cropFrame" class="crop-frame"><img id="cropImage" class="crop-image" alt="Bildausschnitt"></div></div><div class="crop-actions"><button id="saveCrop" class="btn primary">Ausschnitt speichern</button></div></div><div id="collageModal" class="collage-modal"><div class="photo-head"><button id="closeCollage" class="btn">← Zurück</button><strong id="collageTitle">Mein Fab‑50‑Souvenir‑Set</strong><span id="collageCount" style="font-size:10px;color:var(--muted)"></span></div><div class="collage-nav"><button id="prevCollagePage" class="btn">←</button><div class="collage-page-info"><div id="collagePageLabel" class="collage-page-label">Seite 1 / 5 · Übersicht</div><div id="collagePageDots" class="collage-dots"></div><div class="collage-swipe-hint">← nach links / rechts wischen →</div></div><button id="nextCollagePage" class="btn">→</button></div><div class="collage-body"><img id="collagePreview" alt="Fab 50 Fotocollage"></div><div class="collage-actions"><button id="shareCollage" class="btn gold">↗ Aktuelle Seite teilen</button><button id="downloadCollage" class="btn primary">↓ Aktuelle Seite speichern</button><button id="downloadAllCollages" class="btn">⇩ Alle 5 Seiten</button></div></div>
-<div id="finish" class="finish"><canvas id="fireworks"></canvas><div class="finish-card"><div class="spark">✨🏆✨</div><h2>50 / 50</h2><h3>Fab 50 komplett!</h3><div class="castle"></div><p>Du hast alle 36 goldenen Skulpturen in den vier Walt Disney World Parks gefunden.</p><div id="finishStats" class="finish-stats"></div><p id="finishPhotoText">📸 0 / 50 Charakterfotos gespeichert</p><div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap"><button id="finishCollage" class="btn gold">📸 Collage erstellen</button><button id="replay" class="btn gold">🎆 Nochmal</button><button id="closeFinish" class="btn">Schließen</button></div></div></div>
+<div id="photoModal" class="photo-modal"><div class="photo-head"><button id="closePhotos" class="btn">← Zurück</button><strong>Meine Fab‑50‑Fotos</strong><button id="collageTop" class="btn gold">Erinnerungs‑Export</button></div><div class="photo-summary"><b id="photoSummary">0 / 50 Fotos</b><br>Die Bilder werden verkleinert, mit ihrem Seitenverhältnis gespeichert und später nur per Zuschnitt in Vorschau und Souvenir‑Set eingepasst. Sie bleiben ausschließlich lokal auf diesem Gerät. Ein App-Update über GitHub Pages löscht sie nicht. Das JSON-Backup enthält die Fotos nicht.</div><div id="photoGrid" class="photo-grid"></div></div>
+<div id="cropModal" class="crop-modal"><div class="photo-head"><button id="closeCrop" class="btn">← Zurück</button><strong id="cropTitle">Bildausschnitt wählen</strong><button id="resetCrop" class="btn">Zurücksetzen</button></div><div class="photo-summary">Das gesamte Foto bleibt gespeichert. Verschiebe und zoome das Bild innerhalb des festen Rahmens so, wie es später auf den Souvenir‑Set‑Seiten erscheinen soll. Zoomen geht per Slider, + / − oder direkt mit der üblichen Zwei-Finger-Pinch-Geste.</div><div class="crop-hint">Format und Bildgröße des Rahmens sind fest. Du bestimmst den sichtbaren Ausschnitt selbst – per Ziehen und Pinch-to-Zoom.</div><div class="crop-zoom"><button id="zoomOut" class="btn" type="button">−</button><input id="cropZoom" type="range" min="1" max="3" step="0.01" value="1"><button id="zoomIn" class="btn" type="button">+</button><span id="cropZoomLabel" class="crop-zoom-label">100 %</span></div><div class="crop-stage"><div id="cropFrame" class="crop-frame"><img id="cropImage" class="crop-image" alt="Bildausschnitt"></div></div><div class="crop-actions"><button id="saveCrop" class="btn primary">Ausschnitt speichern</button></div></div><div id="exportModal" class="export-modal"><div class="photo-head"><button id="closeExport" class="btn">← Zurück</button><strong>Erinnerungs‑Export</strong><span style="font-size:10px;color:var(--muted)">v9</span></div><div class="export-intro">Wähle den Stil für deine Fab‑50‑Erinnerung. Deine gespeicherten Bildausschnitte und Zooms werden automatisch für jedes Design übernommen.</div><div class="design-grid"><button class="design-card" data-export-design="classic"><span class="design-icon">▦</span><b>Classic Collection</b><span>Alle 50 Charaktere auf einer klaren, kompakten Übersichtsseite. Wenig Dekoration, maximale Übersicht.</span><span class="design-tag">1 Seite · Sammlung</span></button><button class="design-card" data-export-design="souvenir"><span class="design-icon">✨</span><b>Fab 50 Souvenir</b><span>Gold, Feuerwerk und Schloss-Silhouette. Gesamtübersicht plus vier Parkseiten als hochwertiges Souvenir-Set.</span><span class="design-tag">5 Seiten · Standard</span></button><button class="design-card" data-export-design="memories"><span class="design-icon">📖</span><b>Park Memories</b><span>Fotoalbum-Stil mit deutlich größeren Bildern. Parks werden auf mehrere Seiten verteilt, damit jedes Foto mehr Raum bekommt.</span><span class="design-tag">7 Seiten · Album</span></button><button class="design-card" data-export-design="celebration"><span class="design-icon">🎆</span><b>Celebration Poster</b><span>Ein großes Abschluss-Poster mit einem Hauptfoto und bis zu sieben selbst gewählten Highlights.</span><span class="design-tag">1 Seite · Highlights</span></button></div></div><div id="celebrationModal" class="celebration-modal"><div class="photo-head"><button id="closeCelebration" class="btn">← Zurück</button><strong>Celebration Poster · Fotos wählen</strong></div><div class="export-intro">Wähle bis zu 8 deiner gespeicherten Fotos. Das mit ★ markierte Bild wird das große Hauptfoto. Tippe eine Kachel zum Auswählen; mit ★ bestimmst du das Hauptfoto.</div><div class="celebration-top"><span id="celebrationCount" class="celebration-count">0 / 8 ausgewählt</span><button id="celebrationAuto" class="btn">Automatisch 8</button><button id="celebrationReset" class="btn">Auswahl leeren</button></div><div id="celebrationGrid" class="celebration-grid"></div><div class="celebration-actions"><button id="createCelebration" class="btn gold">🎆 Poster erstellen</button></div></div><div id="collageModal" class="collage-modal"><div class="photo-head"><button id="closeCollage" class="btn">← Zurück</button><strong id="collageTitle">Mein Fab‑50‑Souvenir‑Set</strong><span id="collageCount" style="font-size:10px;color:var(--muted)"></span></div><div class="collage-nav"><button id="prevCollagePage" class="btn">←</button><div class="collage-page-info"><div id="collagePageLabel" class="collage-page-label">Seite 1 / 5 · Übersicht</div><div id="collagePageDots" class="collage-dots"></div><div class="collage-swipe-hint">← nach links / rechts wischen →</div></div><button id="nextCollagePage" class="btn">→</button></div><div class="collage-body"><img id="collagePreview" alt="Fab 50 Fotocollage"></div><div class="collage-actions"><button id="shareCollage" class="btn gold">↗ Aktuelle Seite teilen</button><button id="downloadCollage" class="btn primary">↓ Aktuelle Seite speichern</button><button id="downloadAllCollages" class="btn">⇩ Alle 5 Seiten</button></div></div>
+<div id="finish" class="finish"><canvas id="fireworks"></canvas><div class="finish-card"><div class="spark">✨🏆✨</div><h2>50 / 50</h2><h3>Fab 50 komplett!</h3><div class="castle"></div><p>Du hast alle 36 goldenen Skulpturen in den vier Walt Disney World Parks gefunden.</p><div id="finishStats" class="finish-stats"></div><p id="finishPhotoText">📸 0 / 50 Charakterfotos gespeichert</p><div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap"><button id="finishCollage" class="btn gold">📸 Erinnerungs‑Export</button><button id="replay" class="btn gold">🎆 Nochmal</button><button id="closeFinish" class="btn">Schließen</button></div></div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
 const DATA=[{"park":"Magic Kingdom","short":"Magic Kingdom","accent":"#ef6b67","center":[28.41945,-81.5812],"routeNote":"Start am Haupteingang/Town Square. Die Route läuft als Rundkurs über Hub → Adventureland → Fantasyland → Tomorrowland → Hub.","statues":[{"name":"Lady & Tramp","chars":["Lady","Tramp"],"loc":"Town Square · nahe Flagpole und Bahnhof","hint":"Direkt nach dem Parkeingang in Town Square: Suche nahe der Flagpole und dem Bahnhof auf der Seite von Town Square Theater und Tony’s Town Square Restaurant.","lat":28.41688,"lng":-81.58136,"order":1},{"name":"Chip 'n' Dale","chars":["Chip","Dale"],"loc":"The Hub · gegenüber Mickey & Minnie","hint":"Links und vor der Partners Statue im Gartenbereich. Der Standort liegt ungefähr gegenüber von Mickey und Minnie.","lat":28.41893,"lng":-81.58171,"order":2},{"name":"Donald Duck","chars":["Donald Duck"],"loc":"The Hub · linker Gartenbereich","hint":"Mit Blick auf Cinderella Castle findest du Donald links von der Partners Statue im Garten direkt vor dem Schloss.","lat":28.41907,"lng":-81.58172,"order":3},{"name":"Daisy Duck","chars":["Daisy Duck"],"loc":"The Hub · nahe Donald","hint":"Daisy steht ebenfalls links im Hub: nahe Donald, hinter und links von der Partners Statue.","lat":28.41922,"lng":-81.58172,"order":4},{"name":"Tinker Bell","chars":["Tinker Bell"],"loc":"The Hub · äußerer Gartenring","hint":"Schau nach oben: Mit Blick auf Cinderella Castle befindet sich Tinker Bell links im äußeren Gartenring, erhöht und nahe dem Mickey-Pretzel-Wagen.","lat":28.41884,"lng":-81.58205,"order":5},{"name":"Winnie the Pooh & Piglet","chars":["Winnie the Pooh","Piglet"],"loc":"The Hub · Richtung Adventureland","hint":"Geh vom Hub Richtung Adventureland und schau links in den Gartenbereich, der ungefähr auf Höhe des Crystal Palace liegt.","lat":28.41844,"lng":-81.58224,"order":6},{"name":"Abu","chars":["Abu"],"loc":"Adventureland · Eingangsschild","hint":"Beim Betreten von Adventureland unbedingt nach oben schauen: Abu sitzt rechts oben am Adventureland-Schild.","lat":28.4184,"lng":-81.58283,"order":7},{"name":"Orange Bird","chars":["Orange Bird"],"loc":"Adventureland · nahe Skipper Canteen","hint":"Wenn du am Skipper Canteen vorbeigehst, schau nach oben: Orange Bird sitzt auf einer erhöhten Stange hinter einem Verandastuhl.","lat":28.41853,"lng":-81.58358,"order":8},{"name":"Jaq & Gus","chars":["Jaq","Gus"],"loc":"Cinderella Castle · rechter Turm","hint":"Eine der leicht zu übersehenden Skulpturen: Sie wirkt eher wie eine goldene Plakette und sitzt an der Wand im kleinen Turm vor dem Schloss auf der rechten Seite.","lat":28.41957,"lng":-81.58086,"order":9},{"name":"Pinocchio","chars":["Pinocchio"],"loc":"Fantasyland · Pinocchio Village Haus","hint":"Suche beim Pinocchio Village Haus an den Türmen bzw. dem Übergang in Richtung New Fantasyland.","lat":28.42015,"lng":-81.5815,"order":10},{"name":"Lumière & Cogsworth","chars":["Lumière","Cogsworth"],"loc":"Fantasyland · nahe Friar's Nook","hint":"An einem der Türme von New Fantasyland nahe The Friar’s Nook. Schau entlang des Übergangs zwischen den Fantasyland-Bereichen.","lat":28.42048,"lng":-81.58123,"order":11},{"name":"Cheshire Cat","chars":["Cheshire Cat"],"loc":"Fantasyland · Mad Tea Party","hint":"Bei Mad Tea Party auf der Seite Richtung Cheshire Café.","lat":28.42064,"lng":-81.57962,"order":12},{"name":"Mad Hatter","chars":["Mad Hatter"],"loc":"Fantasyland · Mad Tea Party","hint":"Direkt bei Mad Tea Party – auf der Seite der Attraktion, die am nächsten am Tomorrowland Speedway liegt.","lat":28.4206,"lng":-81.5794,"order":13},{"name":"Stitch","chars":["Stitch"],"loc":"Tomorrowland · Purple Wall","hint":"Sehr markanter Standort: Stitch sitzt direkt an der berühmten Purple Wall bei Tomorrowland Terrace.","lat":28.41886,"lng":-81.57966,"order":14},{"name":"Dumbo & Timothy Q. Mouse","chars":["Dumbo","Timothy Q. Mouse"],"loc":"The Hub · Richtung Tomorrowland","hint":"Im Garten links neben dem Weg vom Hub nach Tomorrowland. Die Skulptur liegt ungefähr gegenüber von Goofy und Pluto.","lat":28.41895,"lng":-81.58038,"order":15},{"name":"Goofy","chars":["Goofy"],"loc":"The Hub · Garten Richtung Cinderella Castle","hint":"Vom Partners-Denkmal Richtung Schloss: im rechten Gartenbereich hinter der Partners Statue, etwas weiter als Mickey und Minnie.","lat":28.41919,"lng":-81.58063,"order":16},{"name":"Pluto","chars":["Pluto"],"loc":"The Hub · direkt bei Goofy","hint":"Im rechten Gartenbereich des Hubs Richtung Cinderella Castle. Pluto steht unmittelbar bei Goofy.","lat":28.41905,"lng":-81.58067,"order":17},{"name":"Mickey Mouse","chars":["Mickey Mouse"],"loc":"The Hub · direkt bei Minnie","hint":"Mickey steht direkt neben Minnie im Bereich um die Partners Statue – auf der rechten Seite des Hubs.","lat":28.41883,"lng":-81.58089,"order":18},{"name":"Minnie Mouse","chars":["Minnie Mouse"],"loc":"The Hub · rechts vor der Partners Statue","hint":"Stell dich mit Blick auf Cinderella Castle an die Partners Statue. Minnie steht im Hub auf der rechten Seite vor Walt und Mickey.","lat":28.41872,"lng":-81.58094,"order":19}]},{"park":"EPCOT","short":"EPCOT","accent":"#7ab7ff","center":[28.37475,-81.5494],"routeNote":"Vom Haupteingang zuerst Figment, danach die Showcase-Plaza-Gruppe von links nach rechts. Bei Start am International Gateway kannst du die Reihenfolge einfach rückwärts laufen.","statues":[{"name":"Figment","chars":["Figment"],"loc":"World Celebration · Richtung World Showcase","hint":"Auf dem Weg vom zentralen EPCOT-Bereich Richtung World Showcase: links in einem kleinen Gartenbereich neben dem Hauptweg.","lat":28.37415,"lng":-81.5502,"order":1},{"name":"Miguel","chars":["Miguel"],"loc":"Showcase Plaza · linker Gartenbereich","hint":"Im großen Gartenbereich der Showcase Plaza auf der ganz linken Seite. Miguel und Dante stehen hier unmittelbar beieinander, aber auf getrennten Skulpturen.","lat":28.37177,"lng":-81.54992,"order":2},{"name":"Dante","chars":["Dante"],"loc":"Showcase Plaza · direkt bei Miguel","hint":"Direkt neben Miguel in Showcase Plaza zwischen Port of Entry und Disney Traders; Dante ist eine eigene Skulptur.","lat":28.37172,"lng":-81.54983,"order":3},{"name":"Rocket & Groot","chars":["Rocket Raccoon","Groot"],"loc":"Showcase Plaza · Gartenbereich","hint":"In der Showcase-Plaza-Gartenanlage direkt rechts von Miguel und Dante.","lat":28.37168,"lng":-81.54963,"order":4},{"name":"Hei Hei & Pua","chars":["Hei Hei","Pua"],"loc":"Showcase Plaza · rechter Gartenbereich","hint":"Auf der rechten Seite der großen Showcase-Plaza-Gartenanlage vor World Showcase.","lat":28.37161,"lng":-81.54925,"order":5},{"name":"Olaf & Bruni","chars":["Olaf","Bruni"],"loc":"Showcase Plaza · rechter Gartenbereich","hint":"Ebenfalls rechts in der Showcase Plaza – direkt neben Hei Hei und Pua.","lat":28.37159,"lng":-81.54908,"order":6}]},{"park":"Disney's Hollywood Studios","short":"Hollywood Studios","accent":"#c49bff","center":[28.3562,-81.5603],"routeNote":"Vom Haupteingang zuerst Brown-Derby/Chinese-Theatre-Cluster, anschließend zum Echo-Lake-Cluster. So vermeidest du unnötiges Hin-und-her.","statues":[{"name":"Joe Gardner","chars":["Joe Gardner"],"loc":"direkt beim Hollywood Brown Derby","hint":"Rechts von Sebastian und Flounder, unmittelbar beim Hollywood Brown Derby.","lat":28.3561,"lng":-81.56108,"order":1},{"name":"Sebastian & Flounder","chars":["Sebastian","Flounder"],"loc":"nahe Hollywood Brown Derby","hint":"Im Garten links vom Hollywood Brown Derby und nahe dem Zugang zum Animation Courtyard.","lat":28.35622,"lng":-81.56118,"order":2},{"name":"Bo Peep & Woody","chars":["Bo Peep","Woody"],"loc":"nahe Mickey & Minnie's Runaway Railway","hint":"Im Gartenbereich auf der rechten Seite von Mickey & Minnie’s Runaway Railway, wenn du vor der Attraktion stehst.","lat":28.35635,"lng":-81.56012,"order":3},{"name":"Edna Mode","chars":["Edna Mode"],"loc":"Echo Lake · nahe Dockside Diner","hint":"Im Gartenbereich bei Echo Lake und Dockside Diner. Edna steht links von Frozone.","lat":28.35668,"lng":-81.55912,"order":4},{"name":"Frozone","chars":["Frozone"],"loc":"Echo Lake · nahe Dockside Diner","hint":"Im Gartenbereich bei Echo Lake, Dockside Diner und nahe Frozen Sing-Along.","lat":28.35672,"lng":-81.55896,"order":5},{"name":"R2-D2","chars":["R2-D2"],"loc":"Echo Lake","hint":"Auf der gegenüberliegenden Seite des Gartenbereichs von Frozone und Edna Mode, weiterhin direkt bei Echo Lake.","lat":28.35655,"lng":-81.55865,"order":6},{"name":"BB-8","chars":["BB-8"],"loc":"Echo Lake · direkt bei R2-D2","hint":"Direkt neben R2-D2 im gleichen Gartenbereich – auf der Seite, die Echo Lake am nächsten liegt.","lat":28.35649,"lng":-81.55857,"order":7}]},{"park":"Disney's Animal Kingdom","short":"Animal Kingdom","accent":"#84d29a","center":[28.35765,-81.59025],"routeNote":"Alle vier Skulpturen liegen rund um den Tree of Life. Die Reihenfolge folgt einem kurzen Bogen über Discovery Island.","statues":[{"name":"Bambi & Thumper","chars":["Bambi","Thumper"],"loc":"Discovery Island · vor Tree of Life","hint":"Auf dem Hauptweg zum Tree of Life: links in einem Gartenbereich direkt bei Island Mercantile.","lat":28.35735,"lng":-81.59072,"order":1},{"name":"Nemo & Dory","chars":["Nemo","Dory"],"loc":"Discovery Island · nahe Tree of Life","hint":"Etwas versteckter nahe dem Tree of Life: gegenüber von Simba sowie Timon & Pumbaa auf der anderen Seite des Bereichs.","lat":28.3576,"lng":-81.59062,"order":2},{"name":"Simba","chars":["Simba"],"loc":"Discovery Island · rechts vom Tree of Life","hint":"Im Garten rechts vom Tree of Life, nahe Discovery Trading Company.","lat":28.35748,"lng":-81.58982,"order":3},{"name":"Timon & Pumbaa","chars":["Timon","Pumbaa"],"loc":"Discovery Island · direkt bei Simba","hint":"Direkt neben Simba im selben Gartenbereich rechts vom Tree of Life.","lat":28.35755,"lng":-81.58972,"order":4}]}];
@@ -89,7 +90,7 @@ let state=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
 let filter='all', userPos=null, watchId=null, map=null, mapMarkers=[], userMarker=null, mapPark='ALL';
 
 const PHOTO_DB='fab50-photo-db-v1',PHOTO_STORE='photos';
-let photoDB=null,photoCache=new Map(),photoUrls=new Map(),cropCache=new Map(),pendingPhotoChar=null,cropState=null,collageBlob=null,collageUrl=null,collagePages=[],collagePageIndex=0;
+let photoDB=null,photoCache=new Map(),photoUrls=new Map(),cropCache=new Map(),pendingPhotoChar=null,cropState=null,collageBlob=null,collageUrl=null,collagePages=[],collagePageIndex=0,currentExportMode='souvenir',celebrationSelected=[],celebrationHero=null;
 function allCharacters(){return DATA.flatMap(g=>g.statues.flatMap(s=>s.chars.map(name=>({name,park:g.park,statue:s.name,order:s.order}))));}
 function openPhotoDB(){return new Promise((resolve,reject)=>{let req=indexedDB.open(PHOTO_DB,1);req.onupgradeneeded=()=>{let db=req.result;if(!db.objectStoreNames.contains(PHOTO_STORE))db.createObjectStore(PHOTO_STORE,{keyPath:'name'})};req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error)})}
 function clamp(v,min,max){return Math.max(min,Math.min(max,v))}
@@ -118,307 +119,132 @@ function applyCropLayout(){if(!cropState)return;let frame=document.getElementByI
 function wireCropEditor(){let frame=document.getElementById('cropFrame');if(!frame||frame.dataset.wired==='1')return;frame.dataset.wired='1';let startX=0,startY=0,startCropX=.5,startCropY=.5,dragging=false,pinchStartDist=0,pinchStartZoom=1,pinchActive=false;const touchDist=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY);const move=e=>{if(!dragging||!cropState||pinchActive)return;let dx=e.clientX-startX,dy=e.clientY-startY;if(cropState.overflowX>0)cropState.x=clamp(startCropX-dx/cropState.overflowX,0,1);else cropState.x=.5;if(cropState.overflowY>0)cropState.y=clamp(startCropY-dy/cropState.overflowY,0,1);else cropState.y=.5;applyCropLayout()};const end=e=>{dragging=false;frame.releasePointerCapture?.(e.pointerId)};frame.addEventListener('pointerdown',e=>{if(!cropState||pinchActive)return;dragging=true;startX=e.clientX;startY=e.clientY;startCropX=cropState.x;startCropY=cropState.y;frame.setPointerCapture?.(e.pointerId);e.preventDefault()});frame.addEventListener('pointermove',move);frame.addEventListener('pointerup',end);frame.addEventListener('pointercancel',end);frame.addEventListener('touchstart',e=>{if(!cropState)return;if(e.touches.length===2){pinchActive=true;dragging=false;pinchStartDist=touchDist(e.touches);pinchStartZoom=cropState.z;e.preventDefault()}},{passive:false});frame.addEventListener('touchmove',e=>{if(!cropState)return;if(e.touches.length===2&&pinchActive){let dist=touchDist(e.touches);if(pinchStartDist>0){cropState.z=clamp(pinchStartZoom*(dist/pinchStartDist),1,3);applyCropLayout()}e.preventDefault()}},{passive:false});frame.addEventListener('touchend',e=>{if(e.touches.length<2){pinchActive=false;pinchStartDist=0;}},{passive:false});frame.addEventListener('touchcancel',()=>{pinchActive=false;pinchStartDist=0;},{passive:false});document.getElementById('cropZoom')?.addEventListener('input',e=>{if(!cropState)return;cropState.z=clamp(Number(e.target.value)||1,1,3);applyCropLayout()});document.getElementById('zoomIn')?.addEventListener('click',()=>{if(!cropState)return;cropState.z=clamp(cropState.z+.1,1,3);applyCropLayout()});document.getElementById('zoomOut')?.addEventListener('click',()=>{if(!cropState)return;cropState.z=clamp(cropState.z-.1,1,3);applyCropLayout()});window.addEventListener('resize',()=>applyCropLayout())}
 function drawImageCover(ctx,img,dx,dy,dw,dh,crop){let sw=img.width,sh=img.height,srcRatio=sw/sh,dstRatio=dw/dh,sx=0,sy=0,sWidth=sw,sHeight=sh,focus=normalizeCrop(crop),zoom=focus.z||1;if(srcRatio>dstRatio){sHeight=sh/zoom;sWidth=sHeight*dstRatio;sx=(sw-sWidth)*focus.x}else{sWidth=sw/zoom;sHeight=sWidth/dstRatio;sy=(sh-sHeight)*focus.y}ctx.drawImage(img,sx,sy,sWidth,sHeight,dx,dy,dw,dh)}
 function roundRect(ctx,x,y,w,h,r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}
-async function createCollage(){
-  const pages = pageDefinitions();
-  collagePages = [];
-  if(window._collageObjectUrls) window._collageObjectUrls.forEach(u => URL.revokeObjectURL(u));
-  window._collageObjectUrls = [];
+function openExportChooser(){
+  document.getElementById('exportModal').classList.add('open');
+}
+function closeExportChooser(){document.getElementById('exportModal').classList.remove('open')}
+function completionDateText(){
+  const vals=Object.values(state).map(v=>v?.foundAt).filter(Boolean).sort((a,b)=>new Date(a)-new Date(b));
+  if(!vals.length)return new Intl.DateTimeFormat('de-DE',{dateStyle:'medium'}).format(new Date());
+  return new Intl.DateTimeFormat('de-DE',{dateStyle:'medium'}).format(new Date(vals[vals.length-1]));
+}
+function firstFoundText(){
+  const vals=Object.values(state).map(v=>v?.foundAt).filter(Boolean).sort((a,b)=>new Date(a)-new Date(b));
+  if(!vals.length)return '–';
+  return new Intl.DateTimeFormat('de-DE',{dateStyle:'medium'}).format(new Date(vals[0]));
+}
+async function generateExport(mode){
+  currentExportMode=mode;
+  closeExportChooser();
+  if(mode==='celebration'){openCelebrationSelector();return}
+  const pages=exportPageDefinitions(mode);
+  await renderExportPages(pages,mode);
+}
+async function renderExportPages(pages,mode){
+  collagePages=[];
+  if(window._collageObjectUrls)window._collageObjectUrls.forEach(u=>URL.revokeObjectURL(u));
+  window._collageObjectUrls=[];
+  document.getElementById('collageTitle').textContent=exportTitle(mode);
   for(const page of pages){
-    const rendered = await renderSouvenirPage(page);
-    collagePages.push({...page, ...rendered});
+    let rendered;
+    if(page.type==='classic')rendered=await renderClassicPage(page);
+    else if(page.type==='memory-cover')rendered=await renderMemoryCover(page);
+    else if(page.type==='memory')rendered=await renderParkMemoryPage(page);
+    else rendered=await renderSouvenirPage(page);
+    collagePages.push({...page,...rendered});
     window._collageObjectUrls.push(rendered.url);
   }
   showCollagePage(0);
   document.getElementById('collageModal').classList.add('open');
   wireCollageSwipe();
+  updateDownloadAllLabel();
 }
-function pageDefinitions(){
-  const chars = allCharacters();
-  return [
-    {
-      key:'overview',
-      title:'Fab 50 Completed',
-      subtitle:'Gesamtübersicht · 50 Charaktere · 36 Skulpturen · 4 Parks',
-      parkLabel:'Übersicht',
-      accent:'#f5cb69',
-      chars:chars,
-      cols:5,
-      rows:10,
-      footer:'Our Walt Disney World Character Collection',
-      fileName:`fab50-overview-${new Date().toISOString().slice(0,10)}.jpg`
-    },
-    ...DATA.map(g => {
-      const pageChars = chars.filter(c => c.park === g.park);
-      let cols = pageChars.length >= 20 ? 5 : 3;
-      let rows = Math.ceil(pageChars.length / cols);
-      const parkAccents = {'Magic Kingdom':'#ef6b67','EPCOT':'#7ab7ff','Hollywood Studios':'#c49bff','Animal Kingdom':'#84d29a'};
-      return {
-        key:g.short,
-        title:g.short,
-        subtitle:`${pageChars.length} Charaktere · ${g.statues.length} Skulpturen`,
-        parkLabel:g.short,
-        accent:parkAccents[g.short] || '#f5cb69',
-        chars:pageChars,
-        cols:cols,
-        rows:rows,
-        footer:`${g.park} · Fab 50 Character Collection`,
-        fileName:`fab50-${g.short.toLowerCase().replace(/\s+/g,'-')}-${new Date().toISOString().slice(0,10)}.jpg`
-      };
-    })
-  ];
-}
-function drawFirework(ctx, x, y, r, color){
-  ctx.save();
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 3;
-  for(let i=0;i<16;i++){
-    const a = Math.PI * 2 * i / 16;
-    ctx.beginPath();
-    ctx.moveTo(x + Math.cos(a) * (r * 0.34), y + Math.sin(a) * (r * 0.34));
-    ctx.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r);
-    ctx.stroke();
+function exportTitle(mode){return mode==='classic'?'Classic Collection':mode==='memories'?'Park Memories':mode==='celebration'?'Celebration Poster':'Fab 50 Souvenir'}
+function updateDownloadAllLabel(){let b=document.getElementById('downloadAllCollages');if(b)b.textContent=collagePages.length>1?`⇩ Alle ${collagePages.length} Seiten`:'↓ Bild speichern'}
+function exportPageDefinitions(mode){
+  const chars=allCharacters();
+  const date=new Date().toISOString().slice(0,10);
+  if(mode==='classic')return [{type:'classic',key:'classic',title:'Fab 50 Collection',parkLabel:'Classic',chars,cols:5,rows:10,fileName:`fab50-classic-${date}.jpg`}];
+  if(mode==='memories'){
+    const pages=[{type:'memory-cover',key:'memory-cover',title:'Park Memories',parkLabel:'Cover',fileName:`fab50-park-memories-cover-${date}.jpg`}];
+    DATA.forEach(g=>{
+      const pageChars=chars.filter(c=>c.park===g.park),chunks=[];
+      for(let i=0;i<pageChars.length;i+=12)chunks.push(pageChars.slice(i,i+12));
+      chunks.forEach((chunk,i)=>pages.push({type:'memory',key:`memory-${g.short}-${i}`,title:g.short,park:g.park,parkLabel:`${g.short} ${i+1}/${chunks.length}`,accent:g.accent||'#f5cb69',chars:chunk,cols:3,rows:Math.ceil(chunk.length/3),part:i+1,parts:chunks.length,fileName:`fab50-memories-${g.short.toLowerCase().replace(/\s+/g,'-')}-${i+1}-${date}.jpg`}));
+    });
+    return pages;
   }
-  ctx.restore();
+  return souvenirPageDefinitions();
 }
-function drawCastle(ctx, x, y, scale=1){
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.scale(scale, scale);
-  ctx.fillStyle = 'rgba(255,231,169,0.16)';
-  ctx.beginPath();
-  ctx.moveTo(-230,120);
-  ctx.lineTo(-205,120); ctx.lineTo(-205,40); ctx.lineTo(-172,40); ctx.lineTo(-172,120);
-  ctx.lineTo(-145,120); ctx.lineTo(-145,-10); ctx.lineTo(-120,-10); ctx.lineTo(-120,-60);
-  ctx.lineTo(-80,-10); ctx.lineTo(-55,-10); ctx.lineTo(-55,120); ctx.lineTo(-20,120);
-  ctx.lineTo(-20,10); ctx.lineTo(5,10); ctx.lineTo(5,-90); ctx.lineTo(40,10);
-  ctx.lineTo(70,10); ctx.lineTo(70,120); ctx.lineTo(105,120); ctx.lineTo(105,-10);
-  ctx.lineTo(130,-10); ctx.lineTo(170,-60); ctx.lineTo(170,-10); ctx.lineTo(195,-10);
-  ctx.lineTo(195,120); ctx.lineTo(228,120); ctx.lineTo(228,45); ctx.lineTo(260,45);
-  ctx.lineTo(260,120); ctx.lineTo(288,120); ctx.lineTo(288,150); ctx.lineTo(-230,150);
-  ctx.closePath();
-  ctx.fill();
-  ctx.restore();
+function souvenirPageDefinitions(){
+  const chars=allCharacters(),date=new Date().toISOString().slice(0,10);
+  return [{type:'souvenir',key:'overview',title:'Fab 50 Completed',subtitle:'Gesamtübersicht · 50 Charaktere · 36 Skulpturen · 4 Parks',parkLabel:'Übersicht',accent:'#f5cb69',chars,cols:5,rows:10,footer:'Our Walt Disney World Character Collection',fileName:`fab50-souvenir-overview-${date}.jpg`},...DATA.map(g=>{const pageChars=chars.filter(c=>c.park===g.park);let cols=pageChars.length>=20?5:3;return {type:'souvenir',key:g.short,title:g.short,subtitle:`${pageChars.length} Charaktere · ${g.statues.length} Skulpturen`,parkLabel:g.short,accent:g.accent||'#f5cb69',chars:pageChars,cols,rows:Math.ceil(pageChars.length/cols),footer:`${g.park} · Fab 50 Character Collection`,fileName:`fab50-souvenir-${g.short.toLowerCase().replace(/\s+/g,'-')}-${date}.jpg`}})];
 }
-function drawRoundRect(ctx,x,y,w,h,r,fill,stroke=null){
-  ctx.beginPath();
-  ctx.roundRect(x,y,w,h,r);
-  ctx.fillStyle = fill;
-  ctx.fill();
-  if(stroke){
-    ctx.strokeStyle = stroke;
-    ctx.lineWidth = 2;
-    ctx.stroke();
-  }
+function drawFirework(ctx,x,y,r,color){ctx.save();ctx.strokeStyle=color;ctx.lineWidth=3;for(let i=0;i<16;i++){let a=Math.PI*2*i/16;ctx.beginPath();ctx.moveTo(x+Math.cos(a)*(r*.34),y+Math.sin(a)*(r*.34));ctx.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r);ctx.stroke()}ctx.restore()}
+function drawCastle(ctx,x,y,scale=1){ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);ctx.fillStyle='rgba(255,231,169,0.16)';ctx.beginPath();ctx.moveTo(-230,120);ctx.lineTo(-205,120);ctx.lineTo(-205,40);ctx.lineTo(-172,40);ctx.lineTo(-172,120);ctx.lineTo(-145,120);ctx.lineTo(-145,-10);ctx.lineTo(-120,-10);ctx.lineTo(-120,-60);ctx.lineTo(-80,-10);ctx.lineTo(-55,-10);ctx.lineTo(-55,120);ctx.lineTo(-20,120);ctx.lineTo(-20,10);ctx.lineTo(5,10);ctx.lineTo(5,-90);ctx.lineTo(40,10);ctx.lineTo(70,10);ctx.lineTo(70,120);ctx.lineTo(105,120);ctx.lineTo(105,-10);ctx.lineTo(130,-10);ctx.lineTo(170,-60);ctx.lineTo(170,-10);ctx.lineTo(195,-10);ctx.lineTo(195,120);ctx.lineTo(228,120);ctx.lineTo(228,45);ctx.lineTo(260,45);ctx.lineTo(260,120);ctx.lineTo(288,120);ctx.lineTo(288,150);ctx.lineTo(-230,150);ctx.closePath();ctx.fill();ctx.restore()}
+function drawRoundRect(ctx,x,y,w,h,r,fill,stroke=null){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=2;ctx.stroke()}}
+async function drawCharacterPhoto(ctx,ch,x,y,w,h,r=12){
+  const blob=photoCache.get(ch.name);
+  drawRoundRect(ctx,x,y,w,h,r,'#09182b');
+  if(blob){try{const img=await imageFromBlob(blob);ctx.save();ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.clip();drawImageCover(ctx,img,x,y,w,h,getCrop(ch.name));ctx.restore();return true}catch(e){}}
+  ctx.fillStyle='#71849c';ctx.font=`700 ${Math.max(36,Math.floor(Math.min(w,h)*.2))}px system-ui,sans-serif`;ctx.fillText('📷',x+w/2,y+h/2+12);return false
+}
+async function renderClassicPage(page){
+  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';ctx.fillStyle='#081629';ctx.fillRect(0,0,W,H);ctx.fillStyle='#f5cb69';ctx.font='900 74px system-ui,sans-serif';ctx.fillText('FAB 50 COLLECTION',W/2,105);ctx.fillStyle='#e9eef6';ctx.font='700 30px system-ui,sans-serif';ctx.fillText('50 Charaktere · 36 Skulpturen · 4 Parks',W/2,158);ctx.fillStyle='#8fa3b9';ctx.font='23px system-ui,sans-serif';ctx.fillText(`Persönliche Sammlung · ${photoCache.size}/50 Fotos`,W/2,198);
+  const cols=5,rows=10,side=58,gapX=12,gapY=12,top=230,bottom=62,cellW=(W-side*2-gapX*(cols-1))/cols,cellH=(H-top-bottom-gapY*(rows-1))/rows,frameW=cellW-22,frameH=Math.min(frameW*.75,cellH-43);
+  for(let i=0;i<page.chars.length;i++){const ch=page.chars[i],col=i%cols,row=Math.floor(i/cols),x=side+col*(cellW+gapX),y=top+row*(cellH+gapY);drawRoundRect(ctx,x,y,cellW,cellH,14,'#102542','rgba(255,255,255,.07)');await drawCharacterPhoto(ctx,ch,x+11,y+10,frameW,frameH,9);ctx.fillStyle='#f8fafc';ctx.font='700 18px system-ui,sans-serif';let label=ch.name;while(ctx.measureText(label).width>cellW-18&&label.length>6)label=label.slice(0,-1);if(label!==ch.name)label+='…';ctx.fillText(label,x+cellW/2,y+cellH-14)}
+  ctx.fillStyle='#71849c';ctx.font='20px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Classic Collection',W/2,H-24);return canvasResult(c)
+}
+async function renderMemoryCover(page){
+  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#173052');g.addColorStop(1,'#071427');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);drawFirework(ctx,280,240,90,'rgba(245,203,105,.48)');drawFirework(ctx,1720,260,80,'rgba(122,183,255,.42)');drawCastle(ctx,W/2,480,1.5);ctx.fillStyle='#ffe7a9';ctx.font='900 105px system-ui,sans-serif';ctx.fillText('PARK MEMORIES',W/2,170);ctx.fillStyle='#f8fafc';ctx.font='700 39px system-ui,sans-serif';ctx.fillText('Our Fab 50 Photo Album',W/2,235);ctx.fillStyle='#9fb0c6';ctx.font='28px system-ui,sans-serif';ctx.fillText(`Erster Fund: ${firstFoundText()} · Letzter Fund: ${completionDateText()}`,W/2,290);
+  const cards=[['Magic Kingdom','#ef6b67'],['EPCOT','#7ab7ff'],['Hollywood Studios','#c49bff'],['Animal Kingdom','#84d29a']];let y=820;for(const [name,accent] of cards){const group=DATA.find(g=>g.short===name),chars=allCharacters().filter(c=>c.park===group?.park),photos=chars.filter(c=>photoCache.has(c.name)).length;drawRoundRect(ctx,250,y,1500,310,32,'rgba(16,37,66,.88)','rgba(255,255,255,.08)');drawRoundRect(ctx,285,y+34,12,242,6,accent);ctx.textAlign='left';ctx.fillStyle='#f8fafc';ctx.font='800 48px system-ui,sans-serif';ctx.fillText(name,345,y+104);ctx.fillStyle='#9fb0c6';ctx.font='27px system-ui,sans-serif';ctx.fillText(`${chars.length} Charaktere · ${group?.statues.length||0} Skulpturen · ${photos} Fotos`,345,y+158);ctx.fillStyle='#f5cb69';ctx.font='700 24px system-ui,sans-serif';ctx.fillText('Fab 50 Character Collection',345,y+210);ctx.textAlign='center';y+=355}
+  ctx.fillStyle='#9fb0c6';ctx.font='24px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Park Memories',W/2,H-55);return canvasResult(c)
+}
+async function renderParkMemoryPage(page){
+  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';ctx.fillStyle='#081629';ctx.fillRect(0,0,W,H);const glow=ctx.createRadialGradient(W/2,50,20,W/2,50,780);glow.addColorStop(0,'rgba(255,255,255,.07)');glow.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,900);ctx.fillStyle=page.accent;drawRoundRect(ctx,100,76,W-200,9,4,page.accent);ctx.fillStyle='#ffe7a9';ctx.font='900 78px system-ui,sans-serif';ctx.fillText(page.title.toUpperCase(),W/2,160);ctx.fillStyle='#f8fafc';ctx.font='700 30px system-ui,sans-serif';ctx.fillText(`Park Memories · Seite ${page.part} von ${page.parts}`,W/2,210);ctx.fillStyle='#9fb0c6';ctx.font='23px system-ui,sans-serif';ctx.fillText(`${page.chars.length} Fotos auf dieser Seite`,W/2,250);
+  const cols=3,side=100,gapX=30,gapY=38,top=330,bottom=110,cellW=(W-side*2-gapX*(cols-1))/cols,frameW=cellW-28,frameH=frameW*.75,cellH=frameH+86,rows=Math.ceil(page.chars.length/cols),gridH=rows*cellH+(rows-1)*gapY,gridTop=top+Math.max(0,(H-top-bottom-gridH)/2);
+  for(let i=0;i<page.chars.length;i++){const ch=page.chars[i],row=Math.floor(i/cols),rowStart=row*cols,rowCount=Math.min(cols,page.chars.length-rowStart),col=i-rowStart,rowWidth=rowCount*cellW+(rowCount-1)*gapX,x=(W-rowWidth)/2+col*(cellW+gapX),y=gridTop+row*(cellH+gapY);drawRoundRect(ctx,x,y,cellW,cellH,22,'rgba(16,37,66,.9)','rgba(245,203,105,.16)');await drawCharacterPhoto(ctx,ch,x+14,y+14,frameW,frameH,14);ctx.fillStyle='#f8fafc';ctx.font='800 25px system-ui,sans-serif';ctx.fillText(ch.name,x+cellW/2,y+frameH+49);ctx.fillStyle='#8195ad';ctx.font='18px system-ui,sans-serif';if(ch.statue&&ch.statue!==ch.name){let s=ch.statue.length>34?ch.statue.slice(0,32)+'…':ch.statue;ctx.fillText(s,x+cellW/2,y+frameH+76)}}
+  ctx.fillStyle='#73869c';ctx.font='21px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Park Memories',W/2,H-34);return canvasResult(c)
 }
 async function renderSouvenirPage(page){
-  const W = 2000, H = 3000;
-  const c = document.createElement('canvas');
-  c.width = W; c.height = H;
-  const ctx = c.getContext('2d');
-  ctx.textAlign = 'center';
-
-  ctx.fillStyle = '#071427';
-  ctx.fillRect(0,0,W,H);
-
-  const grad = ctx.createLinearGradient(0,0,0,H);
-  grad.addColorStop(0, '#152f55');
-  grad.addColorStop(.42, '#09182b');
-  grad.addColorStop(1, '#071427');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0,0,W,H);
-
-  const glow = ctx.createRadialGradient(W/2, 120, 50, W/2, 120, 920);
-  glow.addColorStop(0, 'rgba(245,203,105,.18)');
-  glow.addColorStop(1, 'rgba(245,203,105,0)');
-  ctx.fillStyle = glow;
-  ctx.fillRect(0,0,W,980);
-
-  drawCastle(ctx, W/2, 365, 1.05);
-  drawFirework(ctx, 240, 210, 76, 'rgba(245,203,105,.54)');
-  drawFirework(ctx, W-240, 220, 76, 'rgba(122,183,255,.52)');
-  drawFirework(ctx, 420, 150, 42, 'rgba(255,255,255,.35)');
-  drawFirework(ctx, W-420, 160, 42, 'rgba(255,255,255,.35)');
-
-  drawRoundRect(ctx, 80, 70, W-160, 260, 44, 'rgba(7,20,39,.55)', 'rgba(245,203,105,.28)');
-  ctx.fillStyle = '#ffe7a9';
-  ctx.font = '900 84px system-ui,sans-serif';
-  ctx.fillText(page.title.toUpperCase(), W/2, 150);
-  ctx.fillStyle = '#f8fafc';
-  ctx.font = '700 34px system-ui,sans-serif';
-  ctx.fillText(page.subtitle, W/2, 205);
-  ctx.fillStyle = '#9fb0c6';
-  ctx.font = '27px system-ui,sans-serif';
-  const ds = new Intl.DateTimeFormat('de-DE', {dateStyle:'medium'}).format(new Date());
-  ctx.fillText(`Erstellt am ${ds} · ${photoCache.size}/50 eigene Fotos`, W/2, 248);
-
-  const chips = ['50 Charaktere', '36 Skulpturen', '4 Parks', page.parkLabel];
-  ctx.font = '700 24px system-ui,sans-serif';
-  let totalW = chips.reduce((sum, t) => sum + ctx.measureText(t).width + 64, 0) + (chips.length - 1) * 16;
-  let chipX = (W - totalW) / 2;
-  for(const chip of chips){
-    const chipW = ctx.measureText(chip).width + 64;
-    drawRoundRect(ctx, chipX, 282, chipW, 44, 22, 'rgba(16,37,66,.82)', 'rgba(255,255,255,.12)');
-    ctx.fillStyle = '#f5cb69';
-    ctx.fillText(chip, chipX + chipW/2, 312);
-    chipX += chipW + 16;
-  }
-
-  const isOverview = page.key === 'overview';
-  const top = isOverview ? 390 : 460;
-  const bottom = 140;
-  const side = isOverview ? 90 : 120;
-  const gapX = isOverview ? 22 : 34;
-  const gapY = isOverview ? 24 : 38;
-  const cellW = Math.floor((W - side*2 - gapX*(page.cols-1)) / page.cols);
-  const availableH = H - top - bottom;
-  let cellH, frameW, frameH, gridTop;
-  if(isOverview){
-    cellH = Math.floor((availableH - gapY*(page.rows-1)) / page.rows);
-    frameW = Math.max(180, Math.min(cellW - 36, cellH - 88));
-    frameH = frameW;
-    gridTop = top;
-  }else{
-    frameW = cellW - 42;
-    frameH = Math.round(frameW * 0.75);
-    cellH = frameH + 112;
-    const gridH = page.rows * cellH + (page.rows-1) * gapY;
-    gridTop = top + Math.max(0, Math.floor((availableH-gridH)/2));
-  }
-
-  for(let i=0; i<page.chars.length; i++){
-    const ch = page.chars[i];
-    const row = Math.floor(i / page.cols);
-    const rowStart = row * page.cols;
-    const rowCount = Math.min(page.cols, page.chars.length - rowStart);
-    const colInRow = i - rowStart;
-    const rowWidth = rowCount * cellW + (rowCount-1) * gapX;
-    const rowOffset = isOverview ? 0 : Math.max(0, Math.floor((W - rowWidth)/2) - side);
-    const x = side + rowOffset + colInRow * (cellW + gapX);
-    const y = gridTop + row * (cellH + gapY);
-    const frameX = x + Math.round((cellW-frameW)/2);
-
-    if(isOverview){
-      drawRoundRect(ctx, x, y, cellW, cellH, 26, 'rgba(16,37,66,.96)', 'rgba(245,203,105,.20)');
-      drawRoundRect(ctx, frameX-8, y+10, frameW+16, frameH+16, 18, '#c8a646', 'rgba(255,231,169,.55)');
-    }else{
-      drawRoundRect(ctx, x, y, cellW, cellH, 22, 'rgba(8,24,43,.92)', 'rgba(245,203,105,.24)');
-      ctx.fillStyle = page.accent;
-      drawRoundRect(ctx, x+18, y+14, cellW-36, 7, 4, page.accent);
-      drawRoundRect(ctx, frameX-6, y+32, frameW+12, frameH+12, 16, 'rgba(255,231,169,.90)', 'rgba(245,203,105,.55)');
-    }
-    drawRoundRect(ctx, frameX, y+(isOverview?18:38), frameW, frameH, 12, '#09182b');
-
-    const blob = photoCache.get(ch.name);
-    if(blob){
-      try{
-        const img = await imageFromBlob(blob);
-        const sz = Math.min(img.width, img.height);
-        const sx = (img.width - sz) / 2;
-        const sy = (img.height - sz) / 2;
-        ctx.save();
-        ctx.beginPath();
-        const photoX = frameX + 4;
-        const photoY = y + (isOverview ? 22 : 42);
-        const photoW = frameW - 8;
-        const photoHH = frameH - 8;
-        ctx.roundRect(photoX, photoY, photoW, photoHH, 10);
-        ctx.clip();
-        drawImageCover(ctx, img, photoX, photoY, photoW, photoHH, getCrop(ch.name));
-        ctx.restore();
-      }catch(e){}
-    }else{
-      ctx.fillStyle = 'rgba(113,132,156,.20)';
-      ctx.font = `700 ${Math.max(42, Math.floor(frameW * .20))}px system-ui,sans-serif`;
-      ctx.fillText('📷', x + cellW/2, y + (isOverview ? 24 : 40) + frameH/2);
-      ctx.fillStyle = '#9fb0c6';
-      ctx.font = '700 18px system-ui,sans-serif';
-      ctx.fillText('Platz für dein Foto', x + cellW/2, y + (isOverview ? 18 : 38) + frameH - 18);
-    }
-
-    ctx.fillStyle = '#f8fafc';
-    let fs = Math.max(18, Math.min(28, Math.floor(cellW / 9)));
-    ctx.font = `700 ${fs}px system-ui,sans-serif`;
-    let label = ch.name;
-    while(ctx.measureText(label).width > cellW - 26 && fs > 16){
-      fs -= 1;
-      ctx.font = `700 ${fs}px system-ui,sans-serif`;
-    }
-    if(ctx.measureText(label).width > cellW - 26){
-      while(label.length > 4 && ctx.measureText(label + '…').width > cellW - 26){
-        label = label.slice(0, -1);
-      }
-      label += '…';
-    }
-    const labelY = y + (isOverview ? Math.min(cellH - 18, frameH + 62) : frameH + 78);
-    ctx.fillText(label, x + cellW/2, labelY);
-    if(!isOverview){
-      ctx.fillStyle = '#8fa3b9';
-      ctx.font = '600 18px system-ui,sans-serif';
-      let statueLabel = ch.statue || '';
-      if(statueLabel && statueLabel !== ch.name){
-        if(statueLabel.length > 34) statueLabel = statueLabel.slice(0,32) + '…';
-        ctx.fillText(statueLabel, x + cellW/2, labelY + 31);
-      }
-    }
-  }
-
-  ctx.fillStyle = '#9fb0c6';
-  ctx.font = '28px system-ui,sans-serif';
-  ctx.fillText(page.footer, W/2, H - 54);
-  ctx.font = '22px system-ui,sans-serif';
-  ctx.fillText('Fab 50 Navigator · persönliches Souvenir‑Set', W/2, H - 20);
-
-  const blob = await new Promise(resolve => c.toBlob(resolve, 'image/jpeg', .92));
-  const url = URL.createObjectURL(blob);
-  return {blob, url};
+  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';ctx.fillStyle='#071427';ctx.fillRect(0,0,W,H);const grad=ctx.createLinearGradient(0,0,0,H);grad.addColorStop(0,'#152f55');grad.addColorStop(.42,'#09182b');grad.addColorStop(1,'#071427');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);const glow=ctx.createRadialGradient(W/2,120,50,W/2,120,920);glow.addColorStop(0,'rgba(245,203,105,.18)');glow.addColorStop(1,'rgba(245,203,105,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,980);drawCastle(ctx,W/2,365,1.05);drawFirework(ctx,240,210,76,'rgba(245,203,105,.54)');drawFirework(ctx,W-240,220,76,'rgba(122,183,255,.52)');drawRoundRect(ctx,80,70,W-160,260,44,'rgba(7,20,39,.55)','rgba(245,203,105,.28)');ctx.fillStyle='#ffe7a9';ctx.font='900 84px system-ui,sans-serif';ctx.fillText(page.title.toUpperCase(),W/2,150);ctx.fillStyle='#f8fafc';ctx.font='700 34px system-ui,sans-serif';ctx.fillText(page.subtitle,W/2,205);ctx.fillStyle='#9fb0c6';ctx.font='27px system-ui,sans-serif';ctx.fillText(`Completed ${completionDateText()} · ${photoCache.size}/50 eigene Fotos`,W/2,248);const chips=['50 Charaktere','36 Skulpturen','4 Parks',page.parkLabel];ctx.font='700 24px system-ui,sans-serif';let totalW=chips.reduce((sum,t)=>sum+ctx.measureText(t).width+64,0)+(chips.length-1)*16,chipX=(W-totalW)/2;for(const chip of chips){let chipW=ctx.measureText(chip).width+64;drawRoundRect(ctx,chipX,282,chipW,44,22,'rgba(16,37,66,.82)','rgba(255,255,255,.12)');ctx.fillStyle='#f5cb69';ctx.fillText(chip,chipX+chipW/2,312);chipX+=chipW+16}
+  const isOverview=page.key==='overview',top=isOverview?390:460,bottom=140,side=isOverview?90:120,gapX=isOverview?22:34,gapY=isOverview?24:38,cellW=Math.floor((W-side*2-gapX*(page.cols-1))/page.cols),availableH=H-top-bottom;let cellH,frameW,frameH,gridTop;if(isOverview){cellH=Math.floor((availableH-gapY*(page.rows-1))/page.rows);frameW=Math.max(180,Math.min(cellW-36,cellH-88));frameH=frameW;gridTop=top}else{frameW=cellW-42;frameH=Math.round(frameW*.75);cellH=frameH+112;const gridH=page.rows*cellH+(page.rows-1)*gapY;gridTop=top+Math.max(0,Math.floor((availableH-gridH)/2))}
+  for(let i=0;i<page.chars.length;i++){const ch=page.chars[i],row=Math.floor(i/page.cols),rowStart=row*page.cols,rowCount=Math.min(page.cols,page.chars.length-rowStart),col=i-rowStart,rowWidth=rowCount*cellW+(rowCount-1)*gapX,rowOffset=isOverview?0:Math.max(0,Math.floor((W-rowWidth)/2)-side),x=side+rowOffset+col*(cellW+gapX),y=gridTop+row*(cellH+gapY),frameX=x+Math.round((cellW-frameW)/2);if(isOverview){drawRoundRect(ctx,x,y,cellW,cellH,26,'rgba(16,37,66,.96)','rgba(245,203,105,.20)');drawRoundRect(ctx,frameX-8,y+10,frameW+16,frameH+16,18,'#c8a646','rgba(255,231,169,.55)')}else{drawRoundRect(ctx,x,y,cellW,cellH,22,'rgba(8,24,43,.92)','rgba(245,203,105,.24)');drawRoundRect(ctx,x+18,y+14,cellW-36,7,4,page.accent);drawRoundRect(ctx,frameX-6,y+32,frameW+12,frameH+12,16,'rgba(255,231,169,.90)','rgba(245,203,105,.55)')}const photoY=y+(isOverview?18:38);await drawCharacterPhoto(ctx,ch,frameX,photoY,frameW,frameH,12);ctx.fillStyle='#f8fafc';let fs=Math.max(18,Math.min(28,Math.floor(cellW/9)));ctx.font=`700 ${fs}px system-ui,sans-serif`;let label=ch.name;while(ctx.measureText(label).width>cellW-26&&fs>16){fs--;ctx.font=`700 ${fs}px system-ui,sans-serif`}ctx.fillText(label,x+cellW/2,y+(isOverview?Math.min(cellH-18,frameH+62):frameH+78));if(!isOverview&&ch.statue!==ch.name){ctx.fillStyle='#8fa3b9';ctx.font='600 18px system-ui,sans-serif';let s=ch.statue.length>34?ch.statue.slice(0,32)+'…':ch.statue;ctx.fillText(s,x+cellW/2,y+frameH+109)}}ctx.fillStyle='#9fb0c6';ctx.font='28px system-ui,sans-serif';ctx.fillText(page.footer,W/2,H-54);ctx.font='22px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Fab 50 Souvenir',W/2,H-20);return canvasResult(c)
 }
-function showCollagePage(index){
-  if(!collagePages.length) return;
-  collagePageIndex = (index + collagePages.length) % collagePages.length;
-  const page = collagePages[collagePageIndex];
-  collageBlob = page.blob;
-  collageUrl = page.url;
-  const body = document.querySelector('.collage-body');
-  const img = document.getElementById('collagePreview');
-  body?.classList.add('page-change');
-  setTimeout(()=>{img.src = page.url; body?.classList.remove('page-change');},80);
-  document.getElementById('collageCount').textContent = `${photoCache.size}/50 Fotos`;
-  document.getElementById('collagePageLabel').textContent = `Seite ${collagePageIndex + 1} / ${collagePages.length} · ${page.parkLabel}`;
-  const dots = document.getElementById('collagePageDots');
-  if(dots) dots.innerHTML = collagePages.map((_,i)=>`<span class="collage-dot ${i===collagePageIndex?'active':''}"></span>`).join('');
+function canvasResult(c){return new Promise(resolve=>c.toBlob(blob=>{const url=URL.createObjectURL(blob);resolve({blob,url})},'image/jpeg',.92))}
+function autoCelebrationSelection(){
+  const available=allCharacters().filter(c=>photoCache.has(c.name)),groups=DATA.map(g=>available.filter(c=>c.park===g.park)),out=[];let round=0;while(out.length<8&&groups.some(g=>g[round])){for(const g of groups){if(g[round]&&out.length<8)out.push(g[round].name)}round++}for(const c of available){if(out.length>=8)break;if(!out.includes(c.name))out.push(c.name)}return out
 }
-function downloadCollage(){
-  if(!collagePages.length) return;
-  const page = collagePages[collagePageIndex];
-  const a = document.createElement('a');
-  a.href = page.url;
-  a.download = page.fileName;
-  a.click();
+function openCelebrationSelector(){
+  celebrationSelected=celebrationSelected.filter(n=>photoCache.has(n)).slice(0,8);
+  if(!celebrationSelected.length)celebrationSelected=autoCelebrationSelection();
+  if(!celebrationHero||!celebrationSelected.includes(celebrationHero))celebrationHero=celebrationSelected[0]||null;
+  renderCelebrationSelector();document.getElementById('celebrationModal').classList.add('open')
 }
-async function downloadAllCollages(){
-  if(!collagePages.length) return;
-  for(const page of collagePages){
-    const a = document.createElement('a');
-    a.href = page.url;
-    a.download = page.fileName;
-    a.click();
-    await new Promise(r => setTimeout(r, 220));
-  }
+function renderCelebrationSelector(){
+  const grid=document.getElementById('celebrationGrid'),available=allCharacters().filter(c=>photoCache.has(c.name)),count=document.getElementById('celebrationCount');count.textContent=`${celebrationSelected.length} / 8 ausgewählt`;
+  if(!available.length){grid.innerHTML='<div class="celebration-empty">Noch keine Fotos gespeichert. Füge zunächst einige Charakterfotos hinzu.</div>';return}
+  grid.innerHTML=available.map(c=>{let selected=celebrationSelected.includes(c.name),idx=celebrationSelected.indexOf(c.name)+1,hero=celebrationHero===c.name,u=photoUrls.get(c.name);return `<div class="celebration-card ${selected?'selected':''} ${hero?'hero-pick':''}" data-celebration-char="${escAttr(c.name)}"><div class="celebration-pic"><img src="${u}" alt="${escAttr(c.name)}" ${imgPositionStyle(c.name)}></div><div class="celebration-name">${c.name}</div><div class="celebration-park">${c.park}</div>${selected?`<span class="celebration-badge">${idx}</span><button class="celebration-star" type="button" title="Als Hauptfoto">${hero?'★':'☆'}</button>`:''}</div>`}).join('');
+  grid.querySelectorAll('[data-celebration-char]').forEach(card=>{const name=card.dataset.celebrationChar;card.onclick=e=>{if(e.target.closest('.celebration-star'))return;if(celebrationSelected.includes(name)){celebrationSelected=celebrationSelected.filter(n=>n!==name);if(celebrationHero===name)celebrationHero=celebrationSelected[0]||null}else{if(celebrationSelected.length>=8){alert('Für das Celebration Poster kannst du maximal 8 Fotos auswählen.');return}celebrationSelected.push(name);if(!celebrationHero)celebrationHero=name}renderCelebrationSelector()};card.querySelector('.celebration-star')?.addEventListener('click',e=>{e.stopPropagation();celebrationHero=name;renderCelebrationSelector()})});
 }
-async function shareCollage(){
-  if(!collagePages.length) return;
-  const page = collagePages[collagePageIndex];
-  const file = new File([page.blob], page.fileName, {type:'image/jpeg'});
-  if(navigator.canShare?.({files:[file]})){
-    try{
-      await navigator.share({title:`Fab 50 Souvenir · ${page.parkLabel}`, files:[file]});
-      return;
-    }catch(e){
-      if(e.name === 'AbortError') return;
-    }
-  }
-  downloadCollage();
+async function createCelebrationPoster(){
+  if(!celebrationSelected.length){alert('Wähle mindestens ein Foto aus.');return}
+  document.getElementById('celebrationModal').classList.remove('open');
+  currentExportMode='celebration';
+  const page={type:'celebration',key:'celebration',parkLabel:'Poster',title:'Celebration Poster',fileName:`fab50-celebration-${new Date().toISOString().slice(0,10)}.jpg`};
+  const rendered=await renderCelebrationPoster(page);collagePages=[{...page,...rendered}];window._collageObjectUrls?.forEach(u=>URL.revokeObjectURL(u));window._collageObjectUrls=[rendered.url];document.getElementById('collageTitle').textContent='Celebration Poster';showCollagePage(0);document.getElementById('collageModal').classList.add('open');updateDownloadAllLabel()
 }
+async function renderCelebrationPoster(page){
+  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';const grad=ctx.createLinearGradient(0,0,0,H);grad.addColorStop(0,'#16345d');grad.addColorStop(.46,'#08182b');grad.addColorStop(1,'#050d18');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);drawFirework(ctx,260,220,105,'rgba(245,203,105,.65)');drawFirework(ctx,1740,220,105,'rgba(122,183,255,.52)');drawFirework(ctx,420,330,54,'rgba(255,255,255,.28)');drawFirework(ctx,1580,350,54,'rgba(255,255,255,.28)');drawCastle(ctx,W/2,480,1.4);ctx.fillStyle='#ffe7a9';ctx.font='900 112px system-ui,sans-serif';ctx.fillText('50 / 50',W/2,160);ctx.fillStyle='#f8fafc';ctx.font='900 68px system-ui,sans-serif';ctx.fillText('FAB 50 COMPLETED',W/2,235);ctx.fillStyle='#cbd8e8';ctx.font='700 31px system-ui,sans-serif';ctx.fillText('Our Walt Disney World Character Collection',W/2,288);ctx.fillStyle='#9fb0c6';ctx.font='25px system-ui,sans-serif';ctx.fillText(`50 Characters · 36 Sculptures · 4 Parks · ${completionDateText()}`,W/2,332);
+  const chosen=celebrationSelected.map(n=>allCharacters().find(c=>c.name===n)).filter(Boolean),hero=chosen.find(c=>c.name===celebrationHero)||chosen[0];if(hero){drawRoundRect(ctx,145,510,1710,965,34,'rgba(16,37,66,.72)','rgba(245,203,105,.4)');drawRoundRect(ctx,165,530,1670,925,26,'#c8a646','rgba(255,231,169,.7)');await drawCharacterPhoto(ctx,hero,177,542,1646,901,22);drawRoundRect(ctx,700,1390,600,58,29,'rgba(7,20,39,.82)');ctx.fillStyle='#ffe7a9';ctx.font='800 28px system-ui,sans-serif';ctx.fillText(`★ ${hero.name}`,W/2,1428)}
+  const rest=chosen.filter(c=>c!==hero).slice(0,7),cols=4,frameW=390,frameH=293,gapX=34,gapY=56,top=1585,cellW=frameW,cellH=frameH+58;for(let i=0;i<rest.length;i++){let row=Math.floor(i/cols),rowStart=row*cols,rowCount=Math.min(cols,rest.length-rowStart),col=i-rowStart,rowWidth=rowCount*cellW+(rowCount-1)*gapX,x=(W-rowWidth)/2+col*(cellW+gapX),y=top+row*(cellH+gapY),ch=rest[i];drawRoundRect(ctx,x-8,y-8,frameW+16,frameH+16,18,'rgba(255,231,169,.88)','rgba(245,203,105,.45)');await drawCharacterPhoto(ctx,ch,x,y,frameW,frameH,13);ctx.fillStyle='#f8fafc';ctx.font='700 22px system-ui,sans-serif';ctx.fillText(ch.name,x+frameW/2,y+frameH+40)}
+  ctx.fillStyle='#f5cb69';ctx.font='800 27px system-ui,sans-serif';ctx.fillText(`${chosen.length} persönliche Highlights`,W/2,H-135);ctx.fillStyle='#8396ac';ctx.font='22px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Celebration Poster',W/2,H-88);return canvasResult(c)
+}
+function showCollagePage(index){if(!collagePages.length)return;collagePageIndex=(index+collagePages.length)%collagePages.length;const page=collagePages[collagePageIndex];collageBlob=page.blob;collageUrl=page.url;const body=document.querySelector('.collage-body'),img=document.getElementById('collagePreview');body?.classList.add('page-change');setTimeout(()=>{img.src=page.url;body?.classList.remove('page-change')},80);document.getElementById('collageCount').textContent=`${photoCache.size}/50 Fotos`;document.getElementById('collagePageLabel').textContent=`Seite ${collagePageIndex+1} / ${collagePages.length} · ${page.parkLabel}`;const dots=document.getElementById('collagePageDots');if(dots)dots.innerHTML=collagePages.map((_,i)=>`<span class="collage-dot ${i===collagePageIndex?'active':''}"></span>`).join('')}
+function downloadCollage(){if(!collagePages.length)return;const page=collagePages[collagePageIndex],a=document.createElement('a');a.href=page.url;a.download=page.fileName;a.click()}
+async function downloadAllCollages(){if(!collagePages.length)return;if(collagePages.length===1){downloadCollage();return}for(const page of collagePages){let a=document.createElement('a');a.href=page.url;a.download=page.fileName;a.click();await new Promise(r=>setTimeout(r,220))}}
+async function shareCollage(){if(!collagePages.length)return;const page=collagePages[collagePageIndex],file=new File([page.blob],page.fileName,{type:'image/jpeg'});if(navigator.canShare?.({files:[file]})){try{await navigator.share({title:`Fab 50 · ${exportTitle(currentExportMode)}`,files:[file]});return}catch(e){if(e.name==='AbortError')return}}downloadCollage()}
+
 
 let previousCharDone=null;
 const allStatues=()=>DATA.flatMap(g=>g.statues.map(s=>({...s,park:g.park,short:g.short,accent:g.accent})));
@@ -521,7 +347,7 @@ function nextRouteStatue(g){return [...g.statues].sort((a,b)=>a.order-b.order).f
 function render(){let chars=charDoneCount(),fs=foundStatues();document.getElementById('charDone').textContent=chars;document.getElementById('statueDone').textContent=`${fs.length} / 36`;document.getElementById('percent').textContent=`${Math.round(chars/50*100)} %`;document.getElementById('barFill').style.width=`${chars/50*100}%`;document.getElementById('todayDone').textContent=fs.filter(s=>sameDay(state[idFor(s.park,s.name)].foundAt,new Date())).length;document.getElementById('celebrateBtn').classList.toggle('hidden',chars!==50);updatePhotoCounts();renderParkStrip();let root=document.getElementById('parks');root.innerHTML='';DATA.forEach((g,idx)=>{let ps=parkStats(g),next=nextRouteStatue(g),visible=[...g.statues].sort((a,b)=>a.order-b.order).filter(s=>filter==='all'||!state[idFor(g.park,s.name)]?.foundAt);if(filter==='open'&&!visible.length)return;let sec=document.createElement('section');sec.className='park';sec.id='park-'+idx;sec.style.setProperty('--accent',g.accent);sec.innerHTML=`<button class="park-head"><span class="park-dot"></span><span><span class="park-name">${g.park}</span><span class="park-sub">${g.statues.length} Skulpturen · ${ps.totalChars} Charaktere</span></span><span class="park-score">${ps.chars}/${ps.totalChars}<br><small>${ps.statues}/${g.statues.length} Skulpturen</small></span></button><div class="route-panel"><p>${g.routeNote}</p><button class="btn gold route-jump">▶ Nächsten Routenstopp${next?': '+next.name:''}</button> <button class="btn map-park">🗺️ Parkkarte</button></div><div class="statues"></div>`;sec.querySelector('.park-head').onclick=()=>sec.classList.toggle('collapsed');sec.querySelector('.route-jump').onclick=()=>{let el=sec.querySelector('[data-next="true"]');el?.scrollIntoView({behavior:'smooth',block:'center'})};sec.querySelector('.map-park').onclick=()=>openMap(g.park);let list=sec.querySelector('.statues');visible.forEach(s=>{let id=idFor(g.park,s.name),fa=state[id]?.foundAt,row=document.createElement('div');row.className='statue'+(!fa&&next?.name===s.name?' next-stop':'');row.dataset.id=id;if(!fa&&next?.name===s.name)row.dataset.next='true';row.innerHTML=`<input class="check" type="checkbox" ${fa?'checked':''}><div><div class="sname"><span class="route-num">${s.order}</span>${s.name}</div><span class="location">${s.loc}</span><span class="distance" data-distance>📍 ${userPos?fmtDist(hav(userPos,s))+' Luftlinie':'GPS aus'}</span><div class="row-actions"><button class="mini where-btn">📍 Wo ist sie?</button><button class="mini map-one">🗺️ Karte</button></div><div class="where">${s.hint}</div>${charPhotoCards(s.chars)}${fa?`<span class="found">✓ Gefunden am ${formatTime(fa)}</span>`:''}</div><span class="weight">+${s.chars.length}</span>`;row.querySelector('.check').onchange=e=>{let before=charDoneCount();if(e.target.checked)state[id]={foundAt:new Date().toISOString()};else delete state[id];save();render();updateNavigator();updateMap();let after=charDoneCount();if(before<50&&after===50)showFinish(true)};row.querySelector('.where-btn').onclick=()=>row.querySelector('.where').classList.toggle('open');row.querySelector('.map-one').onclick=()=>openMap(g.park,s.name);wirePhotoCards(row);list.appendChild(row)});root.appendChild(sec)});updateNavigator();if(previousCharDone===null)previousCharDone=chars;previousCharDone=chars}
 function renderDistances(){document.querySelectorAll('.statue').forEach(row=>{let s=allStatues().find(x=>idFor(x.park,x.name)===row.dataset.id),el=row.querySelector('[data-distance]');if(s&&el)el.textContent='📍 '+(userPos?fmtDist(hav(userPos,s))+' Luftlinie':'GPS aus')});updateNavigator()}
 function setFilter(v){filter=v;document.getElementById('showAll').classList.toggle('active',v==='all');document.getElementById('showOpen').classList.toggle('active',v==='open');render()}
-function backup(){let blob=new Blob([JSON.stringify({app:'Fab 50 Navigator',version:8,exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`fab50-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function backup(){let blob=new Blob([JSON.stringify({app:'Fab 50 Navigator',version:9,exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`fab50-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function restore(file){let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.state)throw 0;state=d.state;save();render();alert('Backup wiederhergestellt.')}catch{alert('Ungültiges Fab-50-Backup.')}};r.readAsText(file)}
 /* map */
 function initMap(){if(map)return true;if(typeof L==='undefined')return false;map=L.map('map',{zoomControl:true}).setView([28.377,-81.568],12);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:20,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);return true}
@@ -545,7 +371,7 @@ function wireCollageSwipe(){
 }
 /* wire */
 document.getElementById('gpsBtn').onclick=startGps;document.getElementById('refreshGps').onclick=getLocationOnce;document.getElementById('mapBtn').onclick=()=>openMap('ALL');document.getElementById('mapGps').onclick=()=>{getLocationOnce();setTimeout(()=>{if(userPos&&map)map.setView([userPos.lat,userPos.lng],18)},600)};document.getElementById('closeMap').onclick=()=>document.getElementById('mapModal').classList.remove('open');document.getElementById('showAll').onclick=()=>setFilter('all');document.getElementById('showOpen').onclick=()=>setFilter('open');document.getElementById('backupBtn').onclick=backup;document.getElementById('restoreBtn').onclick=()=>document.getElementById('restoreFile').click();document.getElementById('restoreFile').onchange=e=>e.target.files[0]&&restore(e.target.files[0]);document.getElementById('resetBtn').onclick=()=>{if(confirm('Alle Funde und Zeitstempel löschen? Deine gespeicherten Fotos bleiben erhalten.')){state={};save();render();updateMap()}};document.getElementById('celebrateBtn').onclick=()=>showFinish(true);document.getElementById('replay').onclick=startFireworks;document.getElementById('closeFinish').onclick=()=>{document.getElementById('finish').classList.remove('open');cancelAnimationFrame(animId)};
-document.getElementById('photosBtn').onclick=openPhotos;document.getElementById('closePhotos').onclick=()=>document.getElementById('photoModal').classList.remove('open');document.getElementById('collageTop').onclick=createCollage;document.getElementById('finishCollage').onclick=()=>{document.getElementById('finish').classList.remove('open');cancelAnimationFrame(animId);createCollage()};document.getElementById('closeCollage').onclick=()=>document.getElementById('collageModal').classList.remove('open');document.getElementById('prevCollagePage').onclick=()=>showCollagePage(collagePageIndex-1);document.getElementById('nextCollagePage').onclick=()=>showCollagePage(collagePageIndex+1);document.getElementById('downloadCollage').onclick=downloadCollage;document.getElementById('downloadAllCollages').onclick=downloadAllCollages;document.getElementById('shareCollage').onclick=shareCollage;document.getElementById('closeCrop').onclick=closeCropEditor;document.getElementById('resetCrop').onclick=()=>{if(!cropState)return;cropState.x=.5;cropState.y=.5;cropState.z=1;applyCropLayout()};document.getElementById('saveCrop').onclick=async()=>{if(!cropState)return;await saveCrop(cropState.name,{x:cropState.x,y:cropState.y,z:cropState.z});closeCropEditor()};document.getElementById('photoFile').onchange=async e=>{let file=e.target.files?.[0],name=pendingPhotoChar;if(!file||!name)return;try{let blob=await compressPhoto(file);if(!blob)throw new Error('Komprimierung fehlgeschlagen');await savePhoto(name,blob);openCropEditor(name)}catch(err){console.error(err);alert('Das Foto konnte nicht gespeichert werden.')}finally{pendingPhotoChar=null;e.target.value=''}};
+document.getElementById('photosBtn').onclick=openPhotos;document.getElementById('closePhotos').onclick=()=>document.getElementById('photoModal').classList.remove('open');document.getElementById('collageTop').onclick=openExportChooser;document.getElementById('finishCollage').onclick=()=>{document.getElementById('finish').classList.remove('open');cancelAnimationFrame(animId);openExportChooser()};document.getElementById('closeExport').onclick=closeExportChooser;document.querySelectorAll('[data-export-design]').forEach(b=>b.onclick=()=>generateExport(b.dataset.exportDesign));document.getElementById('closeCelebration').onclick=()=>document.getElementById('celebrationModal').classList.remove('open');document.getElementById('celebrationAuto').onclick=()=>{celebrationSelected=autoCelebrationSelection();celebrationHero=celebrationSelected[0]||null;renderCelebrationSelector()};document.getElementById('celebrationReset').onclick=()=>{celebrationSelected=[];celebrationHero=null;renderCelebrationSelector()};document.getElementById('createCelebration').onclick=createCelebrationPoster;document.getElementById('closeCollage').onclick=()=>document.getElementById('collageModal').classList.remove('open');document.getElementById('prevCollagePage').onclick=()=>showCollagePage(collagePageIndex-1);document.getElementById('nextCollagePage').onclick=()=>showCollagePage(collagePageIndex+1);document.getElementById('downloadCollage').onclick=downloadCollage;document.getElementById('downloadAllCollages').onclick=downloadAllCollages;document.getElementById('shareCollage').onclick=shareCollage;document.getElementById('closeCrop').onclick=closeCropEditor;document.getElementById('resetCrop').onclick=()=>{if(!cropState)return;cropState.x=.5;cropState.y=.5;cropState.z=1;applyCropLayout()};document.getElementById('saveCrop').onclick=async()=>{if(!cropState)return;await saveCrop(cropState.name,{x:cropState.x,y:cropState.y,z:cropState.z});closeCropEditor()};document.getElementById('photoFile').onchange=async e=>{let file=e.target.files?.[0],name=pendingPhotoChar;if(!file||!name)return;try{let blob=await compressPhoto(file);if(!blob)throw new Error('Komprimierung fehlgeschlagen');await savePhoto(name,blob);openCropEditor(name)}catch(err){console.error(err);alert('Das Foto konnte nicht gespeichert werden.')}finally{pendingPhotoChar=null;e.target.value=''}};
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
 render();wireCropEditor();wireQuickSearch();loadPhotos().then(()=>{render();renderPhotoGallery()});
 </script>
