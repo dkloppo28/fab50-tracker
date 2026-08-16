@@ -95,3 +95,11 @@ Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Ange
 - Automatische Vorauswahl verteilt Highlights möglichst über alle vier Parks
 - Alle Designs verwenden die bestehenden manuellen Bildausschnitte und Zooms
 - Versionsanzeige im Header auf v9 aktualisiert
+
+
+## Neu in v9.1
+- Classic Collection bleibt bewusst streng und rasterbasiert.
+- Fab 50 Souvenir: Gesamtübersicht bleibt sauber; Parkseiten erhalten leicht gedrehte Fotoprints.
+- Park Memories: echter Scrapbook-/Fotoalbum-Look mit größeren Prints, Schatten, Tape-Details und kontrollierten Überlappungen.
+- Celebration Poster: stärkster Fototisch-Look mit schrägen, teilweise überlappenden Highlight-Fotos rund um das Hauptfoto.
+- Alle Designs verwenden weiterhin deine gespeicherten manuellen Crops und Zoomwerte.

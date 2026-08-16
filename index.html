@@ -62,7 +62,7 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 </head>
 <body>
 <div class="app">
-<header class="topbar"><div class="brand"><div class="brand-left"><div class="appmark">50</div><div><h1>Fab 50 Navigator</h1><p class="subtitle">Checkliste · GPS · Karte · Park-Routen · v9</p></div></div></div></header>
+<header class="topbar"><div class="brand"><div class="brand-left"><div class="appmark">50</div><div><h1>Fab 50 Navigator</h1><p class="subtitle">Checkliste · GPS · Karte · Park-Routen · v9.1</p></div></div></div></header>
 <section class="hero"><div class="kicker">Deine Character Collection</div><div class="hero-line"><div class="big"><span id="charDone">0</span><small> / 50</small></div><div id="percent" class="pct">0 %</div></div><div class="bar"><div id="barFill"></div></div><div class="stats"><div class="stat"><b id="statueDone">0 / 36</b><span>Skulpturen gefunden</span></div><div class="stat"><b id="todayDone">0</b><span>heute gefunden</span></div><div class="stat"><b id="photoDone" class="photo-progress">0 / 50</b><span>eigene Fotos</span></div></div></section>
 <section class="navigator"><div class="nav-top"><div><div class="nav-title">📍 Fab‑50 Navigator</div><div id="gpsStatus" class="gps-status">GPS ist aus · feste Park-Route bleibt verfügbar</div></div><button id="gpsBtn" class="btn primary">GPS aktivieren</button></div><div id="nextCard" class="next-card"><div class="next-label">Nächste offene Statue</div><div id="nextName" class="next-name">GPS aktivieren oder Park-Route nutzen</div><div id="nextMeta" class="next-meta">Mit GPS zeigen wir Entfernung und nächstgelegenen offenen Fund.</div></div><div class="nav-actions"><button id="mapBtn" class="btn gold">🗺️ Karte öffnen</button><button id="refreshGps" class="btn primary hidden">↻ Standort aktualisieren</button><button id="celebrateBtn" class="btn gold hidden">🎆 Feuerwerk ansehen</button></div></section>
 <section id="parkStrip" class="park-strip"></section>
@@ -80,7 +80,7 @@ button,input{font:inherit} button{touch-action:manipulation} .app{max-width:760p
 </div>
 <div id="mapModal" class="map-modal"><div class="map-head"><button id="closeMap" class="btn">← Zurück</button><strong>Fab 50 Karte</strong><button id="mapGps" class="btn primary">📍 GPS</button></div><div id="mapFilters" class="map-filter"></div><div id="map"></div><div class="map-note">Entfernungen = Luftlinie. Kartenkacheln benötigen eine Datenverbindung; Marker und Checkliste bleiben lokal.</div></div>
 <div id="photoModal" class="photo-modal"><div class="photo-head"><button id="closePhotos" class="btn">← Zurück</button><strong>Meine Fab‑50‑Fotos</strong><button id="collageTop" class="btn gold">Erinnerungs‑Export</button></div><div class="photo-summary"><b id="photoSummary">0 / 50 Fotos</b><br>Die Bilder werden verkleinert, mit ihrem Seitenverhältnis gespeichert und später nur per Zuschnitt in Vorschau und Souvenir‑Set eingepasst. Sie bleiben ausschließlich lokal auf diesem Gerät. Ein App-Update über GitHub Pages löscht sie nicht. Das JSON-Backup enthält die Fotos nicht.</div><div id="photoGrid" class="photo-grid"></div></div>
-<div id="cropModal" class="crop-modal"><div class="photo-head"><button id="closeCrop" class="btn">← Zurück</button><strong id="cropTitle">Bildausschnitt wählen</strong><button id="resetCrop" class="btn">Zurücksetzen</button></div><div class="photo-summary">Das gesamte Foto bleibt gespeichert. Verschiebe und zoome das Bild innerhalb des festen Rahmens so, wie es später auf den Souvenir‑Set‑Seiten erscheinen soll. Zoomen geht per Slider, + / − oder direkt mit der üblichen Zwei-Finger-Pinch-Geste.</div><div class="crop-hint">Format und Bildgröße des Rahmens sind fest. Du bestimmst den sichtbaren Ausschnitt selbst – per Ziehen und Pinch-to-Zoom.</div><div class="crop-zoom"><button id="zoomOut" class="btn" type="button">−</button><input id="cropZoom" type="range" min="1" max="3" step="0.01" value="1"><button id="zoomIn" class="btn" type="button">+</button><span id="cropZoomLabel" class="crop-zoom-label">100 %</span></div><div class="crop-stage"><div id="cropFrame" class="crop-frame"><img id="cropImage" class="crop-image" alt="Bildausschnitt"></div></div><div class="crop-actions"><button id="saveCrop" class="btn primary">Ausschnitt speichern</button></div></div><div id="exportModal" class="export-modal"><div class="photo-head"><button id="closeExport" class="btn">← Zurück</button><strong>Erinnerungs‑Export</strong><span style="font-size:10px;color:var(--muted)">v9</span></div><div class="export-intro">Wähle den Stil für deine Fab‑50‑Erinnerung. Deine gespeicherten Bildausschnitte und Zooms werden automatisch für jedes Design übernommen.</div><div class="design-grid"><button class="design-card" data-export-design="classic"><span class="design-icon">▦</span><b>Classic Collection</b><span>Alle 50 Charaktere auf einer klaren, kompakten Übersichtsseite. Wenig Dekoration, maximale Übersicht.</span><span class="design-tag">1 Seite · Sammlung</span></button><button class="design-card" data-export-design="souvenir"><span class="design-icon">✨</span><b>Fab 50 Souvenir</b><span>Gold, Feuerwerk und Schloss-Silhouette. Gesamtübersicht plus vier Parkseiten als hochwertiges Souvenir-Set.</span><span class="design-tag">5 Seiten · Standard</span></button><button class="design-card" data-export-design="memories"><span class="design-icon">📖</span><b>Park Memories</b><span>Fotoalbum-Stil mit deutlich größeren Bildern. Parks werden auf mehrere Seiten verteilt, damit jedes Foto mehr Raum bekommt.</span><span class="design-tag">7 Seiten · Album</span></button><button class="design-card" data-export-design="celebration"><span class="design-icon">🎆</span><b>Celebration Poster</b><span>Ein großes Abschluss-Poster mit einem Hauptfoto und bis zu sieben selbst gewählten Highlights.</span><span class="design-tag">1 Seite · Highlights</span></button></div></div><div id="celebrationModal" class="celebration-modal"><div class="photo-head"><button id="closeCelebration" class="btn">← Zurück</button><strong>Celebration Poster · Fotos wählen</strong></div><div class="export-intro">Wähle bis zu 8 deiner gespeicherten Fotos. Das mit ★ markierte Bild wird das große Hauptfoto. Tippe eine Kachel zum Auswählen; mit ★ bestimmst du das Hauptfoto.</div><div class="celebration-top"><span id="celebrationCount" class="celebration-count">0 / 8 ausgewählt</span><button id="celebrationAuto" class="btn">Automatisch 8</button><button id="celebrationReset" class="btn">Auswahl leeren</button></div><div id="celebrationGrid" class="celebration-grid"></div><div class="celebration-actions"><button id="createCelebration" class="btn gold">🎆 Poster erstellen</button></div></div><div id="collageModal" class="collage-modal"><div class="photo-head"><button id="closeCollage" class="btn">← Zurück</button><strong id="collageTitle">Mein Fab‑50‑Souvenir‑Set</strong><span id="collageCount" style="font-size:10px;color:var(--muted)"></span></div><div class="collage-nav"><button id="prevCollagePage" class="btn">←</button><div class="collage-page-info"><div id="collagePageLabel" class="collage-page-label">Seite 1 / 5 · Übersicht</div><div id="collagePageDots" class="collage-dots"></div><div class="collage-swipe-hint">← nach links / rechts wischen →</div></div><button id="nextCollagePage" class="btn">→</button></div><div class="collage-body"><img id="collagePreview" alt="Fab 50 Fotocollage"></div><div class="collage-actions"><button id="shareCollage" class="btn gold">↗ Aktuelle Seite teilen</button><button id="downloadCollage" class="btn primary">↓ Aktuelle Seite speichern</button><button id="downloadAllCollages" class="btn">⇩ Alle 5 Seiten</button></div></div>
+<div id="cropModal" class="crop-modal"><div class="photo-head"><button id="closeCrop" class="btn">← Zurück</button><strong id="cropTitle">Bildausschnitt wählen</strong><button id="resetCrop" class="btn">Zurücksetzen</button></div><div class="photo-summary">Das gesamte Foto bleibt gespeichert. Verschiebe und zoome das Bild innerhalb des festen Rahmens so, wie es später auf den Souvenir‑Set‑Seiten erscheinen soll. Zoomen geht per Slider, + / − oder direkt mit der üblichen Zwei-Finger-Pinch-Geste.</div><div class="crop-hint">Format und Bildgröße des Rahmens sind fest. Du bestimmst den sichtbaren Ausschnitt selbst – per Ziehen und Pinch-to-Zoom.</div><div class="crop-zoom"><button id="zoomOut" class="btn" type="button">−</button><input id="cropZoom" type="range" min="1" max="3" step="0.01" value="1"><button id="zoomIn" class="btn" type="button">+</button><span id="cropZoomLabel" class="crop-zoom-label">100 %</span></div><div class="crop-stage"><div id="cropFrame" class="crop-frame"><img id="cropImage" class="crop-image" alt="Bildausschnitt"></div></div><div class="crop-actions"><button id="saveCrop" class="btn primary">Ausschnitt speichern</button></div></div><div id="exportModal" class="export-modal"><div class="photo-head"><button id="closeExport" class="btn">← Zurück</button><strong>Erinnerungs‑Export</strong><span style="font-size:10px;color:var(--muted)">v9.1</span></div><div class="export-intro">Wähle den Stil für deine Fab‑50‑Erinnerung. Deine gespeicherten Bildausschnitte und Zooms werden automatisch für jedes Design übernommen.</div><div class="design-grid"><button class="design-card" data-export-design="classic"><span class="design-icon">▦</span><b>Classic Collection</b><span>Alle 50 Charaktere auf einer klaren, kompakten Übersichtsseite. Wenig Dekoration, maximale Übersicht.</span><span class="design-tag">1 Seite · Sammlung</span></button><button class="design-card" data-export-design="souvenir"><span class="design-icon">✨</span><b>Fab 50 Souvenir</b><span>Gold, Feuerwerk und Schloss-Silhouette. Die Gesamtübersicht bleibt sauber; die Parkseiten wirken lockerer mit leicht gedrehten Fotoprints.</span><span class="design-tag">5 Seiten · Standard</span></button><button class="design-card" data-export-design="memories"><span class="design-icon">📖</span><b>Park Memories</b><span>Scrapbook-/Fotoalbum-Stil mit größeren, leicht schrägen und teilweise überlappenden Prints. Parks werden auf mehrere Seiten verteilt.</span><span class="design-tag">7 Seiten · Album</span></button><button class="design-card" data-export-design="celebration"><span class="design-icon">🎆</span><b>Celebration Poster</b><span>Dynamisches Abschluss-Poster wie ein Fototisch: ein großes Hauptfoto plus bis zu sieben schräg angeordnete, überlappende Highlights.</span><span class="design-tag">1 Seite · Highlights</span></button></div></div><div id="celebrationModal" class="celebration-modal"><div class="photo-head"><button id="closeCelebration" class="btn">← Zurück</button><strong>Celebration Poster · Fotos wählen</strong></div><div class="export-intro">Wähle bis zu 8 deiner gespeicherten Fotos. Das mit ★ markierte Bild wird das große Hauptfoto. Tippe eine Kachel zum Auswählen; mit ★ bestimmst du das Hauptfoto.</div><div class="celebration-top"><span id="celebrationCount" class="celebration-count">0 / 8 ausgewählt</span><button id="celebrationAuto" class="btn">Automatisch 8</button><button id="celebrationReset" class="btn">Auswahl leeren</button></div><div id="celebrationGrid" class="celebration-grid"></div><div class="celebration-actions"><button id="createCelebration" class="btn gold">🎆 Poster erstellen</button></div></div><div id="collageModal" class="collage-modal"><div class="photo-head"><button id="closeCollage" class="btn">← Zurück</button><strong id="collageTitle">Mein Fab‑50‑Souvenir‑Set</strong><span id="collageCount" style="font-size:10px;color:var(--muted)"></span></div><div class="collage-nav"><button id="prevCollagePage" class="btn">←</button><div class="collage-page-info"><div id="collagePageLabel" class="collage-page-label">Seite 1 / 5 · Übersicht</div><div id="collagePageDots" class="collage-dots"></div><div class="collage-swipe-hint">← nach links / rechts wischen →</div></div><button id="nextCollagePage" class="btn">→</button></div><div class="collage-body"><img id="collagePreview" alt="Fab 50 Fotocollage"></div><div class="collage-actions"><button id="shareCollage" class="btn gold">↗ Aktuelle Seite teilen</button><button id="downloadCollage" class="btn primary">↓ Aktuelle Seite speichern</button><button id="downloadAllCollages" class="btn">⇩ Alle 5 Seiten</button></div></div>
 <div id="finish" class="finish"><canvas id="fireworks"></canvas><div class="finish-card"><div class="spark">✨🏆✨</div><h2>50 / 50</h2><h3>Fab 50 komplett!</h3><div class="castle"></div><p>Du hast alle 36 goldenen Skulpturen in den vier Walt Disney World Parks gefunden.</p><div id="finishStats" class="finish-stats"></div><p id="finishPhotoText">📸 0 / 50 Charakterfotos gespeichert</p><div style="display:flex;justify-content:center;gap:8px;flex-wrap:wrap"><button id="finishCollage" class="btn gold">📸 Erinnerungs‑Export</button><button id="replay" class="btn gold">🎆 Nochmal</button><button id="closeFinish" class="btn">Schließen</button></div></div></div>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
@@ -189,6 +189,29 @@ async function drawCharacterPhoto(ctx,ch,x,y,w,h,r=12){
   if(blob){try{const img=await imageFromBlob(blob);ctx.save();ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.clip();drawImageCover(ctx,img,x,y,w,h,getCrop(ch.name));ctx.restore();return true}catch(e){}}
   ctx.fillStyle='#71849c';ctx.font=`700 ${Math.max(36,Math.floor(Math.min(w,h)*.2))}px system-ui,sans-serif`;ctx.fillText('📷',x+w/2,y+h/2+12);return false
 }
+
+function deg(v){return v*Math.PI/180}
+function drawTape(ctx,x,y,w,angle=0,color='rgba(232,215,167,.78)'){
+  ctx.save();ctx.translate(x,y);ctx.rotate(deg(angle));ctx.fillStyle=color;ctx.globalAlpha=.88;
+  ctx.fillRect(-w/2,-16,w,32);ctx.globalAlpha=1;ctx.restore()
+}
+async function drawPhotoPrint(ctx,ch,cx,cy,photoW,photoH,angle=0,opts={}){
+  const pad=opts.pad??18,labelH=opts.labelH??58,cardW=photoW+pad*2,cardH=photoH+pad*2+labelH;
+  const bg=opts.bg||'#f4ead0',border=opts.border||'rgba(255,231,169,.72)',labelColor=opts.labelColor||'#13253d';
+  ctx.save();ctx.translate(cx,cy);ctx.rotate(deg(angle));
+  ctx.shadowColor='rgba(0,0,0,.34)';ctx.shadowBlur=28;ctx.shadowOffsetY=14;
+  drawRoundRect(ctx,-cardW/2,-cardH/2,cardW,cardH,opts.radius||18,bg,border);
+  ctx.shadowColor='transparent';ctx.shadowBlur=0;ctx.shadowOffsetY=0;
+  await drawCharacterPhoto(ctx,ch,-photoW/2,-cardH/2+pad,photoW,photoH,opts.photoRadius||10);
+  ctx.fillStyle=labelColor;ctx.font=`800 ${opts.fontSize||22}px system-ui,sans-serif`;ctx.textAlign='center';
+  let label=ch.name;
+  while(ctx.measureText(label).width>cardW-24&&label.length>6)label=label.slice(0,-1);
+  if(label!==ch.name)label+='…';
+  ctx.fillText(label,0,cardH/2-20);
+  ctx.restore();
+  return {cardW,cardH}
+}
+
 async function renderClassicPage(page){
   const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';ctx.fillStyle='#081629';ctx.fillRect(0,0,W,H);ctx.fillStyle='#f5cb69';ctx.font='900 74px system-ui,sans-serif';ctx.fillText('FAB 50 COLLECTION',W/2,105);ctx.fillStyle='#e9eef6';ctx.font='700 30px system-ui,sans-serif';ctx.fillText('50 Charaktere · 36 Skulpturen · 4 Parks',W/2,158);ctx.fillStyle='#8fa3b9';ctx.font='23px system-ui,sans-serif';ctx.fillText(`Persönliche Sammlung · ${photoCache.size}/50 Fotos`,W/2,198);
   const cols=5,rows=10,side=58,gapX=12,gapY=12,top=230,bottom=62,cellW=(W-side*2-gapX*(cols-1))/cols,cellH=(H-top-bottom-gapY*(rows-1))/rows,frameW=cellW-22,frameH=Math.min(frameW*.75,cellH-43);
@@ -201,15 +224,92 @@ async function renderMemoryCover(page){
   ctx.fillStyle='#9fb0c6';ctx.font='24px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Park Memories',W/2,H-55);return canvasResult(c)
 }
 async function renderParkMemoryPage(page){
-  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';ctx.fillStyle='#081629';ctx.fillRect(0,0,W,H);const glow=ctx.createRadialGradient(W/2,50,20,W/2,50,780);glow.addColorStop(0,'rgba(255,255,255,.07)');glow.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,900);ctx.fillStyle=page.accent;drawRoundRect(ctx,100,76,W-200,9,4,page.accent);ctx.fillStyle='#ffe7a9';ctx.font='900 78px system-ui,sans-serif';ctx.fillText(page.title.toUpperCase(),W/2,160);ctx.fillStyle='#f8fafc';ctx.font='700 30px system-ui,sans-serif';ctx.fillText(`Park Memories · Seite ${page.part} von ${page.parts}`,W/2,210);ctx.fillStyle='#9fb0c6';ctx.font='23px system-ui,sans-serif';ctx.fillText(`${page.chars.length} Fotos auf dieser Seite`,W/2,250);
-  const cols=3,side=100,gapX=30,gapY=38,top=330,bottom=110,cellW=(W-side*2-gapX*(cols-1))/cols,frameW=cellW-28,frameH=frameW*.75,cellH=frameH+86,rows=Math.ceil(page.chars.length/cols),gridH=rows*cellH+(rows-1)*gapY,gridTop=top+Math.max(0,(H-top-bottom-gridH)/2);
-  for(let i=0;i<page.chars.length;i++){const ch=page.chars[i],row=Math.floor(i/cols),rowStart=row*cols,rowCount=Math.min(cols,page.chars.length-rowStart),col=i-rowStart,rowWidth=rowCount*cellW+(rowCount-1)*gapX,x=(W-rowWidth)/2+col*(cellW+gapX),y=gridTop+row*(cellH+gapY);drawRoundRect(ctx,x,y,cellW,cellH,22,'rgba(16,37,66,.9)','rgba(245,203,105,.16)');await drawCharacterPhoto(ctx,ch,x+14,y+14,frameW,frameH,14);ctx.fillStyle='#f8fafc';ctx.font='800 25px system-ui,sans-serif';ctx.fillText(ch.name,x+cellW/2,y+frameH+49);ctx.fillStyle='#8195ad';ctx.font='18px system-ui,sans-serif';if(ch.statue&&ch.statue!==ch.name){let s=ch.statue.length>34?ch.statue.slice(0,32)+'…':ch.statue;ctx.fillText(s,x+cellW/2,y+frameH+76)}}
-  ctx.fillStyle='#73869c';ctx.font='21px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Park Memories',W/2,H-34);return canvasResult(c)
+  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';
+  ctx.fillStyle='#0a1728';ctx.fillRect(0,0,W,H);
+  const paper=ctx.createLinearGradient(0,0,W,H);paper.addColorStop(0,'rgba(255,255,255,.035)');paper.addColorStop(1,'rgba(245,203,105,.025)');ctx.fillStyle=paper;ctx.fillRect(0,0,W,H);
+  drawRoundRect(ctx,90,62,W-180,H-124,34,'rgba(13,31,52,.86)','rgba(255,255,255,.07)');
+  drawRoundRect(ctx,130,86,W-260,8,4,page.accent);
+  ctx.fillStyle='#ffe7a9';ctx.font='900 76px system-ui,sans-serif';ctx.fillText(page.title.toUpperCase(),W/2,170);
+  ctx.fillStyle='#f8fafc';ctx.font='700 30px system-ui,sans-serif';ctx.fillText(`Park Memories · Seite ${page.part} von ${page.parts}`,W/2,220);
+  ctx.fillStyle='#9fb0c6';ctx.font='23px system-ui,sans-serif';ctx.fillText('Scrapbook Edition · persönliche Fab‑50‑Erinnerungen',W/2,262);
+
+  const cols=3,rows=Math.ceil(page.chars.length/cols),photoW=505,photoH=379;
+  const baseXs=[390,1000,1610],baseTop=505,rowStep=565;
+  const angles=[-4.2,2.5,-2.2,3.4,-3.0,4.0,-2.0,2.8,-4.5,3.0,-1.6,4.1];
+  const offsets=[[-18,6],[15,-14],[-8,14],[20,-8],[-14,12],[12,8],[-20,-10],[14,13],[-6,-8],[16,10],[-12,0],[8,-12]];
+
+  // A few decorative pieces of "tape" make the page feel assembled rather than gridded.
+  drawTape(ctx,230,420,150,-8,'rgba(238,216,158,.55)');
+  drawTape(ctx,1760,430,145,7,'rgba(238,216,158,.48)');
+  drawTape(ctx,270,H-210,130,5,'rgba(122,183,255,.22)');
+
+  for(let i=0;i<page.chars.length;i++){
+    const ch=page.chars[i],row=Math.floor(i/cols),col=i%cols;
+    // Center incomplete final rows.
+    const rowStart=row*cols,rowCount=Math.min(cols,page.chars.length-rowStart);
+    let xs;
+    if(rowCount===1)xs=[1000];
+    else if(rowCount===2)xs=[690,1310];
+    else xs=baseXs;
+    const localCol=i-rowStart;
+    const [ox,oy]=offsets[i%offsets.length];
+    const cx=xs[localCol]+ox,cy=baseTop+row*rowStep+oy;
+    const angle=angles[i%angles.length];
+    await drawPhotoPrint(ctx,ch,cx,cy,photoW,photoH,angle,{pad:17,labelH:62,bg:'#f3ead6',border:'rgba(255,255,255,.45)',labelColor:'#15243a',fontSize:23});
+    if(i%4===1)drawTape(ctx,cx-220,cy-228,105,angle-7,'rgba(245,221,164,.58)');
+    if(i%5===3)drawTape(ctx,cx+205,cy-220,96,angle+8,'rgba(255,255,255,.34)');
+  }
+  ctx.fillStyle='#778aa0';ctx.font='21px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Park Memories',W/2,H-34);
+  return canvasResult(c)
 }
 async function renderSouvenirPage(page){
-  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';ctx.fillStyle='#071427';ctx.fillRect(0,0,W,H);const grad=ctx.createLinearGradient(0,0,0,H);grad.addColorStop(0,'#152f55');grad.addColorStop(.42,'#09182b');grad.addColorStop(1,'#071427');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);const glow=ctx.createRadialGradient(W/2,120,50,W/2,120,920);glow.addColorStop(0,'rgba(245,203,105,.18)');glow.addColorStop(1,'rgba(245,203,105,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,980);drawCastle(ctx,W/2,365,1.05);drawFirework(ctx,240,210,76,'rgba(245,203,105,.54)');drawFirework(ctx,W-240,220,76,'rgba(122,183,255,.52)');drawRoundRect(ctx,80,70,W-160,260,44,'rgba(7,20,39,.55)','rgba(245,203,105,.28)');ctx.fillStyle='#ffe7a9';ctx.font='900 84px system-ui,sans-serif';ctx.fillText(page.title.toUpperCase(),W/2,150);ctx.fillStyle='#f8fafc';ctx.font='700 34px system-ui,sans-serif';ctx.fillText(page.subtitle,W/2,205);ctx.fillStyle='#9fb0c6';ctx.font='27px system-ui,sans-serif';ctx.fillText(`Completed ${completionDateText()} · ${photoCache.size}/50 eigene Fotos`,W/2,248);const chips=['50 Charaktere','36 Skulpturen','4 Parks',page.parkLabel];ctx.font='700 24px system-ui,sans-serif';let totalW=chips.reduce((sum,t)=>sum+ctx.measureText(t).width+64,0)+(chips.length-1)*16,chipX=(W-totalW)/2;for(const chip of chips){let chipW=ctx.measureText(chip).width+64;drawRoundRect(ctx,chipX,282,chipW,44,22,'rgba(16,37,66,.82)','rgba(255,255,255,.12)');ctx.fillStyle='#f5cb69';ctx.fillText(chip,chipX+chipW/2,312);chipX+=chipW+16}
-  const isOverview=page.key==='overview',top=isOverview?390:460,bottom=140,side=isOverview?90:120,gapX=isOverview?22:34,gapY=isOverview?24:38,cellW=Math.floor((W-side*2-gapX*(page.cols-1))/page.cols),availableH=H-top-bottom;let cellH,frameW,frameH,gridTop;if(isOverview){cellH=Math.floor((availableH-gapY*(page.rows-1))/page.rows);frameW=Math.max(180,Math.min(cellW-36,cellH-88));frameH=frameW;gridTop=top}else{frameW=cellW-42;frameH=Math.round(frameW*.75);cellH=frameH+112;const gridH=page.rows*cellH+(page.rows-1)*gapY;gridTop=top+Math.max(0,Math.floor((availableH-gridH)/2))}
-  for(let i=0;i<page.chars.length;i++){const ch=page.chars[i],row=Math.floor(i/page.cols),rowStart=row*page.cols,rowCount=Math.min(page.cols,page.chars.length-rowStart),col=i-rowStart,rowWidth=rowCount*cellW+(rowCount-1)*gapX,rowOffset=isOverview?0:Math.max(0,Math.floor((W-rowWidth)/2)-side),x=side+rowOffset+col*(cellW+gapX),y=gridTop+row*(cellH+gapY),frameX=x+Math.round((cellW-frameW)/2);if(isOverview){drawRoundRect(ctx,x,y,cellW,cellH,26,'rgba(16,37,66,.96)','rgba(245,203,105,.20)');drawRoundRect(ctx,frameX-8,y+10,frameW+16,frameH+16,18,'#c8a646','rgba(255,231,169,.55)')}else{drawRoundRect(ctx,x,y,cellW,cellH,22,'rgba(8,24,43,.92)','rgba(245,203,105,.24)');drawRoundRect(ctx,x+18,y+14,cellW-36,7,4,page.accent);drawRoundRect(ctx,frameX-6,y+32,frameW+12,frameH+12,16,'rgba(255,231,169,.90)','rgba(245,203,105,.55)')}const photoY=y+(isOverview?18:38);await drawCharacterPhoto(ctx,ch,frameX,photoY,frameW,frameH,12);ctx.fillStyle='#f8fafc';let fs=Math.max(18,Math.min(28,Math.floor(cellW/9)));ctx.font=`700 ${fs}px system-ui,sans-serif`;let label=ch.name;while(ctx.measureText(label).width>cellW-26&&fs>16){fs--;ctx.font=`700 ${fs}px system-ui,sans-serif`}ctx.fillText(label,x+cellW/2,y+(isOverview?Math.min(cellH-18,frameH+62):frameH+78));if(!isOverview&&ch.statue!==ch.name){ctx.fillStyle='#8fa3b9';ctx.font='600 18px system-ui,sans-serif';let s=ch.statue.length>34?ch.statue.slice(0,32)+'…':ch.statue;ctx.fillText(s,x+cellW/2,y+frameH+109)}}ctx.fillStyle='#9fb0c6';ctx.font='28px system-ui,sans-serif';ctx.fillText(page.footer,W/2,H-54);ctx.font='22px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Fab 50 Souvenir',W/2,H-20);return canvasResult(c)
+  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';
+  ctx.fillStyle='#071427';ctx.fillRect(0,0,W,H);
+  const grad=ctx.createLinearGradient(0,0,0,H);grad.addColorStop(0,'#152f55');grad.addColorStop(.42,'#09182b');grad.addColorStop(1,'#071427');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+  const glow=ctx.createRadialGradient(W/2,120,50,W/2,120,920);glow.addColorStop(0,'rgba(245,203,105,.18)');glow.addColorStop(1,'rgba(245,203,105,0)');ctx.fillStyle=glow;ctx.fillRect(0,0,W,980);
+  drawCastle(ctx,W/2,365,1.05);drawFirework(ctx,240,210,76,'rgba(245,203,105,.54)');drawFirework(ctx,W-240,220,76,'rgba(122,183,255,.52)');
+  drawRoundRect(ctx,80,70,W-160,260,44,'rgba(7,20,39,.55)','rgba(245,203,105,.28)');
+  ctx.fillStyle='#ffe7a9';ctx.font='900 84px system-ui,sans-serif';ctx.fillText(page.title.toUpperCase(),W/2,150);
+  ctx.fillStyle='#f8fafc';ctx.font='700 34px system-ui,sans-serif';ctx.fillText(page.subtitle,W/2,205);
+  ctx.fillStyle='#9fb0c6';ctx.font='27px system-ui,sans-serif';ctx.fillText(`Completed ${completionDateText()} · ${photoCache.size}/50 eigene Fotos`,W/2,248);
+  const chips=['50 Charaktere','36 Skulpturen','4 Parks',page.parkLabel];ctx.font='700 24px system-ui,sans-serif';
+  let totalW=chips.reduce((sum,t)=>sum+ctx.measureText(t).width+64,0)+(chips.length-1)*16,chipX=(W-totalW)/2;
+  for(const chip of chips){let chipW=ctx.measureText(chip).width+64;drawRoundRect(ctx,chipX,282,chipW,44,22,'rgba(16,37,66,.82)','rgba(255,255,255,.12)');ctx.fillStyle='#f5cb69';ctx.fillText(chip,chipX+chipW/2,312);chipX+=chipW+16}
+
+  const isOverview=page.key==='overview';
+  if(isOverview){
+    const top=390,bottom=140,side=90,gapX=22,gapY=24,cellW=Math.floor((W-side*2-gapX*(page.cols-1))/page.cols),availableH=H-top-bottom;
+    const cellH=Math.floor((availableH-gapY*(page.rows-1))/page.rows),frameW=Math.max(180,Math.min(cellW-36,cellH-88)),frameH=frameW;
+    for(let i=0;i<page.chars.length;i++){
+      const ch=page.chars[i],row=Math.floor(i/page.cols),col=i%page.cols,x=side+col*(cellW+gapX),y=top+row*(cellH+gapY),frameX=x+Math.round((cellW-frameW)/2);
+      drawRoundRect(ctx,x,y,cellW,cellH,26,'rgba(16,37,66,.96)','rgba(245,203,105,.20)');
+      drawRoundRect(ctx,frameX-8,y+10,frameW+16,frameH+16,18,'#c8a646','rgba(255,231,169,.55)');
+      await drawCharacterPhoto(ctx,ch,frameX,y+18,frameW,frameH,12);
+      ctx.fillStyle='#f8fafc';let fs=Math.max(18,Math.min(28,Math.floor(cellW/9)));ctx.font=`700 ${fs}px system-ui,sans-serif`;
+      let label=ch.name;while(ctx.measureText(label).width>cellW-26&&fs>16){fs--;ctx.font=`700 ${fs}px system-ui,sans-serif`}
+      ctx.fillText(label,x+cellW/2,y+Math.min(cellH-18,frameH+62));
+    }
+  }else{
+    // Controlled looseness: still readable, but no longer a rigid grid.
+    const cols=page.cols,rows=page.rows,photoW=cols>=5?300:500,photoH=Math.round(photoW*.75);
+    const xSets=cols>=5?[260,630,1000,1370,1740]:[410,1000,1590];
+    const rowStep=cols>=5?455:570,top=575;
+    const angles=[-2.4,1.7,-1.2,2.1,-1.8,1.4,2.6,-2.0,1.1,-2.8,1.9,-1.5,2.2];
+    const jit=[[-9,6],[10,-8],[-6,8],[8,5],[-10,-5],[7,8],[4,-7],[-8,3],[10,5],[-5,-7],[6,6],[-7,4],[8,-3]];
+    for(let i=0;i<page.chars.length;i++){
+      const ch=page.chars[i],row=Math.floor(i/cols),rowStart=row*cols,rowCount=Math.min(cols,page.chars.length-rowStart),col=i-rowStart;
+      let xs;
+      if(rowCount===1)xs=[1000];
+      else if(rowCount===2)xs=[690,1310];
+      else if(rowCount===3)xs=[410,1000,1590];
+      else xs=xSets.slice(0,rowCount);
+      const [jx,jy]=jit[i%jit.length],cx=xs[col]+jx,cy=top+row*rowStep+jy,angle=angles[i%angles.length];
+      await drawPhotoPrint(ctx,ch,cx,cy,photoW,photoH,angle,{pad:14,labelH:54,bg:'rgba(244,234,208,.97)',border:'rgba(245,203,105,.58)',labelColor:'#14243a',fontSize:cols>=5?18:22});
+    }
+  }
+  ctx.fillStyle='#9fb0c6';ctx.font='28px system-ui,sans-serif';ctx.fillText(page.footer,W/2,H-54);
+  ctx.font='22px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Fab 50 Souvenir',W/2,H-20);
+  return canvasResult(c)
 }
 function canvasResult(c){return new Promise(resolve=>c.toBlob(blob=>{const url=URL.createObjectURL(blob);resolve({blob,url})},'image/jpeg',.92))}
 function autoCelebrationSelection(){
@@ -235,10 +335,47 @@ async function createCelebrationPoster(){
   const rendered=await renderCelebrationPoster(page);collagePages=[{...page,...rendered}];window._collageObjectUrls?.forEach(u=>URL.revokeObjectURL(u));window._collageObjectUrls=[rendered.url];document.getElementById('collageTitle').textContent='Celebration Poster';showCollagePage(0);document.getElementById('collageModal').classList.add('open');updateDownloadAllLabel()
 }
 async function renderCelebrationPoster(page){
-  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';const grad=ctx.createLinearGradient(0,0,0,H);grad.addColorStop(0,'#16345d');grad.addColorStop(.46,'#08182b');grad.addColorStop(1,'#050d18');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);drawFirework(ctx,260,220,105,'rgba(245,203,105,.65)');drawFirework(ctx,1740,220,105,'rgba(122,183,255,.52)');drawFirework(ctx,420,330,54,'rgba(255,255,255,.28)');drawFirework(ctx,1580,350,54,'rgba(255,255,255,.28)');drawCastle(ctx,W/2,480,1.4);ctx.fillStyle='#ffe7a9';ctx.font='900 112px system-ui,sans-serif';ctx.fillText('50 / 50',W/2,160);ctx.fillStyle='#f8fafc';ctx.font='900 68px system-ui,sans-serif';ctx.fillText('FAB 50 COMPLETED',W/2,235);ctx.fillStyle='#cbd8e8';ctx.font='700 31px system-ui,sans-serif';ctx.fillText('Our Walt Disney World Character Collection',W/2,288);ctx.fillStyle='#9fb0c6';ctx.font='25px system-ui,sans-serif';ctx.fillText(`50 Characters · 36 Sculptures · 4 Parks · ${completionDateText()}`,W/2,332);
-  const chosen=celebrationSelected.map(n=>allCharacters().find(c=>c.name===n)).filter(Boolean),hero=chosen.find(c=>c.name===celebrationHero)||chosen[0];if(hero){drawRoundRect(ctx,145,510,1710,965,34,'rgba(16,37,66,.72)','rgba(245,203,105,.4)');drawRoundRect(ctx,165,530,1670,925,26,'#c8a646','rgba(255,231,169,.7)');await drawCharacterPhoto(ctx,hero,177,542,1646,901,22);drawRoundRect(ctx,700,1390,600,58,29,'rgba(7,20,39,.82)');ctx.fillStyle='#ffe7a9';ctx.font='800 28px system-ui,sans-serif';ctx.fillText(`★ ${hero.name}`,W/2,1428)}
-  const rest=chosen.filter(c=>c!==hero).slice(0,7),cols=4,frameW=390,frameH=293,gapX=34,gapY=56,top=1585,cellW=frameW,cellH=frameH+58;for(let i=0;i<rest.length;i++){let row=Math.floor(i/cols),rowStart=row*cols,rowCount=Math.min(cols,rest.length-rowStart),col=i-rowStart,rowWidth=rowCount*cellW+(rowCount-1)*gapX,x=(W-rowWidth)/2+col*(cellW+gapX),y=top+row*(cellH+gapY),ch=rest[i];drawRoundRect(ctx,x-8,y-8,frameW+16,frameH+16,18,'rgba(255,231,169,.88)','rgba(245,203,105,.45)');await drawCharacterPhoto(ctx,ch,x,y,frameW,frameH,13);ctx.fillStyle='#f8fafc';ctx.font='700 22px system-ui,sans-serif';ctx.fillText(ch.name,x+frameW/2,y+frameH+40)}
-  ctx.fillStyle='#f5cb69';ctx.font='800 27px system-ui,sans-serif';ctx.fillText(`${chosen.length} persönliche Highlights`,W/2,H-135);ctx.fillStyle='#8396ac';ctx.font='22px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Celebration Poster',W/2,H-88);return canvasResult(c)
+  const W=2000,H=3000,c=document.createElement('canvas');c.width=W;c.height=H;const ctx=c.getContext('2d');ctx.textAlign='center';
+  const grad=ctx.createLinearGradient(0,0,0,H);grad.addColorStop(0,'#16345d');grad.addColorStop(.46,'#08182b');grad.addColorStop(1,'#050d18');ctx.fillStyle=grad;ctx.fillRect(0,0,W,H);
+  drawFirework(ctx,260,220,105,'rgba(245,203,105,.65)');drawFirework(ctx,1740,220,105,'rgba(122,183,255,.52)');
+  drawFirework(ctx,420,330,54,'rgba(255,255,255,.28)');drawFirework(ctx,1580,350,54,'rgba(255,255,255,.28)');drawCastle(ctx,W/2,480,1.4);
+  ctx.fillStyle='#ffe7a9';ctx.font='900 112px system-ui,sans-serif';ctx.fillText('50 / 50',W/2,160);
+  ctx.fillStyle='#f8fafc';ctx.font='900 68px system-ui,sans-serif';ctx.fillText('FAB 50 COMPLETED',W/2,235);
+  ctx.fillStyle='#cbd8e8';ctx.font='700 31px system-ui,sans-serif';ctx.fillText('Our Walt Disney World Character Collection',W/2,288);
+  ctx.fillStyle='#9fb0c6';ctx.font='25px system-ui,sans-serif';ctx.fillText(`50 Characters · 36 Sculptures · 4 Parks · ${completionDateText()}`,W/2,332);
+
+  const chosen=celebrationSelected.map(n=>allCharacters().find(c=>c.name===n)).filter(Boolean),hero=chosen.find(c=>c.name===celebrationHero)||chosen[0];
+  // Decorative "table surface" under the print pile.
+  drawRoundRect(ctx,105,445,W-210,2220,52,'rgba(10,25,44,.58)','rgba(255,255,255,.05)');
+  drawTape(ctx,330,535,155,-11,'rgba(246,222,163,.46)');
+  drawTape(ctx,1660,550,150,10,'rgba(122,183,255,.20)');
+
+  if(hero){
+    await drawPhotoPrint(ctx,hero,1000,1155,1210,817,-1.4,{pad:24,labelH:82,bg:'#f5ead0',border:'rgba(255,231,169,.85)',labelColor:'#11233a',fontSize:30,radius:24,photoRadius:15});
+    drawRoundRect(ctx,785,1515,430,54,27,'rgba(7,20,39,.82)');
+    ctx.fillStyle='#ffe7a9';ctx.font='800 25px system-ui,sans-serif';ctx.fillText('★ Hauptfoto',W/2,1550);
+  }
+
+  const rest=chosen.filter(c=>c!==hero).slice(0,7);
+  const slots=[
+    {x:310,y:725,w:360,h:270,a:-7.0},
+    {x:1680,y:735,w:360,h:270,a:6.2},
+    {x:290,y:1425,w:375,h:281,a:5.4},
+    {x:1710,y:1435,w:375,h:281,a:-6.0},
+    {x:410,y:2065,w:390,h:293,a:-4.0},
+    {x:1000,y:2205,w:410,h:307,a:2.8},
+    {x:1590,y:2050,w:390,h:293,a:5.5}
+  ];
+  // Draw some back cards first, hero is already central, then lower cards overlap it slightly.
+  for(let i=0;i<rest.length;i++){
+    const s=slots[i],ch=rest[i];
+    await drawPhotoPrint(ctx,ch,s.x,s.y,s.w,s.h,s.a,{pad:15,labelH:55,bg:'#f1e5ca',border:'rgba(255,255,255,.5)',labelColor:'#13243a',fontSize:20,radius:16,photoRadius:10});
+    if(i===0||i===3||i===5)drawTape(ctx,s.x+(i%2?-135:140),s.y-180,92,s.a+(i%2?-8:9),'rgba(245,221,164,.48)');
+  }
+
+  ctx.fillStyle='#f5cb69';ctx.font='800 27px system-ui,sans-serif';ctx.fillText(`${chosen.length} persönliche Highlights`,W/2,H-135);
+  ctx.fillStyle='#8396ac';ctx.font='22px system-ui,sans-serif';ctx.fillText('Fab 50 Navigator · Celebration Poster',W/2,H-88);
+  return canvasResult(c)
 }
 function showCollagePage(index){if(!collagePages.length)return;collagePageIndex=(index+collagePages.length)%collagePages.length;const page=collagePages[collagePageIndex];collageBlob=page.blob;collageUrl=page.url;const body=document.querySelector('.collage-body'),img=document.getElementById('collagePreview');body?.classList.add('page-change');setTimeout(()=>{img.src=page.url;body?.classList.remove('page-change')},80);document.getElementById('collageCount').textContent=`${photoCache.size}/50 Fotos`;document.getElementById('collagePageLabel').textContent=`Seite ${collagePageIndex+1} / ${collagePages.length} · ${page.parkLabel}`;const dots=document.getElementById('collagePageDots');if(dots)dots.innerHTML=collagePages.map((_,i)=>`<span class="collage-dot ${i===collagePageIndex?'active':''}"></span>`).join('')}
 function downloadCollage(){if(!collagePages.length)return;const page=collagePages[collagePageIndex],a=document.createElement('a');a.href=page.url;a.download=page.fileName;a.click()}
@@ -347,7 +484,7 @@ function nextRouteStatue(g){return [...g.statues].sort((a,b)=>a.order-b.order).f
 function render(){let chars=charDoneCount(),fs=foundStatues();document.getElementById('charDone').textContent=chars;document.getElementById('statueDone').textContent=`${fs.length} / 36`;document.getElementById('percent').textContent=`${Math.round(chars/50*100)} %`;document.getElementById('barFill').style.width=`${chars/50*100}%`;document.getElementById('todayDone').textContent=fs.filter(s=>sameDay(state[idFor(s.park,s.name)].foundAt,new Date())).length;document.getElementById('celebrateBtn').classList.toggle('hidden',chars!==50);updatePhotoCounts();renderParkStrip();let root=document.getElementById('parks');root.innerHTML='';DATA.forEach((g,idx)=>{let ps=parkStats(g),next=nextRouteStatue(g),visible=[...g.statues].sort((a,b)=>a.order-b.order).filter(s=>filter==='all'||!state[idFor(g.park,s.name)]?.foundAt);if(filter==='open'&&!visible.length)return;let sec=document.createElement('section');sec.className='park';sec.id='park-'+idx;sec.style.setProperty('--accent',g.accent);sec.innerHTML=`<button class="park-head"><span class="park-dot"></span><span><span class="park-name">${g.park}</span><span class="park-sub">${g.statues.length} Skulpturen · ${ps.totalChars} Charaktere</span></span><span class="park-score">${ps.chars}/${ps.totalChars}<br><small>${ps.statues}/${g.statues.length} Skulpturen</small></span></button><div class="route-panel"><p>${g.routeNote}</p><button class="btn gold route-jump">▶ Nächsten Routenstopp${next?': '+next.name:''}</button> <button class="btn map-park">🗺️ Parkkarte</button></div><div class="statues"></div>`;sec.querySelector('.park-head').onclick=()=>sec.classList.toggle('collapsed');sec.querySelector('.route-jump').onclick=()=>{let el=sec.querySelector('[data-next="true"]');el?.scrollIntoView({behavior:'smooth',block:'center'})};sec.querySelector('.map-park').onclick=()=>openMap(g.park);let list=sec.querySelector('.statues');visible.forEach(s=>{let id=idFor(g.park,s.name),fa=state[id]?.foundAt,row=document.createElement('div');row.className='statue'+(!fa&&next?.name===s.name?' next-stop':'');row.dataset.id=id;if(!fa&&next?.name===s.name)row.dataset.next='true';row.innerHTML=`<input class="check" type="checkbox" ${fa?'checked':''}><div><div class="sname"><span class="route-num">${s.order}</span>${s.name}</div><span class="location">${s.loc}</span><span class="distance" data-distance>📍 ${userPos?fmtDist(hav(userPos,s))+' Luftlinie':'GPS aus'}</span><div class="row-actions"><button class="mini where-btn">📍 Wo ist sie?</button><button class="mini map-one">🗺️ Karte</button></div><div class="where">${s.hint}</div>${charPhotoCards(s.chars)}${fa?`<span class="found">✓ Gefunden am ${formatTime(fa)}</span>`:''}</div><span class="weight">+${s.chars.length}</span>`;row.querySelector('.check').onchange=e=>{let before=charDoneCount();if(e.target.checked)state[id]={foundAt:new Date().toISOString()};else delete state[id];save();render();updateNavigator();updateMap();let after=charDoneCount();if(before<50&&after===50)showFinish(true)};row.querySelector('.where-btn').onclick=()=>row.querySelector('.where').classList.toggle('open');row.querySelector('.map-one').onclick=()=>openMap(g.park,s.name);wirePhotoCards(row);list.appendChild(row)});root.appendChild(sec)});updateNavigator();if(previousCharDone===null)previousCharDone=chars;previousCharDone=chars}
 function renderDistances(){document.querySelectorAll('.statue').forEach(row=>{let s=allStatues().find(x=>idFor(x.park,x.name)===row.dataset.id),el=row.querySelector('[data-distance]');if(s&&el)el.textContent='📍 '+(userPos?fmtDist(hav(userPos,s))+' Luftlinie':'GPS aus')});updateNavigator()}
 function setFilter(v){filter=v;document.getElementById('showAll').classList.toggle('active',v==='all');document.getElementById('showOpen').classList.toggle('active',v==='open');render()}
-function backup(){let blob=new Blob([JSON.stringify({app:'Fab 50 Navigator',version:9,exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`fab50-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function backup(){let blob=new Blob([JSON.stringify({app:'Fab 50 Navigator',version:9.1,exportedAt:new Date().toISOString(),state},null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`fab50-backup-${new Date().toISOString().slice(0,10)}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
 function restore(file){let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.state)throw 0;state=d.state;save();render();alert('Backup wiederhergestellt.')}catch{alert('Ungültiges Fab-50-Backup.')}};r.readAsText(file)}
 /* map */
 function initMap(){if(map)return true;if(typeof L==='undefined')return false;map=L.map('map',{zoomControl:true}).setView([28.377,-81.568],12);L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:20,attribution:'&copy; OpenStreetMap contributors'}).addTo(map);return true}
