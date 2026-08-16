@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#071427">
+  <meta name="description" content="Offline-Tracker für die Disney Fab 50 Character Collection in Walt Disney World.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>Fab 50 Tracker</title>
+  <style>
+    :root{
+      --bg:#071427;
+      --bg2:#0c1d35;
+      --panel:#102542;
+      --panel-soft:#132b4c;
+      --line:rgba(255,255,255,.10);
+      --text:#f8fafc;
+      --muted:#9fb0c6;
+      --gold:#f5cb69;
+      --gold2:#ffe7a9;
+      --done:#86efac;
+      --danger:#ffb4b4;
+      --shadow:0 14px 40px rgba(0,0,0,.26);
+      --mk:#ef6b67;
+      --ep:#7ab7ff;
+      --hs:#c49bff;
+      --ak:#84d29a;
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg)}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 50% -60px,rgba(90,141,209,.28),transparent 280px),
+        linear-gradient(180deg,#071427 0%,#08182d 42%,#06111f 100%);
+    }
+    button,input{font:inherit}
+    button{touch-action:manipulation}
+    .app{max-width:720px;margin:0 auto;padding:14px 14px 54px}
+    .topbar{
+      position:sticky;top:0;z-index:20;margin:-14px -14px 0;padding:14px 14px 12px;
+      background:linear-gradient(180deg,rgba(7,20,39,.98) 78%,rgba(7,20,39,.84));
+      backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.05)
+    }
+    .brand{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand-left{display:flex;align-items:center;gap:11px;min-width:0}
+    .appmark{
+      width:48px;height:48px;border-radius:15px;display:grid;place-items:center;
+      background:linear-gradient(145deg,var(--gold2),#c99725);
+      color:#15233b;font-size:20px;font-weight:950;box-shadow:0 8px 24px rgba(245,203,105,.18)
+    }
+    h1{font-size:21px;line-height:1.1;margin:0;font-weight:850;letter-spacing:-.02em}
+    .subtitle{margin:4px 0 0;color:var(--muted);font-size:12.5px}
+    .install{
+      display:none;border:1px solid rgba(245,203,105,.4);background:rgba(245,203,105,.10);
+      color:var(--gold2);border-radius:999px;padding:8px 11px;font-weight:750;font-size:12px
+    }
+
+    .hero{
+      margin-top:14px;padding:17px;border:1px solid rgba(245,203,105,.20);
+      border-radius:23px;background:
+      linear-gradient(145deg,rgba(245,203,105,.09),transparent 42%),
+      rgba(16,37,66,.93);box-shadow:var(--shadow);overflow:hidden;position:relative
+    }
+    .hero:after{
+      content:"✦";position:absolute;right:16px;top:8px;font-size:62px;color:rgba(245,203,105,.07);
+      transform:rotate(10deg)
+    }
+    .hero-kicker{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);font-weight:800}
+    .hero-line{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-top:5px}
+    .main-progress{font-size:36px;line-height:1;font-weight:930;letter-spacing:-.05em}
+    .main-progress small{font-size:17px;color:#cbd5e1;font-weight:700;letter-spacing:0}
+    .percent{color:var(--gold2);font-weight:800;font-size:14px}
+    .bar{height:10px;background:#07111f;border-radius:999px;overflow:hidden;margin:12px 0 13px}
+    .bar>div{height:100%;width:0;background:linear-gradient(90deg,#c99c2f,#ffe9ac);border-radius:999px;transition:.25s}
+    .mini-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .mini-stat{padding:10px 11px;border-radius:15px;background:rgba(3,12,25,.34);border:1px solid var(--line)}
+    .mini-stat b{display:block;font-size:16px}.mini-stat span{font-size:11.5px;color:var(--muted)}
+
+    .park-strip{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+    .park-jump{
+      border:1px solid var(--line);background:rgba(16,37,66,.78);color:var(--text);
+      border-radius:17px;padding:11px 12px;text-align:left;cursor:pointer;position:relative;overflow:hidden
+    }
+    .park-jump::after{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+    .park-jump .pj-name{font-weight:800;font-size:13px;display:block}
+    .park-jump .pj-count{color:var(--muted);font-size:11.5px;margin-top:3px;display:block}
+
+    .toolbar{display:flex;gap:8px;overflow:auto;padding:12px 1px 3px;scrollbar-width:none}
+    .toolbar::-webkit-scrollbar{display:none}
+    .pill{
+      white-space:nowrap;border:1px solid var(--line);background:rgba(16,37,66,.72);
+      color:#dce7f5;border-radius:999px;padding:9px 12px;font-size:12.5px;font-weight:700;cursor:pointer
+    }
+    .pill.active{border-color:rgba(245,203,105,.5);background:rgba(245,203,105,.10);color:var(--gold2)}
+    .pill.danger{color:var(--danger)}
+
+    .park{margin-top:13px;border:1px solid var(--line);border-radius:22px;overflow:hidden;background:rgba(16,37,66,.83);box-shadow:0 10px 28px rgba(0,0,0,.15)}
+    .park-head{
+      width:100%;border:0;background:transparent;color:var(--text);padding:15px 15px 14px;
+      display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:center;text-align:left;cursor:pointer
+    }
+    .park-dot{width:11px;height:40px;border-radius:999px;background:var(--accent)}
+    .park-name{font-size:16px;font-weight:850;letter-spacing:-.015em}
+    .park-sub{margin-top:3px;color:var(--muted);font-size:11.5px}
+    .park-score{text-align:right}
+    .park-score b{display:block;font-size:14px;color:var(--gold2)}
+    .park-score span{font-size:10.5px;color:var(--muted)}
+    .chev{display:inline-block;margin-left:6px;transition:.2s}
+    .park.collapsed .chev{transform:rotate(-90deg)}
+    .park.collapsed .statues{display:none}
+
+    .statues{border-top:1px solid var(--line)}
+    .statue{
+      display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:start;
+      padding:13px 14px;border-bottom:1px solid rgba(255,255,255,.065);transition:.15s
+    }
+    .statue:last-child{border-bottom:0}
+    .statue.done{background:linear-gradient(90deg,rgba(134,239,172,.055),transparent)}
+    .check{
+      appearance:none;width:29px;height:29px;border-radius:10px;border:2px solid #60738e;
+      background:#08172a;display:grid;place-content:center;margin:1px 0 0;cursor:pointer
+    }
+    .check:checked{background:linear-gradient(145deg,#ffe9a8,#d4a63b);border-color:#f0c85f}
+    .check:checked:after{content:"✓";color:#14213d;font-size:19px;font-weight:950}
+    .statue-title{font-weight:800;font-size:14.5px;line-height:1.3}
+    .done .statue-title{color:#d9e4ef}
+    .characters{margin-top:3px;color:#d2ddec;font-size:12px}
+    .location{margin-top:5px;color:var(--muted);font-size:11.5px;line-height:1.4}
+    .found{margin-top:6px;color:var(--done);font-size:11.5px;font-weight:750}
+
+    .where-btn{
+      margin-top:8px;border:1px solid rgba(122,183,255,.28);background:rgba(122,183,255,.08);
+      color:#cfe5ff;border-radius:999px;padding:6px 9px;font-size:10.5px;font-weight:800;
+      cursor:pointer;display:inline-flex;align-items:center;gap:5px
+    }
+    .where-btn.open{border-color:rgba(245,203,105,.38);background:rgba(245,203,105,.08);color:var(--gold2)}
+    .where-detail{
+      display:none;margin-top:8px;padding:9px 10px;border-radius:12px;background:rgba(3,12,25,.38);
+      border-left:3px solid var(--gold);color:#cbd8e8;font-size:11px;line-height:1.45
+    }
+    .where-detail.open{display:block}
+
+    .route-tools{
+      display:flex;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;
+      border-top:1px solid var(--line);background:rgba(4,14,28,.24)
+    }
+    .route-copy{min-width:0}
+    .route-title{font-size:11.5px;font-weight:850;color:var(--gold2)}
+    .route-note{margin-top:3px;color:var(--muted);font-size:10.5px;line-height:1.35}
+    .route-btn{
+      flex:0 0 auto;border:1px solid rgba(245,203,105,.35);background:rgba(245,203,105,.10);
+      color:var(--gold2);border-radius:999px;padding:8px 10px;font-size:10.5px;font-weight:850;cursor:pointer
+    }
+    .route-btn.active{background:var(--gold);color:#172033;border-color:var(--gold)}
+    .route-banner{
+      padding:10px 14px;border-top:1px solid rgba(245,203,105,.20);border-bottom:1px solid rgba(245,203,105,.16);
+      background:linear-gradient(90deg,rgba(245,203,105,.12),rgba(245,203,105,.03));
+      color:#e9eef5;font-size:11px;line-height:1.45
+    }
+    .route-banner b{color:var(--gold2)}
+    .statue.route-next{
+      background:linear-gradient(90deg,rgba(245,203,105,.14),rgba(245,203,105,.03));
+      box-shadow:inset 4px 0 0 var(--gold)
+    }
+    .next-label{
+      display:inline-block;margin-bottom:5px;border-radius:999px;padding:3px 7px;
+      background:var(--gold);color:#172033;font-size:9px;font-weight:950;letter-spacing:.05em
+    }
+    .route-badges{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+    .step-badge{
+      min-width:31px;height:25px;padding:0 7px;border-radius:999px;display:grid;place-items:center;
+      background:rgba(122,183,255,.09);border:1px solid rgba(122,183,255,.25);color:#cfe5ff;
+      font-size:10px;font-weight:900
+    }
+    .weight{
+      min-width:31px;height:25px;padding:0 7px;border-radius:999px;display:grid;place-items:center;
+      background:rgba(245,203,105,.09);border:1px solid rgba(245,203,105,.20);
+      color:var(--gold2);font-size:10.5px;font-weight:850
+    }
+    .empty{padding:30px 18px;text-align:center;color:var(--muted)}
+    .celebrate{font-size:30px;margin-bottom:8px}
+
+    footer{margin-top:18px;color:#71839a;font-size:10.5px;line-height:1.45;text-align:center}
+
+    dialog{
+      width:min(92vw,480px);border:1px solid var(--line);border-radius:20px;
+      background:#102542;color:var(--text);padding:18px;box-shadow:var(--shadow)
+    }
+    dialog::backdrop{background:rgba(0,0,0,.72)}
+    dialog p{color:var(--muted);line-height:1.45;font-size:13px}
+    .dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}
+    .dialog-btn{border:1px solid var(--line);background:#132b4c;color:var(--text);border-radius:12px;padding:9px 12px;font-weight:700}
+    .dialog-btn.danger{color:var(--danger)}
+    .hidden-input{display:none}
+    @media(max-width:390px){
+      .main-progress{font-size:32px}
+      .park-strip{grid-template-columns:1fr 1fr}
+    }
+    @media(display-mode:standalone){
+      .topbar{padding-top:calc(14px + env(safe-area-inset-top))}
+      .app{padding-bottom:calc(54px + env(safe-area-inset-bottom))}
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-left">
+        <div class="appmark">50</div>
+        <div>
+          <h1>Fab 50 Tracker</h1>
+          <p class="subtitle">36 Skulpturen · 50 Charaktere · 4 Parks</p>
+        </div>
+      </div>
+      <button id="installBtn" class="install">Installieren</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-kicker">Deine Character Collection</div>
+    <div class="hero-line">
+      <div class="main-progress"><span id="charDone">0</span><small> / 50</small></div>
+      <div id="percent" class="percent">0 %</div>
+    </div>
+    <div class="bar"><div id="barFill"></div></div>
+    <div class="mini-stats">
+      <div class="mini-stat"><b id="statueDone">0 / 36</b><span>Skulpturen gefunden</span></div>
+      <div class="mini-stat"><b id="todayDone">0</b><span>heute gefunden</span></div>
+    </div>
+  </section>
+
+  <section id="parkStrip" class="park-strip"></section>
+
+  <nav class="toolbar">
+    <button class="pill active" id="showAll">Alle anzeigen</button>
+    <button class="pill" id="showOpen">Nur offene</button>
+    <button class="pill" id="backupBtn">Backup</button>
+    <button class="pill" id="restoreBtn">Wiederherstellen</button>
+    <button class="pill danger" id="resetBtn">Reset</button>
+    <input id="restoreFile" class="hidden-input" type="file" accept="application/json">
+  </nav>
+
+  <main id="parks"></main>
+
+  <footer>
+    Funde und Zeitstempel werden lokal auf diesem Gerät gespeichert. Die App funktioniert nach dem ersten Laden offline.
+  </footer>
+</div>
+
+<dialog id="resetDialog">
+  <strong>Alle Funde zurücksetzen?</strong>
+  <p>Dadurch werden alle Häkchen und Zeitstempel auf diesem Gerät gelöscht.</p>
+  <div class="dialog-actions">
+    <button class="dialog-btn" id="cancelReset">Abbrechen</button>
+    <button class="dialog-btn danger" id="confirmReset">Alles löschen</button>
+  </div>
+</dialog>
+
+<script>
+const DATA = [
+  {
+    park:"Magic Kingdom", accent:"var(--mk)", short:"Magic Kingdom",
+    routeNote:"Empfohlener Rundkurs ab Haupteingang: Town Square → rechter Hub → Tomorrowland → Fantasyland → Adventureland → linker Hub → Main Street.",
+    statues:[
+      {name:"Lady & Tramp", chars:["Lady","Tramp"], loc:"Town Square · nahe Flagpole und Bahnhof", hint:"Direkt nach dem Parkeingang in Town Square: Suche nahe der Flagpole und dem Bahnhof auf der Seite von Town Square Theater und Tony’s Town Square Restaurant."},
+      {name:"Minnie Mouse", chars:["Minnie Mouse"], loc:"The Hub · rechts vor der Partners Statue", hint:"Stell dich mit Blick auf Cinderella Castle an die Partners Statue. Minnie steht im Hub auf der rechten Seite vor Walt und Mickey."},
+      {name:"Mickey Mouse", chars:["Mickey Mouse"], loc:"The Hub · direkt bei Minnie", hint:"Mickey steht direkt neben Minnie im Bereich um die Partners Statue – ebenfalls auf der rechten Seite des Hubs."},
+      {name:"Goofy", chars:["Goofy"], loc:"The Hub · Garten Richtung Cinderella Castle", hint:"Vom Partners-Denkmal Richtung Schloss: im rechten Gartenbereich hinter der Partners Statue, etwas weiter als Mickey und Minnie."},
+      {name:"Pluto", chars:["Pluto"], loc:"The Hub · direkt bei Goofy", hint:"Im rechten Gartenbereich des Hubs Richtung Cinderella Castle. Pluto steht unmittelbar bei Goofy."},
+      {name:"Dumbo & Timothy Q. Mouse", chars:["Dumbo","Timothy Q. Mouse"], loc:"The Hub · Richtung Tomorrowland", hint:"Im Garten links neben dem Weg vom Hub nach Tomorrowland. Die Skulptur liegt ungefähr gegenüber von Goofy und Pluto."},
+      {name:"Jaq & Gus", chars:["Jaq","Gus"], loc:"Cinderella Castle · rechter Turm", hint:"Eine der leicht zu übersehenden Skulpturen: Sie wirkt eher wie eine goldene Plakette und sitzt an der Wand im kleinen Turm vor dem Schloss auf der rechten Seite."},
+      {name:"Stitch", chars:["Stitch"], loc:"Tomorrowland · Purple Wall", hint:"Sehr markanter Standort: Stitch sitzt direkt an der berühmten Purple Wall bei Tomorrowland Terrace."},
+      {name:"Mad Hatter", chars:["Mad Hatter"], loc:"Fantasyland · Mad Tea Party", hint:"Direkt bei Mad Tea Party – auf der Seite der Attraktion, die am nächsten am Tomorrowland Speedway liegt."},
+      {name:"Cheshire Cat", chars:["Cheshire Cat"], loc:"Fantasyland · Mad Tea Party", hint:"Ebenfalls bei Mad Tea Party, aber auf der Seite Richtung Cheshire Café."},
+      {name:"Lumière & Cogsworth", chars:["Lumière","Cogsworth"], loc:"Fantasyland · nahe Friar's Nook", hint:"An einem der Türme von New Fantasyland nahe The Friar’s Nook. Schau entlang des Übergangs zwischen den Fantasyland-Bereichen."},
+      {name:"Pinocchio", chars:["Pinocchio"], loc:"Fantasyland · Pinocchio Village Haus", hint:"Suche beim Pinocchio Village Haus an den Türmen bzw. dem Übergang in Richtung New Fantasyland."},
+      {name:"Orange Bird", chars:["Orange Bird"], loc:"Adventureland · nahe Skipper Canteen", hint:"Wenn du am Skipper Canteen vorbeigehst, schau nach oben: Orange Bird sitzt auf einer erhöhten Stange hinter einem Verandastuhl."},
+      {name:"Abu", chars:["Abu"], loc:"Adventureland · Eingangsschild", hint:"Beim Adventureland-Eingang unbedingt nach oben schauen: Abu sitzt rechts oben am Adventureland-Schild."},
+      {name:"Winnie the Pooh & Piglet", chars:["Winnie the Pooh","Piglet"], loc:"The Hub · Richtung Adventureland", hint:"Vom Adventureland-Eingang zurück zum Hub: Winnie the Pooh und Piglet stehen im Gartenbereich, der ungefähr auf Höhe des Crystal Palace liegt."},
+      {name:"Tinker Bell", chars:["Tinker Bell"], loc:"The Hub · äußerer Gartenring", hint:"Schau nach oben: Mit Blick auf Cinderella Castle befindet sich Tinker Bell links im äußeren Gartenring, erhöht und nahe dem Mickey-Pretzel-Wagen."},
+      {name:"Daisy Duck", chars:["Daisy Duck"], loc:"The Hub · nahe Donald", hint:"Daisy steht links im Hub: nahe Donald, hinter und links von der Partners Statue."},
+      {name:"Donald Duck", chars:["Donald Duck"], loc:"The Hub · linker Gartenbereich", hint:"Mit Blick auf Cinderella Castle findest du Donald links von der Partners Statue im Garten direkt vor dem Schloss."},
+      {name:"Chip 'n' Dale", chars:["Chip","Dale"], loc:"The Hub · gegenüber Mickey & Minnie", hint:"Links und vor der Partners Statue im Gartenbereich. Der Standort liegt ungefähr gegenüber von Mickey und Minnie."}
+    ]
+  },
+  {
+    park:"EPCOT", accent:"var(--ep)", short:"EPCOT",
+    routeNote:"Ab EPCOT-Haupteingang: Figment zuerst, danach Showcase Plaza von links nach rechts. Bei Einstieg über International Gateway ist die umgekehrte Reihenfolge meist günstiger.",
+    statues:[
+      {name:"Figment", chars:["Figment"], loc:"World Celebration · Richtung World Showcase", hint:"Auf dem Weg vom zentralen EPCOT-Bereich Richtung World Showcase: links in einem kleinen Gartenbereich neben dem Hauptweg."},
+      {name:"Miguel", chars:["Miguel"], loc:"Showcase Plaza · linker Gartenbereich", hint:"Im großen Gartenbereich der Showcase Plaza auf der ganz linken Seite. Miguel und Dante stehen hier unmittelbar beieinander."},
+      {name:"Dante", chars:["Dante"], loc:"Showcase Plaza · linker Gartenbereich", hint:"Im großen Gartenbereich der Showcase Plaza ganz links, direkt bei Miguel. Der Bereich liegt zentral vor World Showcase zwischen den Seiten Richtung Mexico und Canada."},
+      {name:"Rocket & Groot", chars:["Rocket Raccoon","Groot"], loc:"Showcase Plaza · Gartenbereich", hint:"In der Showcase-Plaza-Gartenanlage direkt rechts von Miguel und Dante."},
+      {name:"Hei Hei & Pua", chars:["Hei Hei","Pua"], loc:"Showcase Plaza · rechter Gartenbereich", hint:"Auf der rechten Seite der großen Showcase-Plaza-Gartenanlage vor World Showcase."},
+      {name:"Olaf & Bruni", chars:["Olaf","Bruni"], loc:"Showcase Plaza · rechter Gartenbereich", hint:"Ebenfalls rechts in der Showcase Plaza – direkt neben Hei Hei und Pua."}
+    ]
+  },
+  {
+    park:"Disney's Hollywood Studios", accent:"var(--hs)", short:"Hollywood Studios",
+    routeNote:"Ab Haupteingang: erst Chinese Theatre/Runaway Railway, dann Brown Derby und anschließend Echo Lake. So bleibt die Suche in einem kompakten Bogen ohne unnötige Rückwege.",
+    statues:[
+      {name:"Bo Peep & Woody", chars:["Bo Peep","Woody"], loc:"nahe Mickey & Minnie's Runaway Railway", hint:"Im Gartenbereich auf der rechten Seite von Mickey & Minnie’s Runaway Railway, wenn du vor der Attraktion stehst."},
+      {name:"Joe Gardner", chars:["Joe Gardner"], loc:"direkt beim Hollywood Brown Derby", hint:"Unmittelbar beim Hollywood Brown Derby, rechts von Sebastian und Flounder."},
+      {name:"Sebastian & Flounder", chars:["Sebastian","Flounder"], loc:"nahe Hollywood Brown Derby", hint:"Im Garten links vom Hollywood Brown Derby und nahe dem Zugang zum Animation Courtyard."},
+      {name:"Edna Mode", chars:["Edna Mode"], loc:"Echo Lake · nahe Dockside Diner", hint:"Im Gartenbereich bei Echo Lake und Dockside Diner. Edna steht links von Frozone."},
+      {name:"Frozone", chars:["Frozone"], loc:"Echo Lake · nahe Dockside Diner", hint:"Im Gartenbereich bei Echo Lake, Dockside Diner und dem Theater des Frozen Sing-Along."},
+      {name:"R2-D2", chars:["R2-D2"], loc:"Echo Lake", hint:"Auf der gegenüberliegenden Seite des Gartenbereichs von Frozone und Edna Mode, weiterhin direkt bei Echo Lake."},
+      {name:"BB-8", chars:["BB-8"], loc:"Echo Lake · direkt bei R2-D2", hint:"Direkt neben R2-D2 im gleichen Gartenbereich – auf der Seite, die Echo Lake am nächsten liegt."}
+    ]
+  },
+  {
+    park:"Disney's Animal Kingdom", accent:"var(--ak)", short:"Animal Kingdom",
+    routeNote:"Ab Haupteingang bis Discovery Island: einmal kompakt um den vorderen Bereich des Tree of Life – alle vier Skulpturen liegen sehr nah beieinander.",
+    statues:[
+      {name:"Bambi & Thumper", chars:["Bambi","Thumper"], loc:"Discovery Island · vor Tree of Life", hint:"Auf dem Hauptweg zum Tree of Life: links in einem Gartenbereich direkt bei Island Mercantile."},
+      {name:"Nemo & Dory", chars:["Nemo","Dory"], loc:"Discovery Island · nahe Tree of Life", hint:"Etwas versteckter nahe dem Tree of Life: gegenüber von Simba sowie Timon & Pumbaa auf der anderen Seite des Bereichs."},
+      {name:"Simba", chars:["Simba"], loc:"Discovery Island · rechts vom Tree of Life", hint:"Im Garten rechts vom Tree of Life, nahe Discovery Trading Company."},
+      {name:"Timon & Pumbaa", chars:["Timon","Pumbaa"], loc:"Discovery Island · direkt bei Simba", hint:"Direkt neben Simba im selben Gartenbereich rechts vom Tree of Life."}
+    ]
+  }
+];
+
+const STORAGE_KEY = "fab50-tracker-v2";
+const LEGACY_KEY = "fab50-tracker-v1";
+let state = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+let filter = "all";
+let routePark = null;
+let deferredPrompt = null;
+
+function idFor(park, statueName){ return `${park}::${statueName}`; }
+function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+function sameLocalDay(a,b){
+  const da=new Date(a), db=new Date(b);
+  return da.getFullYear()===db.getFullYear() && da.getMonth()===db.getMonth() && da.getDate()===db.getDate();
+}
+function formatTime(iso){
+  return new Intl.DateTimeFormat("de-DE",{
+    day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"
+  }).format(new Date(iso));
+}
+function allStatues(){ return DATA.flatMap(g=>g.statues.map(s=>({park:g.park,...s}))); }
+function foundStatues(){ return allStatues().filter(s=>state[idFor(s.park,s.name)]?.foundAt); }
+function charDoneCount(){
+  return foundStatues().reduce((n,s)=>n+s.chars.length,0);
+}
+function parkStats(group){
+  const found=group.statues.filter(s=>state[idFor(group.park,s.name)]?.foundAt);
+  return {
+    statues:found.length,
+    chars:found.reduce((n,s)=>n+s.chars.length,0),
+    totalChars:group.statues.reduce((n,s)=>n+s.chars.length,0)
+  };
+}
+
+function renderParkStrip(){
+  const strip=document.getElementById("parkStrip");
+  strip.innerHTML="";
+  DATA.forEach((group,idx)=>{
+    const ps=parkStats(group);
+    const b=document.createElement("button");
+    b.className="park-jump";
+    b.style.setProperty("--accent",group.accent);
+    b.innerHTML=`<span class="pj-name">${group.short}</span><span class="pj-count">${ps.chars}/${ps.totalChars} Charaktere · ${ps.statues}/${group.statues.length} Skulpturen</span>`;
+    b.onclick=()=>{
+      const el=document.getElementById(`park-${idx}`);
+      el?.classList.remove("collapsed");
+      el?.scrollIntoView({behavior:"smooth",block:"start"});
+    };
+    strip.appendChild(b);
+  });
+}
+
+function render(){
+  const chars=charDoneCount();
+  const statues=foundStatues();
+  document.getElementById("charDone").textContent=chars;
+  document.getElementById("statueDone").textContent=`${statues.length} / 36`;
+  document.getElementById("percent").textContent=`${Math.round(chars/50*100)} %`;
+  document.getElementById("barFill").style.width=`${chars/50*100}%`;
+  document.getElementById("todayDone").textContent=statues.filter(s=>sameLocalDay(state[idFor(s.park,s.name)]?.foundAt,new Date())).length;
+
+  renderParkStrip();
+  const root=document.getElementById("parks");
+  root.innerHTML="";
+
+  DATA.forEach((group,idx)=>{
+    const ps=parkStats(group);
+    const routeActive=routePark===group.park;
+    const firstOpen=group.statues.find(s=>!state[idFor(group.park,s.name)]?.foundAt);
+    const visible=group.statues.filter(s=>routeActive || filter==="all" || !state[idFor(group.park,s.name)]?.foundAt);
+    if(filter==="open" && !routeActive && visible.length===0) return;
+
+    const section=document.createElement("section");
+    section.className=`park ${routePark && !routeActive ? "collapsed" : ""}`;
+    section.id=`park-${idx}`;
+    section.style.setProperty("--accent",group.accent);
+    const routeProgress=group.statues.length-group.statues.filter(s=>!state[idFor(group.park,s.name)]?.foundAt).length;
+    section.innerHTML=`
+      <button class="park-head" aria-expanded="${routePark ? String(routeActive) : "true"}">
+        <span class="park-dot"></span>
+        <span>
+          <span class="park-name">${group.park}</span>
+          <span class="park-sub">${group.statues.length} Skulpturen · ${ps.totalChars} Charaktere</span>
+        </span>
+        <span class="park-score">
+          <b>${ps.chars}/${ps.totalChars}<span class="chev">⌄</span></b>
+          <span>${ps.statues}/${group.statues.length} Skulpturen</span>
+        </span>
+      </button>
+      <div class="route-tools">
+        <div class="route-copy">
+          <div class="route-title">🚶 Optimale Laufreihenfolge</div>
+          <div class="route-note">${group.routeNote}</div>
+        </div>
+        <button class="route-btn ${routeActive?"active":""}" type="button">${routeActive?"Route beenden":"Route starten"}</button>
+      </div>
+      ${routeActive ? `<div class="route-banner">${firstOpen ? `<b>Nächster Stopp:</b> ${firstOpen.name} · Schritt ${group.statues.indexOf(firstOpen)+1} von ${group.statues.length}. Bereits gefundene Stopps bleiben sichtbar und werden automatisch übersprungen.` : `<b>Route komplett:</b> Alle ${group.statues.length} Skulpturen in diesem Park sind gefunden. 🎉`}</div>` : ""}
+      <div class="statues"></div>`;
+
+    const head=section.querySelector(".park-head");
+    head.onclick=()=>{
+      section.classList.toggle("collapsed");
+      head.setAttribute("aria-expanded",String(!section.classList.contains("collapsed")));
+    };
+
+    const routeBtn=section.querySelector(".route-btn");
+    routeBtn.onclick=e=>{
+      e.preventDefault();e.stopPropagation();
+      routePark=routeActive?null:group.park;
+      if(!routeActive){ filter="all"; document.getElementById("showAll").classList.add("active"); document.getElementById("showOpen").classList.remove("active"); }
+      render();
+      requestAnimationFrame(()=>document.getElementById(`park-${idx}`)?.scrollIntoView({behavior:"smooth",block:"start"}));
+    };
+
+    const list=section.querySelector(".statues");
+    visible.forEach((statue,routeIndex)=>{
+      const id=idFor(group.park,statue.name);
+      const foundAt=state[id]?.foundAt;
+      const actualStep=group.statues.indexOf(statue)+1;
+      const isNext=routeActive && !foundAt && firstOpen?.name===statue.name;
+      const row=document.createElement("label");
+      row.className=`statue ${foundAt?"done":""} ${isNext?"route-next":""}`;
+      row.innerHTML=`
+        <input class="check" type="checkbox" ${foundAt?"checked":""} aria-label="${statue.name} gefunden">
+        <span>
+          ${isNext ? `<span class="next-label">NÄCHSTER STOPP</span>` : ""}
+          <span class="statue-title">${statue.name}</span>
+          ${statue.chars.length>1 ? `<span class="characters">${statue.chars.join(" · ")}</span>` : ""}
+          <span class="location">${statue.loc}</span>
+          <button class="where-btn" type="button" aria-expanded="false">📍 Wo ist sie?</button>
+          <span class="where-detail">${statue.hint}</span>
+          ${foundAt ? `<span class="found">✓ Gefunden am ${formatTime(foundAt)}</span>` : ""}
+        </span>
+        <span class="route-badges">
+          ${routeActive ? `<span class="step-badge">#${actualStep}</span>` : ""}
+          <span class="weight">+${statue.chars.length}</span>
+        </span>`;
+      const whereBtn=row.querySelector(".where-btn");
+      const whereDetail=row.querySelector(".where-detail");
+      whereBtn.addEventListener("click",e=>{
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen=whereDetail.classList.toggle("open");
+        whereBtn.classList.toggle("open",isOpen);
+        whereBtn.setAttribute("aria-expanded",String(isOpen));
+        whereBtn.textContent=isOpen ? "📍 Hinweis schließen" : "📍 Wo ist sie?";
+      });
+      row.querySelector("input").addEventListener("change",e=>{
+        if(e.target.checked) state[id]={foundAt:new Date().toISOString()};
+        else delete state[id];
+        save();render();
+      });
+      list.appendChild(row);
+    });
+    root.appendChild(section);
+  });
+
+  if(!root.children.length){
+    root.innerHTML=`<div class="empty"><div class="celebrate">✨🏆✨</div><strong>50 / 50 gefunden!</strong><br>Alle Fab-50-Charaktere sind abgehakt.</div>`;
+  }
+}
+function backup(){
+  const payload={
+    app:"Fab 50 Tracker",
+    version:2,
+    exportedAt:new Date().toISOString(),
+    state
+  };
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=`fab50-backup-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function restore(file){
+  const reader=new FileReader();
+  reader.onload=()=>{
+    try{
+      const data=JSON.parse(reader.result);
+      if(!data.state || typeof data.state!=="object") throw new Error("invalid");
+      state=data.state;save();render();
+      alert("Backup wurde wiederhergestellt.");
+    }catch(e){ alert("Diese Datei ist kein gültiges Fab-50-Backup."); }
+  };
+  reader.readAsText(file);
+}
+
+document.getElementById("showAll").onclick=()=>{
+  routePark=null;
+  filter="all";
+  document.getElementById("showAll").classList.add("active");
+  document.getElementById("showOpen").classList.remove("active");
+  render();
+};
+document.getElementById("showOpen").onclick=()=>{
+  routePark=null;
+  filter="open";
+  document.getElementById("showOpen").classList.add("active");
+  document.getElementById("showAll").classList.remove("active");
+  render();
+};
+document.getElementById("backupBtn").onclick=backup;
+document.getElementById("restoreBtn").onclick=()=>document.getElementById("restoreFile").click();
+document.getElementById("restoreFile").onchange=e=>{ if(e.target.files[0]) restore(e.target.files[0]); };
+
+const dlg=document.getElementById("resetDialog");
+document.getElementById("resetBtn").onclick=()=>dlg.showModal();
+document.getElementById("cancelReset").onclick=()=>dlg.close();
+document.getElementById("confirmReset").onclick=()=>{
+  state={};save();dlg.close();render();
+};
+
+window.addEventListener("beforeinstallprompt",e=>{
+  e.preventDefault();deferredPrompt=e;
+  document.getElementById("installBtn").style.display="block";
+});
+document.getElementById("installBtn").onclick=async()=>{
+  if(!deferredPrompt)return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt=null;
+  document.getElementById("installBtn").style.display="none";
+};
+
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js"));
+}
+render();
+</script>
+</body>
+</html>
