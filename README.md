@@ -103,3 +103,11 @@ Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Ange
 - Park Memories: echter Scrapbook-/Fotoalbum-Look mit größeren Prints, Schatten, Tape-Details und kontrollierten Überlappungen.
 - Celebration Poster: stärkster Fototisch-Look mit schrägen, teilweise überlappenden Highlight-Fotos rund um das Hauptfoto.
 - Alle Designs verwenden weiterhin deine gespeicherten manuellen Crops und Zoomwerte.
+
+
+## Fix in v9.2 – Crop-Konsistenz
+- Exportberechnung verwendet jetzt exakt dieselbe Geometrie wie der manuelle 4:3-Crop-Editor.
+- Bei Zoom werden X- **und** Y-Versatz korrekt berücksichtigt.
+- Alle Export-Fotoflächen verwenden 4:3, damit ein gespeicherter Crop geometrisch 1:1 reproduzierbar ist.
+- Souvenir-Gesamtübersicht von quadratischen auf 4:3-Fotoflächen umgestellt.
+- Celebration-Hauptfoto ebenfalls auf exakt 4:3 korrigiert.
