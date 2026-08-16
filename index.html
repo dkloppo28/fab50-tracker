@@ -334,7 +334,7 @@ async function shareCollage(){
     }
   }
   downloadCollage();
-});if(navigator.canShare?.({files:[file]})){try{await navigator.share({title:'Meine Fab 50 Collage',files:[file]});return}catch(e){if(e.name==='AbortError')return}}downloadCollage()}
+}
 
 let previousCharDone=null;
 const allStatues=()=>DATA.flatMap(g=>g.statues.map(s=>({...s,park:g.park,short:g.short,accent:g.accent})));

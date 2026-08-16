@@ -36,3 +36,9 @@ Die Pins sind Näherungspunkte auf Basis der bekannten Standort-Landmarken. Ange
 - Vor-/Zurück-Navigation im Collage-Dialog
 - Download der aktuellen Seite oder aller 5 Seiten
 - Teilen der aktuell sichtbaren Seite
+
+
+## v6.1.1 Hotfix
+- Behebt einen JavaScript-Syntaxfehler aus v6.1, durch den die Park-/POI-Listen nicht gerendert wurden.
+- Vollständiges PWA-Paket mit Manifest, Service Worker und Icons.
+- Service Worker nutzt eine neue Cache-Version und Network-First für lokale Dateien, damit Updates zuverlässiger geladen werden.

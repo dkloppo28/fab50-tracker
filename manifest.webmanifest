@@ -1,7 +1,7 @@
 {
   "name": "Fab 50 Navigator – Walt Disney World",
   "short_name": "Fab 50",
-  "description": "Fab 50 Checkliste mit GPS, Karte, Distanzen und Park-Routen.",
+  "description": "Checkliste, GPS, Karte, Fotos und Souvenir-Collagen für die Fab 50 Character Collection.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
